@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def home(request):
+    """Display the Lorekeeper homepage."""
+    return render(request, 'worlds/home.html')
