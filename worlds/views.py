@@ -1,7 +1,10 @@
 from django.contrib import messages
 from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
+
+from .forms import WorldForm
 
 
 def home(request):
@@ -33,3 +36,21 @@ def logout_view(request):
     logout(request)
     messages.success(request, 'You have been logged out successfully.')
     return redirect('home')
+
+@login_required
+def world_create(request):
+    """Allow a logged-in user to create a new fictional world."""
+    if request.method == 'POST':
+        form = WorldForm(request.POST)
+        
+        if form.is_valid():
+            world = form.save(commit=False)
+            world.owner = request.user
+            world.save()
+            
+            messages.success(request, 'World created successfully!')
+            return redirect('home')
+    else:
+        form = WorldForm()
+        
+    return render(request, 'worlds/world_form.html', {'form': form})
