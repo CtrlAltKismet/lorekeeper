@@ -1,0 +1,24 @@
+{% extends "worlds/base.html" %}
+
+{% block title %}Register | Lorekeeper{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Create an Account</h1>
+    <p>
+        Register for Lorekeeper to start creating and managing your own fictional worlds.
+    </p>
+</section>
+
+<section>
+    <h2>Sign Up</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Create Account</button>
+    </form>
+</section>
+{% endblock %}
