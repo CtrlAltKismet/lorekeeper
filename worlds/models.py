@@ -1,3 +1,40 @@
+from django.conf import settings
 from django.db import models
 
-# Create your models here.
+
+class World(models.Model):
+    """A fictional world created and managed by a registered user."""
+    
+    GENRE_CHOICES = [
+        ('fantasy', 'Fantasy'),
+        ('sci-fi', 'Science Fiction'),
+        ('horror', 'Horror'),
+        ('modern', 'Modern'),
+        ('historical', 'Historical'),
+        ('supernatural', 'Supernatural'),
+        ('other', 'Other'),
+    ]
+    
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='worlds'
+    )
+    title = models.CharField(max_length=100)
+    genre = models.CharField(
+        max_length=30,
+        choices=GENRE_CHOICES,
+        default='fantasy'
+    )
+    summary = models.TextField()
+    main_conflict = models.TextField(blank=True)
+    tone = models.CharField(max_length=100, blank=True)
+    is_public = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.title
