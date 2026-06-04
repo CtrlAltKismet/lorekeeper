@@ -4,17 +4,17 @@ from django.db import models
 
 class World(models.Model):
     """A fictional world created and managed by a registered user."""
-    
+
     GENRE_CHOICES = [
         ('fantasy', 'Fantasy'),
-        ('sci-fi', 'Science Fiction'),
+        ('sci_fi', 'Science Fiction'),
         ('horror', 'Horror'),
         ('modern', 'Modern'),
         ('historical', 'Historical'),
         ('supernatural', 'Supernatural'),
         ('other', 'Other'),
     ]
-    
+
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
