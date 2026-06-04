@@ -1,28 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lorekeeper</title>
-</head>
-<body>
-    <header>
-        <h1>Lorekeeper</h1>
-        <p>Create, organise and share fictional worlds.</p>
-    </header>
+{% extends 'worlds/base.html' %}
 
-    <main>
-        <section>
-            <h2>Welcome to Lorekeeper</h2>
-            <p>
-                Lorekeeper is a worldbuilding organiser for writers, roleplayers,
-                tabletop game masters and creative storytellers.
-            </p>
-            <p>
-                Build fictional worlds, manage characters, record lore, and share
-                selected worlds with others for inspiration.
-            </p>
-        </section>
-    </main>
-</body>
-</html>
+{% block title %}Home | Lorekeeper{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Lorekeeper</h1>
+    <p>Create, organise and share your fictional worlds!</p>
+</section>
+
+<section>
+    <h2>Welcome to Lorekeeper</h2>
+    <p>
+        Lorekeeper is a worldbuilding organiser for writers, roleplayers, tabletop game masters and creative storytellers.
+        Keep track of your worlds, characters and lore all in one place.
+    </p>
+    <p>
+        Build fictional worlds with ease, manage your characters, record lore, and share selected worlds with others for inspiration.
+    </p>
+</section>
+{% endblock %}
