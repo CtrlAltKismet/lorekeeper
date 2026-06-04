@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
@@ -27,3 +27,9 @@ def register(request):
         form = UserCreationForm()
         
     return render(request, 'worlds/register.html', {'form': form})
+
+def logout_view(request):
+    """Log out the current user."""
+    logout(request)
+    messages.success(request, 'You have been logged out successfully.')
+    return redirect('home')

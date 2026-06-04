@@ -1,0 +1,29 @@
+{% extends "worlds/base.html" %}
+
+{% block title %}Login | Lorekeeper{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Log In</h1>
+    <p>
+        Log in to access your Lorekeeper account and manage your worlds.
+    </p>
+</section>
+
+<section>
+    <h2>Account Login</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Log In</button>
+    </form>
+
+    <p>
+        Don't have an account?
+        <a href="{% url 'register' %}">Create one here</a>.
+    </p>
+</section>
+{% endblock %}
