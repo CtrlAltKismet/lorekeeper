@@ -1,0 +1,19 @@
+{% extends "worlds/base.html" %}
+
+{% block title %}Create World | Lorekeeper{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Create a World</h1>
+    <p>
+        Start building a fictional setting by adding its title, genre, summary and core conflict.
+    </p>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Create World</button>
+    </form>
+</section>
+{% endblock %}
