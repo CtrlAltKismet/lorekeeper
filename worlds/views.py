@@ -372,3 +372,42 @@ def lore_entry_update(request, world_id, lore_entry_id):
             'is_update': True,
         }
     )
+    
+    
+@login_required
+def lore_entry_delete(request, world_id, lore_entry_id):
+    """Allow a logged-in user to delete a lore entry from one of their worlds."""
+    
+    world = get_object_or_404(
+        World,
+        id=world_id,
+        owner=request.user
+    )
+    
+    lore_entry = get_object_or_404(
+        LoreEntry,
+        id=lore_entry_id,
+        world=world
+    )
+    
+    if request.method == 'POST':
+        lore_entry.delete()
+        
+        messages.success(
+            request,
+            'Lore entry deleted successfully!'
+        )
+        
+        return redirect(
+            'world_detail',
+            world_id=world.id
+        )
+    
+    return render(
+        request,
+        'worlds/lore_entry_confirm_delete.html',
+        {
+            'world': world,
+            'lore_entry': lore_entry,
+        }
+    )
