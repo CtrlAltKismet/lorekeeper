@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import World, Character
+from .models import World, Character, LoreEntry
 
 
 @admin.register(World)
@@ -19,7 +19,7 @@ class WorldAdmin(admin.ModelAdmin):
     
 @admin.register(Character)
 class CharacterAdmin(admin.ModelAdmin):
-    """ADmin configuration for the Character model."""
+    """Admin configuration for the Character model."""
     
     list_display = (
         'name',
@@ -38,5 +38,30 @@ class CharacterAdmin(admin.ModelAdmin):
         'name',
         'role',
         'species',
-        'world_title',
+        'world__title',
+    )
+
+@admin.register(LoreEntry)
+class LoreEntryAdmin(admin.ModelAdmin):
+    """Admin configuration for the LoreEntry model."""
+    
+    list_display = (
+        'title',
+        'world',
+        'category',
+        'importance',
+        'created_at',
+    )
+    
+    list_filter = (
+        'category',
+        'importance',
+        'created_at',
+    )
+    
+    search_fields = (
+        'title',
+        'summary',
+        'content',
+        'world__title',
     )
