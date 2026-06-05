@@ -1,5 +1,5 @@
 from django import forms
-from .models import World, Character
+from .models import World, Character, LoreEntry
 
 class WorldForm(forms.ModelForm):
     """Form for users to create and edit fictional worlds."""
@@ -81,5 +81,45 @@ class CharacterForm(forms.ModelForm):
             'backstory': forms.Textarea(attrs={
                 'rows': 6,
                 'placeholder': 'Describe the character backstory...'
+            }),
+        }
+
+class LoreEntryForm(forms.ModelForm):
+    """Form for creating and editing lore entries."""
+    
+    class Meta:
+        model = LoreEntry
+        fields = [
+            'title',
+            'category',
+            'summary',
+            'content',
+            'importance',
+            'character',
+        ]
+        
+        labels = {
+            'title': 'Lore title',
+            'category': 'Category',
+            'summary': 'Summary',
+            'content': 'Full lore entry',
+            'importance': 'Importance',
+            'character': 'Related character',
+        }
+        
+        help_texts = {
+            'summary': 'Optional: add a short overview of this lore entry.',
+            'content': 'Add the full lore details here.',
+            'character': 'Optional: link this lore entry to a character within this world.',
+        }
+        
+        widgets = {
+            'summary': forms.Textarea(attrs={
+                'rows': 3,
+                'placeholder': 'Briefly summarise this lore entry...'
+            }),
+            'content': forms.Textarea(attrs={
+                'rows': 8,
+                'placeholder': 'Write the full lore entry here...'
             }),
         }
