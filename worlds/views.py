@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 
 from .forms import WorldForm
+from .models import World
 
 
 def home(request):
@@ -49,8 +50,15 @@ def world_create(request):
             world.save()
             
             messages.success(request, 'World created successfully!')
-            return redirect('home')
+            return redirect('dashboard')
     else:
         form = WorldForm()
         
     return render(request, 'worlds/world_form.html', {'form': form})
+
+@login_required
+def dashboard(request):
+    """Display the logged-in user's dashboards with their own worlds."""
+    worlds = World.objects.filter(owner=request.user)
+    
+    return render(request, 'worlds/dashboard.html', {'worlds': worlds})
