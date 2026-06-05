@@ -211,3 +211,33 @@ def character_update(request, world_id, character_id):
             'is_update': True,
         }
     )
+
+@login_required
+def character_delete(request, world_id, character_id):
+    """Allow a logged-in user to delete a character from one of their worlds."""
+    
+    world = get_object_or_404(
+        World,
+        id=world_id,
+        owner=request.user
+    )
+    
+    character = get_object_or_404(
+        Character,
+        id=character_id,
+        world=world
+    )
+    
+    if request.method == 'POST':
+        character.delete()
+        messages.success(request, 'Character deleted successfully!')
+        return redirect('world_detail', world_id=world.id)
+    
+    return render(
+        request,
+        'worlds/character_confirm_delete.html',
+        {
+            'world': world,
+            'character': character,
+        }
+    )
