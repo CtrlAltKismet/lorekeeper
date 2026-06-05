@@ -15,4 +15,5 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('worlds/create/', views.world_create, name='world_create'),
+    path('worlds/<int:world_id>/', views.world_detail, name='world_detail'),
 ]
