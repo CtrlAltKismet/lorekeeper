@@ -297,3 +297,29 @@ def lore_entry_create(request, world_id):
             'world': world,
         }
     )
+    
+    
+@login_required
+def lore_entry_detail(request, world_id, lore_entry_id):
+    """Display the details of a lore entry belonging to one of the user's worlds."""
+    
+    world = get_object_or_404(
+        World,
+        id=world_id,
+        owner=request.user
+    )
+    
+    lore_entry = get_object_or_404(
+        LoreEntry,
+        id=lore_entry_id,
+        world=world
+    )
+    
+    return render(
+        request,
+        'worlds/lore_entry_detail.html',
+        {
+            'world': world,
+            'lore_entry': lore_entry,
+        }
+    )
