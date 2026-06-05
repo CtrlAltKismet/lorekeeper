@@ -110,11 +110,13 @@
         <ul>
             {% for lore_entry in world.lore_entries.all %}
                 <li>
-                    <strong>{{ lore_entry.title }}</strong>
+                    <a href="{% url 'lore_entry_detail' world.id lore_entry.id %}">
+                        <strong>{{ lore_entry.title }}</strong>
+                    </a>
 
-                    - {{ lore_entry.get_category_display}}
+                    - {{ lore_entry.get_category_display }}
 
-                    {% if lore_entry.characcter %}
+                    {% if lore_entry.character %}
                         linked to {{ lore_entry.character.name }}
                     {% endif %}
 
