@@ -1,5 +1,5 @@
 from django import forms
-from .models import World
+from .models import World, Character
 
 class WorldForm(forms.ModelForm):
     """Form for users to create and edit fictional worlds."""
@@ -44,3 +44,16 @@ class WorldForm(forms.ModelForm):
                 'placeholder': 'e.g. Dark fantasy, gothic, comedy'
             }),
         }
+
+class CharacterForm(forms.ModelForm):
+    """Form for creating and editing characters."""
+    
+    class Meta:
+        model = Character
+        fields = [
+            'name',
+            'role',
+            'species',
+            'personality',
+            'backstory',
+        ]
