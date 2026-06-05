@@ -37,7 +37,11 @@
                         {% endif %}
                     </p>
 
-                    <p> {{ world.summary }}</p>
+                    <p>{{ world.summary }}</p>
+
+                    <p>
+                        <a href="{% url 'world_detail' world.id %}">View Details</a>
+                    </p>
 
                     <p>
                         <small>Created: {{ world.created_at|date:"d M Y" }}</small>
