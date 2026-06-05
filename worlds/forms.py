@@ -57,3 +57,29 @@ class CharacterForm(forms.ModelForm):
             'personality',
             'backstory',
         ]
+        
+        labels = {
+            'name': 'Character name',
+            'role': 'Role',
+            'species': 'Species',
+            'personality': 'Personality',
+            'backstory': 'Backstory',
+        }
+        
+        help_texts = {
+            'role': 'Optional: hero, villain, merchant, ruler, companion, etc.',
+            'species': 'Optional: human, elf, dragon, robot, etc.',
+            'personality': 'Optional: describe their personality.',
+            'backstory': 'Optional: add history, motivations or important events.',
+        }
+        
+        widgets = {
+            'personality': forms.Textarea(attrs={
+                'rows': 4,
+                'placeholder': 'Describe the character personality...'
+            }),
+            'backstory': forms.Textarea(attrs={
+                'rows': 6,
+                'placeholder': 'Describe the character backstory...'
+            }),
+        }
