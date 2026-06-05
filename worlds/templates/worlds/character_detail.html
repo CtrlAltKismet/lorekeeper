@@ -51,6 +51,12 @@
 </p>
 
 <p>
+    <a href="{% url 'character_delete' world.id character.id %}">
+        Delete Character
+    </a>
+</p>
+
+<p>
     <a href="{% url 'world_detail' world.id %}">
         Back to {{ world.title }}
     </a>
