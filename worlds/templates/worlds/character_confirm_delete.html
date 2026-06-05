@@ -1,0 +1,32 @@
+{% extends "worlds/base.html" %}
+
+{% block title %}Delete Character | Lorekeeper{% endblock %}
+
+{% block content %}
+<h1>Delete Character</h1>
+
+<p>
+    Are you sure you want to delete
+    <strong>{{ character.name }}</strong>
+    from
+    <strong>{{ world.title }}</strong>?
+</p>
+
+<p>
+    This action cannot be undone.
+</p>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <button type="submit">
+        Delete Character
+    </button>
+</form>
+
+<p>
+    <a href="{% url 'character_detail' world.id character.id %}">
+        Cancel
+    </a>
+</p>
+{% endblock %}
