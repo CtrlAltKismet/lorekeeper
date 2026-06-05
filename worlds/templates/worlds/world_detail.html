@@ -19,6 +19,7 @@
     </p>
 </section>
 
+
 <section>
     <h2>World Details</h2>
 
@@ -62,6 +63,7 @@
     </p>
 </section>
 
+
 <section>
     <h2>Characters</h2>
 
@@ -91,6 +93,39 @@
         </ul>
     {% else %}
         <p>No characters have been added to this world yet.</p>
+    {% endif %}
+</section>
+
+
+<section>
+    <h2>Lore Entries</h2>
+
+    <p>
+        <a href="{% url 'lore_entry_create' world.id %}">
+            Add Lore Entry
+        </a>
+    </p>
+
+    {% if world.lore_entries.all %}
+        <ul>
+            {% for lore_entry in world.lore_entries.all %}
+                <li>
+                    <strong>{{ lore_entry.title }}</strong>
+
+                    - {{ lore_entry.get_category_display}}
+
+                    {% if lore_entry.characcter %}
+                        linked to {{ lore_entry.character.name }}
+                    {% endif %}
+
+                    {% if lore_entry.summary %}
+                        <p>{{ lore_entry.summary }}</p>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No lore entries have been added to this world yet.</p>
     {% endif %}
 </section>
 {% endblock %}
