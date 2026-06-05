@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .forms import WorldForm
-from .models import World
+from .forms import WorldForm, CharacterForm
+from .models import World, Character
 
 
 def home(request):
@@ -105,4 +105,43 @@ def world_delete(request, world_id):
         messages.success(request, 'World deleted successfully!')
         return redirect('dashboard')
     
-    return render(request, 'worlds/world_confirm_delete.html', {'world': world})                                                   
+    return render(request, 'worlds/world_confirm_delete.html', {'world': world})
+
+@login_required
+def character_create(request, world_id):
+    """Allow a logged-in user to create a character for one of their worlds."""
+    
+    world = get_object_or_404(
+        World,
+        id=world_id,
+        owner=request.user
+    )
+    
+    if request.method == 'POST':
+        form = CharacterForm(request.POST)
+        
+        if form.is_valid():
+            character = form.save(commit=False)
+            character.world = world
+            character.save()
+            
+            messages.success(
+                request,
+                'Character created successfully!'
+            )
+            
+            return redirect(
+                'world_detail',
+                world_id=world.id
+            )
+    else:
+        form = CharacterForm()
+        
+    return render(
+        request,
+        'worlds/character_form.html',
+        {
+            'form': form,
+            'world': world,
+        }
+    )       
