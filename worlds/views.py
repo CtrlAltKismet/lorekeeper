@@ -323,3 +323,52 @@ def lore_entry_detail(request, world_id, lore_entry_id):
             'lore_entry': lore_entry,
         }
     )
+
+
+@login_required
+def lore_entry_update(request, world_id, lore_entry_id):
+    """Allow a logged-in user to update a lore entry in one of their worlds."""
+    
+    world = get_object_or_404(
+        World,
+        id=world_id,
+        owner=request.user
+    )
+    
+    lore_entry = get_object_or_404(
+        LoreEntry,
+        id=lore_entry_id,
+        world=world
+    )
+    
+    if request.method == 'POST':
+        form = LoreEntryForm(request.POST, instance=lore_entry)
+        form.fields['character'].queryset = world.characters.all()
+        
+        if form.is_valid():
+            form.save()
+            
+            messages.success(
+                request,
+                'Lore entry updated successfully!'
+            )
+            
+            return redirect(
+                'lore_entry_detail',
+                world_id=world.id,
+                lore_entry_id=lore_entry.id
+            )
+    else:
+        form = LoreEntryForm(instance=lore_entry)
+        form.fields['character'].queryset = world.characters.all()
+        
+    return render(
+        request,
+        'worlds/lore_entry_form.html',
+        {
+            'form': form,
+            'world': world,
+            'lore_entry': lore_entry,
+            'is_update': True,
+        }
+    )
