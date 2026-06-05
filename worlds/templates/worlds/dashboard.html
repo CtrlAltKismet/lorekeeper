@@ -1,0 +1,54 @@
+{% extends "worlds/base.html" %}
+
+{% block title %}Dashboard | Lorekeeper{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Your Dashboard</h1>
+    <p>
+        Welcome back, {{ user.username }}! Here are your created worlds!
+    </p>
+
+    <p>
+        <a href="{% url 'world_create' %}">Create a New World</a>
+    </p>
+</section>
+
+<section>
+    <h2>Your Worlds</h2>
+
+    {% if worlds %}
+        <div>
+            {% for world in worlds %}
+                <article>
+                    <h3>{{ world.title }}</h3>
+
+                    <p>
+                        <strong>Genre:</strong> {{ world.get_genre_display }}
+                    </p>
+
+                    <p>
+                        <strong>Status:</strong>
+                        {% if world.is_public %}
+                            Public
+                        {% else %}
+                            Private
+                        {% endif %}
+                    </p>
+
+                    <p> {{ world.summary }}</p>
+
+                    <p>
+                        <small>Created: {{ world.created_at|date:"d M Y" }}</small>
+                    </p>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>You haven't created any worlds yet.</p>
+        <p>
+            <a href="{% url 'world_create' %}">Create your first world.</a>
+        </p>
+    {% endif %}
+</section>
+{% endblock %}
