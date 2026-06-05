@@ -45,6 +45,12 @@
 </p>
 
 <p>
+    <a href="{% url 'character_update' world.id character.id %}">
+        Edit Character
+    </a>
+</p>
+
+<p>
     <a href="{% url 'world_detail' world.id %}">
         Back to {{ world.title }}
     </a>
