@@ -38,4 +38,9 @@ urlpatterns = [
         views.character_delete,
         name='character_delete'
     ),
+    path(
+        'worlds/<int:world_id>/lore/create/',
+        views.lore_entry_create,
+        name='lore_entry_create'
+    ),
 ]
