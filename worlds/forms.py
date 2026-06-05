@@ -1,6 +1,7 @@
 from django import forms
 from .models import World, Character, LoreEntry
 
+
 class WorldForm(forms.ModelForm):
     """Form for users to create and edit fictional worlds."""
     
@@ -25,7 +26,7 @@ class WorldForm(forms.ModelForm):
         }
         
         help_texts = {
-            'summary': 'Briefly describe the setting, them, or central idea of your world.',
+            'summary': 'Briefly describe the setting, theme, or central idea of your world.',
             'main_conflict': 'Optional: describe the main problem, war, mystery, or tension.',
             'tone': 'Optional: for example, dark fantasy, gothic horror, romantic comedy.',
             'is_public': 'Public worlds can later appear in the public world library.',
@@ -44,6 +45,7 @@ class WorldForm(forms.ModelForm):
                 'placeholder': 'e.g. Dark fantasy, gothic, comedy'
             }),
         }
+
 
 class CharacterForm(forms.ModelForm):
     """Form for creating and editing characters."""
@@ -83,6 +85,7 @@ class CharacterForm(forms.ModelForm):
                 'placeholder': 'Describe the character backstory...'
             }),
         }
+
 
 class LoreEntryForm(forms.ModelForm):
     """Form for creating and editing lore entries."""
