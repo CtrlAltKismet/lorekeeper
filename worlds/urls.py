@@ -28,4 +28,9 @@ urlpatterns = [
         views.character_detail,
         name='character_detail'
     ),
+    path(
+        'worlds/<int:world_id>/characters/<int:character_id/edit/',
+        views.character_update,
+        name='character_update'
+    ),
 ]
