@@ -94,4 +94,15 @@ def world_update(request, world_id):
             'is_update': True,
         }
     )
-                                                   
+
+@login_required
+def world_delete(request, world_id):
+    """Allow a logged-in user to delete one of their own worlds."""
+    world = get_object_or_404(World, id=world_id, owner=request.user)
+    
+    if request.method == 'POST':
+        world.delete()
+        messages.success(request, 'World deleted successfully!')
+        return redirect('dashboard')
+    
+    return render(request, 'worlds/world_confirm_delete.html', {'world': world})                                                   
