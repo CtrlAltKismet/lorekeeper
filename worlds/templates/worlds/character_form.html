@@ -1,13 +1,30 @@
 {% extends "worlds/base.html" %}
 
-{% block title %}Create Character | Lorekeeper{% endblock %}
+{% block title %}
+    {% if is_update %}
+        Edit Character | Lorekeeper
+    {% else %}
+        Create Character | Lorekeeper
+    {% endif %}
+{% endblock %}
 
 {% block content %}
-<h1>Create Character</h1>
+<h1>
+    {% if is_update %}
+        Edit Character
+    {% else %}        
+        Create Character
+    {% endif %}
+</h1>
 
 <p>
-    Add a new character to
-    <strong>{{ world.title }}</strong>
+    {% if is_update %}
+        Update <strong>{{ character.name }}</strong> in
+        <strong>{{ world.title }}</strong>.
+    {% else %}
+        Add a new character to
+        <strong>{{ world.title }}</strong>
+    {% endif %}
 </p>
 
 <form method='POST'>
@@ -15,13 +32,23 @@
     {{ form.as_p }}
 
     <button type="submit">
-        Create Character
+        {% if is_update %}
+            Update Character
+        {% else %}
+            Create Character
+        {% endif %}
     </button>
 </form>
 
 <p>
-    <a href="{% url 'world_detail' world.id %}">
-        Cancel
-    </a>
+    {% if is_update %}
+        <a href="{% url 'character_detail' world.id character.id %}">
+            Cancel
+        </a>
+    {% else %}
+        <a href="{% url 'world_detail' world.id %}">
+            Cancel
+        </a>
+    {% endif %}
 </p>
 {% endblock %}
