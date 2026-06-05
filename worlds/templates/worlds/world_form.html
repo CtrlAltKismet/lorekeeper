@@ -1,19 +1,43 @@
 {% extends "worlds/base.html" %}
 
-{% block title %}Create World | Lorekeeper{% endblock %}
+{% block title %}
+    {% if is_update %}
+        Edit World | Lorekeeper
+    {% else %}
+        Create World | Lorekeeper
+    {% endif %}
+{% endblock %}
+
 
 {% block content %}
 <section>
-    <h1>Create a World</h1>
-    <p>
-        Start building a fictional setting by adding its title, genre, summary and core conflict.
-    </p>
+    {% if is_update %}
+        <h1>Edit World</h1>
+        <p>Update the details for {{ world.title }}</p>
+    {% else %}
+        <h1>Create a New World</h1>
+        <p>Add a world to your Lorekeeper collection.</p>
+    {% endif %}
 
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
 
-        <button type="submit">Create World</button>
+        {% if is_update %}
+            <button type="submit">Update World</button>
+        {% else %}
+            <button type="submit">Create World</button>
+        {% endif %}
     </form>
+
+    {% if is_update %}
+        <p>
+            <a href="{% url 'world_detail' world.id %}">Cancel and return to world details</a>
+        </p>
+    {% else %}
+        <p>
+            <a href="{% url 'dashboard' %}">Cancel and return to dashboard</a>
+        </p>
+    {% endif %}
 </section>
 {% endblock %}
