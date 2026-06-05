@@ -81,3 +81,66 @@ class Character(models.Model):
         
     def __str__(self):
         return self.name
+    
+class LoreEntry(models.Model):
+    """A lore entry belonging to a fictional world."""
+    
+    CATEGORY_CHOICES = [
+        ('history', 'History'),
+        ('culture', 'Culture'),
+        ('magic', 'Magic'),
+        ('technology', 'Technology'),
+        ('politics', 'Politics'),
+        ('religion', 'Religion'),
+        ('species', 'Species'),
+        ('timeline', 'Timeline'),
+        ('geography', 'Geography'),
+        ('miscellaneous', 'Miscellaneous'),
+    ]
+    
+    IMPORTANT_CHOICES = [
+        ('low', 'Low'),
+        ('medium', 'Medium'),
+        ('high', 'High'),
+        ('essential', 'Essential'),
+    ]
+    
+    world = models.ForeignKey(
+        World,
+        on_delete=models.CASCADE,
+        related_name='lore_entries'
+    )
+    
+    title = models.CharField(max_length=150)
+    
+    category = models.CharField(
+        max_length=50,
+        choices=CATEGORY_CHOICES,
+        default='miscellaneous'
+    )
+    
+    summary = models.TextField(
+        blank=True
+    )
+    
+    content = models.TextField()
+    
+    importance = models.CharField(
+        max_length=20,
+        choices=IMPORTANT_CHOICES,
+        default='medium'
+    )
+    
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+    
+    updated_at = models.DateTimeField(
+        auto_now=True
+    )
+    
+    class Meta:
+        ordering = ['title']
+        
+    def __str__(self):
+        return self.title
