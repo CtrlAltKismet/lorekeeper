@@ -47,5 +47,10 @@ urlpatterns = [
         'worlds/<int:world_id>/lore/<int:lore_entry_id>/',
         views.lore_entry_detail,
         name='lore_entry_detail'
-    )
+    ),
+    path(
+        'worlds/<int:world_id>/lore/<int:lore_entry_id>/edit/',
+        views.lore_entry_update,
+        name='lore_entry_update'
+    ),
 ]
