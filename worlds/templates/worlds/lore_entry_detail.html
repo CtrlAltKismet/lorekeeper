@@ -55,6 +55,12 @@
     </p>
 
     <p>
+        <a href="{% url 'lore_entry_delete' world.id lore_entry.id %}">
+            Delete Lore Entry
+        </a>
+    </p>
+
+    <p>
         <a href="{% url 'world_detail' world.id %}">Back to World</a>
     </p>
 </section>
