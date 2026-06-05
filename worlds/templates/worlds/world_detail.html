@@ -66,15 +66,19 @@
     <h2>Characters</h2>
 
     <p>
-        <a href="{% url 'character_create' world.id %}">Add Character</a>
+        <a href="{% url 'character_create' world.id %}">
+            Add Character
+        </a>
     </p>
     
     {% if world.characters.all %}
         <ul>
             {% for character in world.characters.all %}
                 <li>
-                    <strong>{{ character.name }}</strong>
-
+                    <a href="{% url 'character_detail' world.id character.id %}">
+                        <strong>{{ character.name }}</strong>
+                    </a>
+                    
                     {% if character.role %}
                         - {{ character.role }}
                     {% endif %}
