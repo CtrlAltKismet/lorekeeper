@@ -111,6 +111,14 @@ class LoreEntry(models.Model):
         related_name='lore_entries'
     )
     
+    character = models.ForeignKey(
+        Character,
+        on_delete=models.SET_NULL,
+        related_name='lore_entries',
+        blank=True,
+        null=True
+    )
+    
     title = models.CharField(max_length=150)
     
     category = models.CharField(
