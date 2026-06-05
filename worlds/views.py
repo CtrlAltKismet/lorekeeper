@@ -170,3 +170,44 @@ def character_detail(request, world_id, character_id):
             'character': character,
         }
     )
+    
+@login_required
+def character_update(request, world_id, character_id):
+    """Allow a logged-in user to update a character in one of their worlds."""
+    
+    world = get_object_or_404(
+        World,
+        id=world_id,
+        owner=request.user
+    )
+    
+    character = get_object_or_404(
+        Character,
+        id=character_id,
+        world=world
+    )
+    
+    if request.method == 'POST':
+        form = CharacterForm(request.POST, instance=character)
+        
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Character updated successfully!')
+            return redirect(
+                'character_detail',
+                world_id=world.id,
+                character_id=character.id
+            )
+    else:
+        form = CharacterForm(instance=character)
+        
+    return render(
+        request,
+        'worlds/character_form.html',
+        {
+            'form': form,
+            'world': world,
+            'character': character,
+            'is_update': True,
+        }
+    )
