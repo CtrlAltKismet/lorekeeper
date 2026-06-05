@@ -1,0 +1,56 @@
+{% extends "worlds/base.html" %}
+
+{% block title %}{{ world.title }} | Lorekeeper{% endblock %}
+
+{% block content %}
+<section>
+    <h1>{{ world.title }}</h1>
+
+    <p>
+        <a href="{% url 'dashboard' %}">Back to Dashboard</a>
+    </p>
+</section>
+
+<section>
+    <h2>World Details</h2>
+
+    <p>
+        <strong>Genre:</strong> {{ world.get_genre_display }}
+    </p>
+
+    <p>
+        <strong>Status:</strong>
+        {% if world.is_public %}
+            Public
+        {% else %}
+            Private
+        {% endif %}
+    </p>
+
+    <p>
+        <strong>Summary:</strong>
+    </p>
+    <p>{{ world.summary }}</p>
+
+    {% if world.main_conflict %}
+        <p>
+            <strong>Main Conflict:</strong>
+        </p>
+        <p>{{ world.main_conflict }}</p>
+    {% endif %}
+
+    {% if world.tone %}
+        <p>
+            <strong>Tone:</strong> {{ world.tone }}
+        </p>
+    {% endif %}
+
+    <p>
+        <strong>Created:</strong> {{ world.created_at|date:"d M Y, H:i"}}
+    </p>
+
+    <p>
+        <strong>Last Updated:</strong> {{ world.updated_at|date:"d M Y, H:i"}}
+    </p>
+</section>
+{% endblock %}
