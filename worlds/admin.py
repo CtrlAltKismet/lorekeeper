@@ -64,4 +64,5 @@ class LoreEntryAdmin(admin.ModelAdmin):
         'summary',
         'content',
         'world__title',
+        'character__name',
     )
