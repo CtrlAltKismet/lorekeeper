@@ -4,17 +4,20 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .forms import WorldForm, CharacterForm
-from .models import World, Character
+
+from .forms import WorldForm, CharacterForm, LoreEntryForm
+from .models import World, Character, LoreEntry
 
 
 def home(request):
     """Display the Lorekeeper homepage."""
     return render(request, 'worlds/home.html')
 
+
 def about(request):
     """Display information about the Lorekeeper application."""
     return render(request, 'worlds/about.html')
+
 
 def register(request):
     """Register a new user account."""
@@ -32,11 +35,13 @@ def register(request):
         
     return render(request, 'worlds/register.html', {'form': form})
 
+
 def logout_view(request):
     """Log out the current user."""
     logout(request)
     messages.success(request, 'You have been logged out successfully.')
     return redirect('home')
+
 
 @login_required
 def world_create(request):
@@ -56,12 +61,14 @@ def world_create(request):
         
     return render(request, 'worlds/world_form.html', {'form': form})
 
+
 @login_required
 def dashboard(request):
-    """Display the logged-in user's dashboards with their own worlds."""
+    """Display the logged-in user's dashboard with their own worlds."""
     worlds = World.objects.filter(owner=request.user)
     
     return render(request, 'worlds/dashboard.html', {'worlds': worlds})
+
 
 @login_required
 def world_detail(request, world_id):
@@ -69,6 +76,7 @@ def world_detail(request, world_id):
     world = get_object_or_404(World, id=world_id, owner=request.user)
     
     return render(request, 'worlds/world_detail.html', {'world': world})
+
 
 @login_required
 def world_update(request, world_id):
@@ -95,6 +103,7 @@ def world_update(request, world_id):
         }
     )
 
+
 @login_required
 def world_delete(request, world_id):
     """Allow a logged-in user to delete one of their own worlds."""
@@ -106,6 +115,7 @@ def world_delete(request, world_id):
         return redirect('dashboard')
     
     return render(request, 'worlds/world_confirm_delete.html', {'world': world})
+
 
 @login_required
 def character_create(request, world_id):
@@ -145,6 +155,7 @@ def character_create(request, world_id):
             'world': world,
         }
     )  
+   
     
 @login_required
 def character_detail(request, world_id, character_id):
@@ -170,6 +181,7 @@ def character_detail(request, world_id, character_id):
             'character': character,
         }
     )
+   
     
 @login_required
 def character_update(request, world_id, character_id):
@@ -212,6 +224,7 @@ def character_update(request, world_id, character_id):
         }
     )
 
+
 @login_required
 def character_delete(request, world_id, character_id):
     """Allow a logged-in user to delete a character from one of their worlds."""
@@ -239,5 +252,48 @@ def character_delete(request, world_id, character_id):
         {
             'world': world,
             'character': character,
+        }
+    )
+    
+    
+@login_required
+def lore_entry_create(request, world_id):
+    """Allow a logged-in user to create a lore entry for one of their worlds."""
+
+    world = get_object_or_404(
+        World,
+        id=world_id,
+        owner=request.user
+    )
+    
+    if request.method == 'POST':
+        form = LoreEntryForm(request.POST)
+        
+        form.fields['character'].queryset = world.characters.all()
+        
+        if form.is_valid():
+            lore_entry = form.save(commit=False)
+            lore_entry.world = world
+            lore_entry.save()
+            
+            messages.success(
+                request,
+                'Lore entry created successfully!'
+            )
+            
+            return redirect(
+                'world_detail',
+                world_id=world.id
+            )
+    else:
+        form = LoreEntryForm()
+        form.fields['character'].queryset = world.characters.all()
+        
+    return render(
+        request,
+        'worlds/lore_entry_form.html',
+        {
+            'form': form,
+            'world': world,
         }
     )
