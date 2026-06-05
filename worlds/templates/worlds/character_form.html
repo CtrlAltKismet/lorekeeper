@@ -1,0 +1,27 @@
+{% extends "worlds/base.html" %}
+
+{% block title %}Create Character | Lorekeeper{% endblock %}
+
+{% block content %}
+<h1>Create Character</h1>
+
+<p>
+    Add a new character to
+    <strong>{{ world.title }}</strong>
+</p>
+
+<form method='POST'>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">
+        Create Character
+    </button>
+</form>
+
+<p>
+    <a href="{% url 'world_detail' world.id %}">
+        Cancel
+    </a>
+</p>
+{% endblock %}
