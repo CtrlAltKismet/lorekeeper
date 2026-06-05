@@ -69,4 +69,29 @@ def world_detail(request, world_id):
     world = get_object_or_404(World, id=world_id, owner=request.user)
     
     return render(request, 'worlds/world_detail.html', {'world': world})
+
+@login_required
+def world_update(request, world_id):
+    """Allow a logged-in user to update one of their own worlds."""
+    world = get_object_or_404(World, id=world_id, owner=request.user)
+    
+    if request.method == 'POST':
+        form = WorldForm(request.POST, instance=world)
+        
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'World updated successfully!')
+            return redirect('world_detail', world_id=world.id)
+    else:
+        form = WorldForm(instance=world)
+        
+    return render(
+        request,
+        'worlds/world_form.html',
+        {
+            'form': form,
+            'world': world,
+            'is_update': True,
+        }
+    )
                                                    
