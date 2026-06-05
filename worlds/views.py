@@ -144,4 +144,29 @@ def character_create(request, world_id):
             'form': form,
             'world': world,
         }
-    )       
+    )  
+    
+@login_required
+def character_detail(request, world_id, character_id):
+    """Display the details of a character belonging to one of the user's worlds."""
+    
+    world = get_object_or_404(
+        World,
+        id=world_id,
+        owner=request.user
+    )
+    
+    character = get_object_or_404(
+        Character,
+        id=character_id,
+        world=world
+    )
+    
+    return render(
+        request,
+        'worlds/character_detail.html',
+        {
+            'world': world,
+            'character': character,
+        }
+    )
