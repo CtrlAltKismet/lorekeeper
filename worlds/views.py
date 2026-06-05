@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import WorldForm
 from .models import World
@@ -62,3 +62,11 @@ def dashboard(request):
     worlds = World.objects.filter(owner=request.user)
     
     return render(request, 'worlds/dashboard.html', {'worlds': worlds})
+
+@login_required
+def world_detail(request, world_id):
+    """Display the details of a world owned by the logged-in user."""
+    world = get_object_or_404(World, id=world_id, owner=request.user)
+    
+    return render(request, 'worlds/world_detail.html', {'world': world})
+                                                   
