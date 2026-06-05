@@ -53,4 +53,9 @@ urlpatterns = [
         views.lore_entry_update,
         name='lore_entry_update'
     ),
+    path(
+        'worlds/<int:world_id>/lore/<int:lore_entry_id>/delete/',
+        views.lore_entry_delete,
+        name='lore_entry_delete'
+    ),
 ]
