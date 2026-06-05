@@ -43,4 +43,9 @@ urlpatterns = [
         views.lore_entry_create,
         name='lore_entry_create'
     ),
+    path(
+        'worlds/<int:world_id>/lore/<int:lore_entry_id>/',
+        views.lore_entry_detail,
+        name='lore_entry_detail'
+    )
 ]
