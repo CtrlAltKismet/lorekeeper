@@ -1,0 +1,37 @@
+{% extends "worlds/base.html" %}
+
+
+{% block title %}
+    {% if is_update %}
+        Edit Lore Entry | Lorekeeper
+    {% else %}
+        Add Lore Entry | Lorekeeper
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+<section>
+    {% if is_update %}
+        <h1>Edit Lore Entry</h1>
+        <p>Update this lore entry for {{ world.title }}</p>
+    {% else %}
+        <h1>Add Lore Entry</h1>
+        <p>Add a new piece of lore to {{ world.title }}.</p>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+
+        {% if is_update %}
+            <button type="submit">Update Lore Entry</button>
+            <a href="{% url 'lore_entry_detail' world.id lore_entry.id %}">Cancel</a>
+        {% else %}
+            <button type="submit">Create Lore Entry</button>
+            <a href="{% url 'world_detail' world.id %}">Cancel</a>
+        {% endif %}
+    </form>
+</section>
+{% endblock %}
