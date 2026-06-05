@@ -38,3 +38,46 @@ class World(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Character(models.Model):
+    """A character belonging to a fictional world."""
+    
+    world = models.ForeignKey(
+        World,
+        on_delete=models.CASCADE,
+        related_name='characters'
+    )
+    
+    name = models.CharField(max_length=100)
+    
+    role = models.CharField(
+        max_length=100,
+        blank=True
+    )
+    
+    species = models.CharField(
+        max_length=100,
+        blank=True
+    )
+    
+    personality = models.TextField(
+        blank=True
+    )
+    
+    backstory = models.TextField(
+        blank=True
+    )
+    
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+    
+    updated_at = models.DateTimeField(
+        auto_now=True
+    )
+    
+    class Meta:
+        ordering = ['name']
+        
+    def __str__(self):
+        return self.name
