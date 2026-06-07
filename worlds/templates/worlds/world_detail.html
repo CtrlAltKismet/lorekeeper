@@ -6,17 +6,25 @@
 <section>
     <h1>{{ world.title }}</h1>
 
-    <p>
-        <a href="{% url 'dashboard' %}">Back to Dashboard</a>
-    </p>
+    {% if user.is_authenticated %}
+        <p>
+            <a href="{% url 'dashboard' %}">Back to Dashboard</a>
+        </p>
+    {% else %}
+        <p>
+            <a href="{% url 'home' %}">Back to Home</a>
+        </p>
+    {% endif %}
 
-    <p>
-        <a href="{% url 'world_update' world.id %}">Edit World</a>
-    </p>
+    {% if is_owner %}
+        <p>
+            <a href="{% url 'world_update' world.id %}">Edit World</a>
+        </p>
 
-    <p>
-        <a href="{% url 'world_delete' world.id %}">Delete World</a>
-    </p>
+        <p>
+            <a href="{% url 'world_delete' world.id %}">Delete World</a>
+        </p>
+    {% endif %}
 </section>
 
 
@@ -67,11 +75,13 @@
 <section>
     <h2>Characters</h2>
 
-    <p>
-        <a href="{% url 'character_create' world.id %}">
-            Add Character
-        </a>
-    </p>
+    {% if is_owner %}
+        <p>
+            <a href="{% url 'character_create' world.id %}">
+                Add Character
+            </a>
+        </p>
+    {% endif %}
     
     {% if world.characters.all %}
         <ul>
@@ -100,11 +110,13 @@
 <section>
     <h2>Lore Entries</h2>
 
-    <p>
-        <a href="{% url 'lore_entry_create' world.id %}">
-            Add Lore Entry
-        </a>
-    </p>
+    {% if is_owner %}
+        <p>
+            <a href="{% url 'lore_entry_create' world.id %}">
+                Add Lore Entry
+            </a>
+        </p>
+    {% endif %}
 
     {% if world.lore_entries.all %}
         <ul>
