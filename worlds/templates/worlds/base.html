@@ -12,6 +12,7 @@
             
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'public_world_list' %}">World Library</a>
                 <li><a href="{% url 'about' %}">About</a></li>
 
                 {% if user.is_authenticated %}
