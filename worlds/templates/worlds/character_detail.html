@@ -1,6 +1,6 @@
 {% extends "worlds/base.html" %}
 
-{% block title %} {{ character.name }} | Lorekeeper{% endblock %}
+{% block title %}{{ character.name }} | Lorekeeper{% endblock %}
 
 {% block content %}
 <h1>{{ character.name }}</h1>
@@ -25,7 +25,7 @@
 {% endif %}
 
 {% if character.personality %}
-    <h2>Personaltiy</h2>
+    <h2>Personality</h2>
     <p>{{ character.personality }}</p>
 {% endif %}
 
@@ -44,17 +44,19 @@
     {{ character.updated_at }}
 </p>
 
-<p>
-    <a href="{% url 'character_update' world.id character.id %}">
-        Edit Character
-    </a>
-</p>
+{% if is_owner %}
+    <p>
+        <a href="{% url 'character_update' world.id character.id %}">
+            Edit Character
+        </a>
+    </p>
 
-<p>
-    <a href="{% url 'character_delete' world.id character.id %}">
-        Delete Character
-    </a>
-</p>
+    <p>
+        <a href="{% url 'character_delete' world.id character.id %}">
+            Delete Character
+        </a>
+    </p>
+{% endif %}
 
 <p>
     <a href="{% url 'world_detail' world.id %}">
