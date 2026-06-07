@@ -90,11 +90,12 @@ def dashboard(request):
 
 
 def public_world_list(request):
-    """Display and search all worlds marked as public."""
+    """Display, search and filter all worlds marked as public."""
     query = request.GET.get('q', '')
-    
+    selected_genre = request.GET.get('genre', '')
+
     worlds = World.objects.filter(is_public=True)
-    
+
     if query:
         worlds = worlds.filter(
             Q(title__icontains=query)
@@ -109,13 +110,18 @@ def public_world_list(request):
             | Q(lore_entries__content__icontains=query)
             | Q(lore_entries__category__icontains=query)
         ).distinct()
-    
+
+    if selected_genre:
+        worlds = worlds.filter(genre=selected_genre)
+
     return render(
         request,
         'worlds/public_world_list.html',
         {
             'worlds': worlds,
             'query': query,
+            'selected_genre': selected_genre,
+            'genre_choices': World.GENRE_CHOICES,
         }
     )
     
