@@ -101,7 +101,14 @@ def public_world_list(request):
             | Q(summary__icontains=query)
             | Q(tone__icontains=query)
             | Q(genre__icontains=query)
-        )
+            | Q(characters__name__icontains=query)
+            | Q(characters__role__icontains=query)
+            | Q(characters__species__icontains=query)
+            | Q(lore_entries__title__icontains=query)
+            | Q(lore_entries__summary__icontains=query)
+            | Q(lore_entries__content__icontains=query)
+            | Q(lore_entries__category__icontains=query)
+        ).distinct()
     
     return render(
         request,
