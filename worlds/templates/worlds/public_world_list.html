@@ -21,17 +21,47 @@
             placeholder="Search by title, summary, genre or tone"
         >
 
+        <label for="genre">Filter by genre</label>
+        <select id="genre" name="genre">
+            <option vlaue="">All genres</option>
+
+            {% for value, label in genre_choices %}
+                <option value="{{ value }}" {% if selected_genre == value %}selected{% endif %}>
+                    {{ label }}
+                </option>
+            {% endfor %}
+        </select>
+
         <button type="submit">Search</button>
 
-        {% if query %}
+        {% if query or selected_genre %}
             <a href="{% url 'public_world_list' %}">Clear Search</a>
         {% endif %}
     </form>
 </section>
 
 <section>
-    {% if query %}
-        <h2>Search results for "{{ query }}"</h2>
+    {% if query or selected_genre %}
+        <h2>Filtered Public Worlds</h2>
+
+        {% if query %}
+            <p>
+                Search term: <strong>{{ query }}</strong>
+            </p>
+        {% endif %}
+
+        {% if selected_genre %}
+            <p>
+                Genre filter:
+                <strong>
+                    {% for value, label in genre_choices %}
+                        {% if selected_genre == value %}
+                            {{ label }}
+                        {% endif %}
+                    {% endfor %}
+                </strong>
+            </p>
+        {% endif %}
     {% else %}
         <h2>All Public Worlds</h2>
     {% endif %}
@@ -70,7 +100,7 @@
             {% endfor %}
         </ul>
     {% else %}
-        {% if query%}
+        {% if query or selected_genre %}
             <p>
                 No public worlds matched your search.
             </p>
