@@ -2,12 +2,31 @@ from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 
 
 from .forms import WorldForm, CharacterForm, LoreEntryForm
 from .models import World, Character, LoreEntry
 
+
+def get_visible_world(request, world_id):
+    """Return a world the current user is allowed to view."""
+
+    if request.user.is_authenticated:
+        return get_object_or_404(
+            World.objects.filter(
+                Q(owner=request.user) | Q(is_public=True)
+            ),
+            id=world_id
+        )
+    
+    return get_object_or_404(
+        World,
+        id=world_id,
+        is_public=True
+    )
+    
 
 def home(request):
     """Display the Lorekeeper homepage."""
@@ -70,12 +89,23 @@ def dashboard(request):
     return render(request, 'worlds/dashboard.html', {'worlds': worlds})
 
 
-@login_required
 def world_detail(request, world_id):
-    """Display the details of a world owned by the logged-in user."""
-    world = get_object_or_404(World, id=world_id, owner=request.user)
+    """Display a world if it is public or owned by the current user."""
+    world = get_visible_world(request, world_id)
     
-    return render(request, 'worlds/world_detail.html', {'world': world})
+    is_owner = (
+        request.user.is_authenticated
+        and world.owner == request.user
+    )
+    
+    return render(
+        request,
+        'worlds/world_detail.html',
+        {
+            'world': world,
+            'is_owner': is_owner,
+        }
+    )
 
 
 @login_required
@@ -157,20 +187,21 @@ def character_create(request, world_id):
     )  
    
     
-@login_required
-def character_detail(request, world_id, character_id):
-    """Display the details of a character belonging to one of the user's worlds."""
     
-    world = get_object_or_404(
-        World,
-        id=world_id,
-        owner=request.user
+def character_detail(request, world_id, character_id):
+    """Display character details if the related world is public or owned by the user."""
+    
+    world = get_visible_world(request, world_id)
+   
+    character = get_object_or_404(
+       Character,
+       id=character_id,
+       world=world
     )
     
-    character = get_object_or_404(
-        Character,
-        id=character_id,
-        world=world
+    is_owner = (
+        request.user.is_authenticated
+        and world.owner == request.user
     )
     
     return render(
@@ -179,9 +210,10 @@ def character_detail(request, world_id, character_id):
         {
             'world': world,
             'character': character,
+            'is_owner': is_owner,
         }
     )
-   
+    
     
 @login_required
 def character_update(request, world_id, character_id):
@@ -299,20 +331,20 @@ def lore_entry_create(request, world_id):
     )
     
     
-@login_required
 def lore_entry_detail(request, world_id, lore_entry_id):
-    """Display the details of a lore entry belonging to one of the user's worlds."""
+    """Display lore entry details if the related world is public or owned by the user."""
     
-    world = get_object_or_404(
-        World,
-        id=world_id,
-        owner=request.user
-    )
+    world = get_visible_world(request, world_id)
     
     lore_entry = get_object_or_404(
         LoreEntry,
         id=lore_entry_id,
         world=world
+    )
+    
+    is_owner = (
+        request.user.is_authenticated
+        and world.owner == request.user
     )
     
     return render(
@@ -321,6 +353,7 @@ def lore_entry_detail(request, world_id, lore_entry_id):
         {
             'world': world,
             'lore_entry': lore_entry,
+            'is_owner': is_owner,
         }
     )
 
