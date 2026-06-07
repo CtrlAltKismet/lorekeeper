@@ -97,10 +97,10 @@ def public_world_list(request):
     
     if query:
         worlds = worlds.filter(
-            Q(title_icontains=query)
-            | Q(summary_icontains=query)
-            | Q(tone_icontains=query)
-            | Q(genre_icontains=query)
+            Q(title__icontains=query)
+            | Q(summary__icontains=query)
+            | Q(tone__icontains=query)
+            | Q(genre__icontains=query)
         )
     
     return render(
