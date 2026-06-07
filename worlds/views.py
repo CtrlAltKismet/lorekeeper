@@ -89,6 +89,17 @@ def dashboard(request):
     return render(request, 'worlds/dashboard.html', {'worlds': worlds})
 
 
+def public_world_list(request):
+    """Display all worlds marked as public."""
+    worlds = World.objects.filter(is_public=True)
+    
+    return render(
+        request,
+        'worlds/public_world_list.html',
+        {'worlds': worlds}
+    )
+
+
 def world_detail(request, world_id):
     """Display a world if it is public or owned by the current user."""
     world = get_visible_world(request, world_id)
@@ -186,7 +197,6 @@ def character_create(request, world_id):
         }
     )  
    
-    
     
 def character_detail(request, world_id, character_id):
     """Display character details if the related world is public or owned by the user."""
