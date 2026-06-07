@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from django.db.models import Q
+from django.db.models import Count, Q
 from django.shortcuts import get_object_or_404, redirect, render
 
 
@@ -83,8 +83,11 @@ def world_create(request):
 
 @login_required
 def dashboard(request):
-    """Display the logged-in user's dashboard with their own worlds."""
-    worlds = World.objects.filter(owner=request.user)
+    """Display the logged-in user's dashboard with their own worlds and related record counts."""
+    worlds = World.objects.filter(owner=request.user).annotate(
+        character_count=Count('characters', distinct=True),
+        lore_entry_count=Count('lore_entries', distinct=True)
+    )
     
     return render(request, 'worlds/dashboard.html', {'worlds': worlds})
 
