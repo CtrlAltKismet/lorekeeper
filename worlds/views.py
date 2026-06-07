@@ -89,7 +89,16 @@ def dashboard(request):
         lore_entry_count=Count('lore_entries', distinct=True)
     )
     
-    return render(request, 'worlds/dashboard.html', {'worlds': worlds})
+    world_count = worlds.count()
+    
+    return render(
+        request, 
+        'worlds/dashboard.html', 
+        {
+            'worlds': worlds,
+            'world_count': world_count,
+        }
+    )
 
 
 def public_world_list(request):
