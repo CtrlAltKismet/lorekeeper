@@ -90,15 +90,28 @@ def dashboard(request):
 
 
 def public_world_list(request):
-    """Display all worlds marked as public."""
+    """Display and search all worlds marked as public."""
+    query = request.GET.get('q', '')
+    
     worlds = World.objects.filter(is_public=True)
+    
+    if query:
+        worlds = worlds.filter(
+            Q(title_icontains=query)
+            | Q(summary_icontains=query)
+            | Q(tone_icontains=query)
+            | Q(genre_icontains=query)
+        )
     
     return render(
         request,
         'worlds/public_world_list.html',
-        {'worlds': worlds}
+        {
+            'worlds': worlds,
+            'query': query,
+        }
     )
-
+    
 
 def world_detail(request, world_id):
     """Display a world if it is public or owned by the current user."""
