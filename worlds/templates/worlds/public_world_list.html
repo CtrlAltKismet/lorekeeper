@@ -1,0 +1,67 @@
+{% extends "worlds/base.html" %}
+
+{% block title %}Public Worlds | Lorekeeper{% endblock %}
+
+{% block content %}
+<section>
+    <h1>World Library</h1>
+
+    <p>
+        Browse a variety of fictional worlds here.
+    </p>
+</section>
+
+<section>
+    {% if worlds %}
+        <ul>
+            {% for world in worlds %}
+                <li>
+                    <h2>
+                        <a href="{% url 'world_detail' world.id %}">
+                            {{ world.title }}
+                        </a>
+                    </h2>
+
+                    <p>
+                        <strong>Genre:</strong>
+                        {{ world.get_genre_display }}
+                    </p>
+
+                    <p>
+                        <strong>Created by:</strong>
+                        {{ world.owner.username }}
+                    </p>
+
+                    <p>
+                        {{ world.summary }}
+                    </p>
+
+                    <p>
+                        <a href="{% url 'world_detail' world.id %}">
+                            View World
+                        </a>
+                    </p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>
+            No public wowrlds have been shared yet.
+        </p>
+
+        {% if user.is_authenticated %}
+            <p>
+                <a href="{% url 'world_create' %}">
+                    Create a world and choose to make it public.
+                </a>
+            </p>
+        {% else %}
+            <p>
+                <a href="{% url 'register' %}">
+                    Register to create and share your own worlds.
+                </a>
+            </p>
+        {% endif %}
+    {% endif %}
+</section>
+{% endblock %}
