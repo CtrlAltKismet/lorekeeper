@@ -58,4 +58,5 @@ urlpatterns = [
         views.lore_entry_delete,
         name='lore_entry_delete'
     ),
+    path('worlds/public', views.public_world_list, name='public_world_list'),
 ]
