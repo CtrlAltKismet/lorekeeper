@@ -9,9 +9,34 @@
     <p>
         Browse a variety of fictional worlds here.
     </p>
+
+
+    <form method="GET" action="{% url 'public_world_list' %}">
+        <label for="q">Search public worlds</label>
+        <input
+            type="text"
+            id="q"
+            name="q"
+            value="{{ query }}"
+            placeholder="Search by title, summary, genre or tone"
+        >
+
+        <button type="submit">Search</button>
+
+        {% if query %}
+            <a href="{% url 'public_world_list' %}">Clear Search</a>
+        {% endif %}
+    </form>
 </section>
 
 <section>
+    {% if query %}
+        <h2>Search results for "{{ query }}"</h2>
+    {% else %}
+        <h2>All Public Worlds</h2>
+    {% endif %}
+
+
     {% if worlds %}
         <ul>
             {% for world in worlds %}
@@ -45,22 +70,34 @@
             {% endfor %}
         </ul>
     {% else %}
-        <p>
-            No public wowrlds have been shared yet.
-        </p>
-
-        {% if user.is_authenticated %}
+        {% if query%}
             <p>
-                <a href="{% url 'world_create' %}">
-                    Create a world and choose to make it public.
+                No public worlds matched your search.
+            </p>
+
+            <p>
+                <a href="{% url 'public_world_list' %}">
+                    View all public worlds
                 </a>
             </p>
         {% else %}
             <p>
-                <a href="{% url 'register' %}">
-                    Register to create and share your own worlds.
-                </a>
+                No public worlds have been shared yet.
             </p>
+
+            {% if user.is_authenticated %}
+                <p>
+                    <a href="{% url 'world_create' %}">
+                        Create a world and choose to make it public.
+                    </a>
+                </p>
+            {% else %}
+                <p>
+                    <a href="{% url 'register' %}">
+                        Register to create and share your own worlds.
+                    </a>
+                </p>
+            {% endif %}
         {% endif %}
     {% endif %}
 </section>
