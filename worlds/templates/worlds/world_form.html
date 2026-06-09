@@ -21,6 +21,15 @@
 
     <form method="POST">
         {% csrf_token %}
+
+        {% if form.errors %}
+            <div>
+                <h2>There was a problem with your submittion.</h2>
+                <p>Please check the form and correct the errors below.</p>
+            </div>
+        {% endif %}
+
+        
         {{ form.as_p }}
 
         {% if is_update %}
