@@ -3,8 +3,35 @@
 {% block title %}{{ lore_entry.title }} | Lorekeeper{% endblock %}
 
 {% block content %}
-<section>
+<section class="hero-panel">
     <h1>{{ lore_entry.title }}</h1>
+
+    <p>
+        A lore entry from
+        <strong>{{ world.title }}</strong>.
+    </p>
+
+    <div class="action-row">
+        <span class="badge">Lore Entry</span>
+
+        <span class="badge">
+            {{ lore_entry.get_category_display }}
+        </span>
+
+        <span class="badge">
+            {{ lore_entry.get_importance_display }}
+        </span>
+
+        {% if lore_entry.character %}
+            <span class="badge">
+                Related to {{ lore_entry.character.name }}
+            </span>
+        {% endif %}
+    </div>
+</section>
+
+<section class="detail-panel">
+    <h2>Lore Entry Details</h2>
 
     <p>
         <strong>World:</strong>
@@ -29,39 +56,45 @@
     {% endif %}
 
     {% if lore_entry.summary %}
-        <h2>Summary</h2>
-        <p>{{ lore_entry.summary }}</p>
+        <section class="content-panel">
+            <h2>Summary</h2>
+            <p>{{ lore_entry.summary }}</p>
+        </section>
     {% endif %}
 
-    <h2>Full Lore Entry</h2>
-    <p>{{ lore_entry.content }}</p>
+    <section class="content-panel">
+        <h2>Full Lore Entry</h2>
+        <p>{{ lore_entry.content }}</p>
+    </section>
 
-    <p>
-        <strong>Created:</strong>
-        {{ lore_entry.created_at }}
-    </p>
+    <section class="content-panel">
+        <h2>Record Information</h2>
 
-    <p>
-        <strong>Last updated:</strong>
-        {{ lore_entry.updated_at }}
-    </p>
-
-    {% if is_owner %}
         <p>
-            <a href="{% url 'lore_entry_update' world.id lore_entry.id %}">
+            <strong>Created:</strong>
+            {{ lore_entry.created_at }}
+        </p>
+
+        <p>
+            <strong>Last updated:</strong>
+            {{ lore_entry.updated_at }}
+        </p>
+    </section>
+
+    <div class="action-row">
+        {% if is_owner %}
+            <a href="{% url 'lore_entry_update' world.id lore_entry.id %}" class="button">
                 Edit Lore Entry
             </a>
-        </p>
 
-        <p>
-            <a href="{% url 'lore_entry_delete' world.id lore_entry.id %}">
+            <a href="{% url 'lore_entry_delete' world.id lore_entry.id %}" class="button danger-button">
                 Delete Lore Entry
             </a>
-        </p>
-    {% endif %}
+        {% endif %}
 
-    <p>
-        <a href="{% url 'world_detail' world.id %}">Back to {{ world.title }}</a>
-    </p>
+        <a href="{% url 'world_detail' world.id %}" class="button secondary-button">
+            Back to {{ world.title }}
+        </a>
+    </div>
 </section>
 {% endblock %}
