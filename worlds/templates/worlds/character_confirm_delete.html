@@ -3,30 +3,40 @@
 {% block title %}Delete Character | Lorekeeper{% endblock %}
 
 {% block content %}
-<h1>Delete Character</h1>
+<section class="hero-panel">
+    <h1>Delete Character</h1>
+    <p>
+        You are about to remove a character from one of your worlds.
+    </p>
+</section>
 
-<p>
-    Are you sure you want to delete
-    <strong>{{ character.name }}</strong>
-    from
-    <strong>{{ world.title }}</strong>?
-</p>
+<section class="content-panel danger-panel">
+    <h2>Confirm deletion</h2>
 
-<p>
-    This action cannot be undone.
-</p>
+    <p>
+        Are you sure you want to delete
+        <strong>{{ character.name }}</strong>
+        from
+        <strong>{{ world.title }}</strong>?
+    </p>
 
-<form method="POST">
-    {% csrf_token %}
+    <p>
+        This action cannot be undone. Once deleted, this character will no longer appear
+        in the world or be available for related lore entries.
+    </p>
 
-    <button type="submit">
-        Delete Character
-    </button>
-</form>
+    <form method="POST" class="delete-form">
+        {% csrf_token %}
 
-<p>
-    <a href="{% url 'character_detail' world.id character.id %}">
-        Cancel
-    </a>
-</p>
+        <button type="submit" class="button danger-button">
+            Delete Character
+        </button>
+    </form>
+
+    <div class="action-row">
+        <a href="{% url 'character_detail' world.id character.id %}" class="button secondary-button">
+            Cancel
+        </a>
+    </div>
+</section>
 {% endblock %}
