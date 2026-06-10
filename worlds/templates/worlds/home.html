@@ -23,6 +23,7 @@
                 <a href="{% url 'dashboard' %}" class="button">
                     Go to Dashboard
                 </a>
+
                 <a href="{% url 'world_create' %}" class="button secondary-button">
                     Create a World
                 </a>
@@ -30,6 +31,7 @@
                 <a href="{% url 'register' %}" class="button">
                     Get Started
                 </a>
+
                 <a href="{% url 'login' %}" class="button secondary-button">
                     Login
                 </a>
@@ -49,11 +51,13 @@
 
 <section class="content-panel">
     <h2>Welcome to Lorekeeper</h2>
+
     <p>
         Lorekeeper is a worldbuilding organiser for writers, roleplayers, tabletop game
         masters and creative storytellers. Keep track of your worlds, characters and lore
         all in one place.
     </p>
+
     <p>
         Build fictional worlds with ease, manage your characters, record important lore,
         and share selected worlds publicly for others to explore.
@@ -66,6 +70,7 @@
     <div class="card-grid">
         <article class="card">
             <h3>Create Worlds</h3>
+
             <p>
                 Build fictional settings and store their summaries, genres, conflicts,
                 tones and visibility settings.
@@ -74,6 +79,7 @@
 
         <article class="card">
             <h3>Manage Characters</h3>
+
             <p>
                 Add important characters to each world and keep their roles, species,
                 personalities and backstories organised.
@@ -82,11 +88,47 @@
 
         <article class="card">
             <h3>Record Lore</h3>
+
             <p>
                 Store history, culture, magic, technology, politics and other essential
                 lore in a structured way.
             </p>
         </article>
+    </div>
+</section>
+
+<section class="home-cta content-panel">
+    <h2>Start building your multiverse</h2>
+
+    <p>
+        Every story starts somewhere: a kingdom, a spaceship, a haunted town,
+        a school for monsters, or one suspiciously important tavern.
+        Lorekeeper gives you a place to keep those ideas connected as they grow.
+    </p>
+
+    <p>
+        Create private worlds for your own notes, or share public worlds so other
+        users can explore your ideas for inspiration.
+    </p>
+
+    <div class="action-row">
+        {% if user.is_authenticated %}
+            <a href="{% url 'world_create' %}" class="button">
+                Create Your Next World
+            </a>
+
+            <a href="{% url 'public_world_list' %}" class="button secondary-button">
+                Browse the World Library
+            </a>
+        {% else %}
+            <a href="{% url 'register' %}" class="button">
+                Create Your Free Account
+            </a>
+
+            <a href="{% url 'public_world_list' %}" class="button secondary-button">
+                Explore Public Worlds
+            </a>
+        {% endif %}
     </div>
 </section>
 {% endblock %}
