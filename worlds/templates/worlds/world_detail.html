@@ -3,143 +3,246 @@
 {% block title %}{{ world.title }} | Lorekeeper{% endblock %}
 
 {% block content %}
-<section>
+<section class="hero-panel">
     <h1>{{ world.title }}</h1>
 
-    {% if user.is_authenticated %}
-        <p>
-            <a href="{% url 'dashboard' %}">Back to Dashboard</a>
-        </p>
-    {% else %}
-        <p>
-            <a href="{% url 'home' %}">Back to Home</a>
-        </p>
-    {% endif %}
+    <p>
+        Explore this fictional world and its connected characters and lore entries.
+    </p>
 
-    {% if is_owner %}
-        <p>
-            <a href="{% url 'world_update' world.id %}">Edit World</a>
-        </p>
+    <div class="action-row">
+        <span class="badge">
+            {{ world.get_genre_display }}
+        </span>
 
-        <p>
-            <a href="{% url 'world_delete' world.id %}">Delete World</a>
-        </p>
-    {% endif %}
+        {% if world.is_public %}
+            <span class="badge badge-public">
+                Public
+            </span>
+        {% else %}
+            <span class="badge badge-private">
+                Private
+            </span>
+        {% endif %}
+    </div>
+
+    <div class="action-row">
+        {% if user.is_authenticated %}
+            <a href="{% url 'dashboard' %}" class="button secondary-button">
+                Back to Dashboard
+            </a>
+        {% else %}
+            <a href="{% url 'home' %}" class="button secondary-button">
+                Back to Home
+            </a>
+        {% endif %}
+
+        {% if is_owner %}
+            <a href="{% url 'world_update' world.id %}" class="button">
+                Edit World
+            </a>
+
+            <a href="{% url 'world_delete' world.id %}" class="button danger-button">
+                Delete World
+            </a>
+        {% endif %}
+    </div>
 </section>
 
-
-<section>
+<section class="detail-panel">
     <h2>World Details</h2>
 
-    <p>
-        <strong>Genre:</strong> {{ world.get_genre_display }}
-    </p>
+    <div class="action-row">
+        <span class="badge">
+            Genre: {{ world.get_genre_display }}
+        </span>
 
-    <p>
-        <strong>Status:</strong>
         {% if world.is_public %}
-            Public
+            <span class="badge badge-public">
+                Public
+            </span>
         {% else %}
-            Private
+            <span class="badge badge-private">
+                Private
+            </span>
         {% endif %}
-    </p>
+    </div>
 
-    <p>
-        <strong>Summary:</strong>
-    </p>
-    <p>{{ world.summary }}</p>
+    <section class="content-panel">
+        <h2>Summary</h2>
+        <p>{{ world.summary }}</p>
+    </section>
 
     {% if world.main_conflict %}
-        <p>
-            <strong>Main Conflict:</strong>
-        </p>
-        <p>{{ world.main_conflict }}</p>
+        <section class="content-panel">
+            <h2>Main Conflict</h2>
+            <p>{{ world.main_conflict }}</p>
+        </section>
     {% endif %}
 
     {% if world.tone %}
-        <p>
-            <strong>Tone:</strong> {{ world.tone }}
-        </p>
+        <section class="content-panel">
+            <h2>Tone</h2>
+            <p>{{ world.tone }}</p>
+        </section>
     {% endif %}
 
-    <p>
-        <strong>Created:</strong> {{ world.created_at|date:"d M Y, H:i" }}
-    </p>
+    <section class="content-panel">
+        <h2>Record Information</h2>
 
-    <p>
-        <strong>Last Updated:</strong> {{ world.updated_at|date:"d M Y, H:i" }}
-    </p>
+        <p>
+            <strong>Created:</strong>
+            {{ world.created_at|date:"d M Y, H:i" }}
+        </p>
+
+        <p>
+            <strong>Last Updated:</strong>
+            {{ world.updated_at|date:"d M Y, H:i" }}
+        </p>
+    </section>
 </section>
 
+<section class="content-panel">
+    <div class="action-row">
+        <h2>Characters</h2>
 
-<section>
-    <h2>Characters</h2>
-
-    {% if is_owner %}
-        <p>
-            <a href="{% url 'character_create' world.id %}">
+        {% if is_owner %}
+            <a href="{% url 'character_create' world.id %}" class="button">
                 Add Character
             </a>
-        </p>
-    {% endif %}
-    
+        {% endif %}
+    </div>
+
     {% if world.characters.all %}
-        <ul>
+        <div class="card-grid">
             {% for character in world.characters.all %}
-                <li>
-                    <a href="{% url 'character_detail' world.id character.id %}">
-                        <strong>{{ character.name }}</strong>
-                    </a>
-                    
-                    {% if character.role %}
-                        - {{ character.role }}
+                <article class="card">
+                    <h3>{{ character.name }}</h3>
+
+                    <div class="action-row">
+                        {% if character.role %}
+                            <span class="badge">
+                                {{ character.role }}
+                            </span>
+                        {% endif %}
+
+                        {% if character.species %}
+                            <span class="badge">
+                                {{ character.species }}
+                            </span>
+                        {% endif %}
+                    </div>
+
+                    {% if character.personality %}
+                        <p>
+                            {{ character.personality|truncatewords:24 }}
+                        </p>
+                    {% elif character.backstory %}
+                        <p>
+                            {{ character.backstory|truncatewords:24 }}
+                        </p>
+                    {% else %}
+                        <p>
+                            No character notes have been added yet.
+                        </p>
                     {% endif %}
 
-                    {% if character.species %}
-                        ({{ character.species }})
-                    {% endif %}
-                </li>
+                    <div class="card-glow"></div>
+
+                    <div class="action-row">
+                        <a href="{% url 'character_detail' world.id character.id %}" class="button">
+                            View Character
+                        </a>
+                    </div>
+                </article>
             {% endfor %}
-        </ul>
+        </div>
     {% else %}
-        <p>No characters have been added to this world yet.</p>
+        <section class="content-panel">
+            <h3>No characters yet</h3>
+            <p>
+                No characters have been added to this world yet.
+            </p>
+
+            {% if is_owner %}
+                <div class="action-row">
+                    <a href="{% url 'character_create' world.id %}" class="button">
+                        Add your first character
+                    </a>
+                </div>
+            {% endif %}
+        </section>
     {% endif %}
 </section>
 
+<section class="content-panel">
+    <div class="action-row">
+        <h2>Lore Entries</h2>
 
-<section>
-    <h2>Lore Entries</h2>
-
-    {% if is_owner %}
-        <p>
-            <a href="{% url 'lore_entry_create' world.id %}">
+        {% if is_owner %}
+            <a href="{% url 'lore_entry_create' world.id %}" class="button">
                 Add Lore Entry
             </a>
-        </p>
-    {% endif %}
+        {% endif %}
+    </div>
 
     {% if world.lore_entries.all %}
-        <ul>
+        <div class="card-grid">
             {% for lore_entry in world.lore_entries.all %}
-                <li>
-                    <a href="{% url 'lore_entry_detail' world.id lore_entry.id %}">
-                        <strong>{{ lore_entry.title }}</strong>
-                    </a>
+                <article class="card">
+                    <h3>{{ lore_entry.title }}</h3>
 
-                    - {{ lore_entry.get_category_display }}
+                    <div class="action-row">
+                        <span class="badge">
+                            {{ lore_entry.get_category_display }}
+                        </span>
 
-                    {% if lore_entry.character %}
-                        linked to {{ lore_entry.character.name }}
-                    {% endif %}
+                        <span class="badge">
+                            {{ lore_entry.get_importance_display }}
+                        </span>
+
+                        {% if lore_entry.character %}
+                            <span class="badge">
+                                {{ lore_entry.character.name }}
+                            </span>
+                        {% endif %}
+                    </div>
 
                     {% if lore_entry.summary %}
-                        <p>{{ lore_entry.summary }}</p>
+                        <p>
+                            {{ lore_entry.summary|truncatewords:24 }}
+                        </p>
+                    {% else %}
+                        <p>
+                            {{ lore_entry.content|truncatewords:24 }}
+                        </p>
                     {% endif %}
-                </li>
+
+                    <div class="card-glow"></div>
+
+                    <div class="action-row">
+                        <a href="{% url 'lore_entry_detail' world.id lore_entry.id %}" class="button">
+                            View Lore Entry
+                        </a>
+                    </div>
+                </article>
             {% endfor %}
-        </ul>
+        </div>
     {% else %}
-        <p>No lore entries have been added to this world yet.</p>
+        <section class="content-panel">
+            <h3>No lore entries yet</h3>
+            <p>
+                No lore entries have been added to this world yet.
+            </p>
+
+            {% if is_owner %}
+                <div class="action-row">
+                    <a href="{% url 'lore_entry_create' world.id %}" class="button">
+                        Add your first lore entry
+                    </a>
+                </div>
+            {% endif %}
+        </section>
     {% endif %}
 </section>
 {% endblock %}

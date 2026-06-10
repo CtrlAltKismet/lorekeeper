@@ -8,45 +8,66 @@
     {% endif %}
 {% endblock %}
 
-
 {% block content %}
-<section>
-    {% if is_update %}
-        <h1>Edit World</h1>
-        <p>Update the details for {{ world.title }}</p>
-    {% else %}
-        <h1>Create a New World</h1>
-        <p>Add a world to your Lorekeeper collection.</p>
-    {% endif %}
+<section class="hero-panel">
+    <h1>
+        {% if is_update %}
+            Edit World
+        {% else %}
+            Create a New World
+        {% endif %}
+    </h1>
+
+    <p>
+        {% if is_update %}
+            Update the details for
+            <strong>{{ world.title }}</strong>.
+        {% else %}
+            Add a new fictional world to your Lorekeeper collection.
+        {% endif %}
+    </p>
+</section>
+
+<section class="content-panel">
+    <h2>
+        {% if is_update %}
+            World Details
+        {% else %}
+            New World Details
+        {% endif %}
+    </h2>
 
     <form method="POST">
         {% csrf_token %}
 
         {% if form.errors %}
-            <div>
+            <div class="message message-error">
                 <h2>There was a problem with your submission.</h2>
                 <p>Please check the form and correct the errors below.</p>
             </div>
         {% endif %}
 
-        
         {{ form.as_p }}
 
-        {% if is_update %}
-            <button type="submit">Update World</button>
-        {% else %}
-            <button type="submit">Create World</button>
-        {% endif %}
+        <button type="submit" class="button">
+            {% if is_update %}
+                Update World
+            {% else %}
+                Create World
+            {% endif %}
+        </button>
     </form>
 
-    {% if is_update %}
-        <p>
-            <a href="{% url 'world_detail' world.id %}">Cancel and return to world details</a>
-        </p>
-    {% else %}
-        <p>
-            <a href="{% url 'dashboard' %}">Cancel and return to dashboard</a>
-        </p>
-    {% endif %}
+    <div class="action-row">
+        {% if is_update %}
+            <a href="{% url 'world_detail' world.id %}" class="button secondary-button">
+                Cancel and return to world details
+            </a>
+        {% else %}
+            <a href="{% url 'dashboard' %}" class="button secondary-button">
+                Cancel and return to dashboard
+            </a>
+        {% endif %}
+    </div>
 </section>
 {% endblock %}
