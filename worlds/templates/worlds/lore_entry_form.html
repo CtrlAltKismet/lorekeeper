@@ -1,6 +1,5 @@
 {% extends "worlds/base.html" %}
 
-
 {% block title %}
     {% if is_update %}
         Edit Lore Entry | Lorekeeper
@@ -9,39 +8,67 @@
     {% endif %}
 {% endblock %}
 
-
 {% block content %}
-<section>
-    {% if is_update %}
-        <h1>Edit Lore Entry</h1>
-        <p>Update this lore entry for {{ world.title }}</p>
-    {% else %}
-        <h1>Add Lore Entry</h1>
-        <p>Add a new piece of lore to {{ world.title }}.</p>
-    {% endif %}
+<section class="hero-panel">
+    <h1>
+        {% if is_update %}
+            Edit Lore Entry
+        {% else %}
+            Add Lore Entry
+        {% endif %}
+    </h1>
+
+    <p>
+        {% if is_update %}
+            Update this lore entry for
+            <strong>{{ world.title }}</strong>.
+        {% else %}
+            Add a new piece of lore to
+            <strong>{{ world.title }}</strong>.
+        {% endif %}
+    </p>
+</section>
+
+<section class="content-panel">
+    <h2>
+        {% if is_update %}
+            Lore Entry Details
+        {% else %}
+            New Lore Entry Details
+        {% endif %}
+    </h2>
 
     <form method="POST">
         {% csrf_token %}
 
-        
         {% if form.errors %}
-            <div>
+            <div class="message message-error">
                 <h2>There was a problem with your submission.</h2>
                 <p>Please check the form and correct the errors below.</p>
             </div>
         {% endif %}
-        
 
         {{ form.as_p }}
 
-
-        {% if is_update %}
-            <button type="submit">Update Lore Entry</button>
-            <a href="{% url 'lore_entry_detail' world.id lore_entry.id %}">Cancel</a>
-        {% else %}
-            <button type="submit">Create Lore Entry</button>
-            <a href="{% url 'world_detail' world.id %}">Cancel</a>
-        {% endif %}
+        <button type="submit" class="button">
+            {% if is_update %}
+                Update Lore Entry
+            {% else %}
+                Create Lore Entry
+            {% endif %}
+        </button>
     </form>
+
+    <div class="action-row">
+        {% if is_update %}
+            <a href="{% url 'lore_entry_detail' world.id lore_entry.id %}" class="button secondary-button">
+                Cancel
+            </a>
+        {% else %}
+            <a href="{% url 'world_detail' world.id %}" class="button secondary-button">
+                Cancel
+            </a>
+        {% endif %}
+    </div>
 </section>
 {% endblock %}
