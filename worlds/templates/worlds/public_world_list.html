@@ -3,84 +3,101 @@
 {% block title %}Public Worlds | Lorekeeper{% endblock %}
 
 {% block content %}
-<section>
+<section class="hero-panel">
     <h1>World Library</h1>
 
     <p>
-        Browse a variety of fictional worlds here.
+        Browse public fictional worlds shared by other Lorekeeper users.
     </p>
 
-
-    <form method="GET" action="{% url 'public_world_list' %}">
-        <label for="q">Search public worlds</label>
-        <input
-            type="text"
-            id="q"
-            name="q"
-            value="{{ query }}"
-            placeholder="Search by title, summary, genre or tone"
-        >
-
-        <label for="genre">Filter by genre</label>
-        <select id="genre" name="genre">
-            <option vlaue="">All genres</option>
-
-            {% for value, label in genre_choices %}
-                <option value="{{ value }}" {% if selected_genre == value %}selected{% endif %}>
-                    {{ label }}
-                </option>
-            {% endfor %}
-        </select>
-
-        <button type="submit">Search</button>
-
-        {% if query or selected_genre %}
-            <a href="{% url 'public_world_list' %}">Clear Search</a>
-        {% endif %}
-    </form>
+    <p>
+        Search the multiverse by title, summary, genre, tone, characters or lore entries.
+    </p>
 </section>
 
-<section>
+<section class="content-panel">
+    <h2>Find a World</h2>
+
+    <form method="GET" action="{% url 'public_world_list' %}" class="search-form">
+        <div>
+            <label for="q">Search public worlds</label>
+            <input
+                type="text"
+                id="q"
+                name="q"
+                value="{{ query }}"
+                placeholder="Search by title, summary, genre, tone, character or lore"
+            >
+        </div>
+
+        <div>
+            <label for="genre">Filter by genre</label>
+            <select id="genre" name="genre">
+                <option value="">All genres</option>
+
+                {% for value, label in genre_choices %}
+                    <option value="{{ value }}" {% if selected_genre == value %}selected{% endif %}>
+                        {{ label }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit" class="button">
+            Search
+        </button>
+    </form>
+
+    {% if query or selected_genre %}
+        <div class="action-row">
+            <a href="{% url 'public_world_list' %}" class="button secondary-button">
+                Clear Search
+            </a>
+        </div>
+    {% endif %}
+</section>
+
+<section class="content-panel">
     {% if query or selected_genre %}
         <h2>Filtered Public Worlds</h2>
 
-        {% if query %}
-            <p>
-                Search term: <strong>{{ query }}</strong>
-            </p>
-        {% endif %}
+        <div class="action-row">
+            {% if query %}
+                <span class="badge">
+                    Search: {{ query }}
+                </span>
+            {% endif %}
 
-        {% if selected_genre %}
-            <p>
-                Genre filter:
-                <strong>
+            {% if selected_genre %}
+                <span class="badge">
+                    Genre:
                     {% for value, label in genre_choices %}
                         {% if selected_genre == value %}
                             {{ label }}
                         {% endif %}
                     {% endfor %}
-                </strong>
-            </p>
-        {% endif %}
+                </span>
+            {% endif %}
+        </div>
     {% else %}
         <h2>All Public Worlds</h2>
     {% endif %}
 
-
     {% if worlds %}
-        <ul>
+        <div class="world-grid">
             {% for world in worlds %}
-                <li>
-                    <h2>
-                        <a href="{% url 'world_detail' world.id %}">
-                            {{ world.title }}
-                        </a>
-                    </h2>
+                <article class="world-card">
+                    <h3>{{ world.title }}</h3>
 
-                    <p>
-                        <strong>Genre:</strong>
-                        {{ world.get_genre_display }}
-                    </p>
+                    <div class="action-row">
+                        <span class="badge">
+                            {{ world.get_genre_display }}
+                        </span>
+
+                        <span class="badge badge-public">
+                            Public
+                        </span>
+                    </div>
 
                     <p>
                         <strong>Created by:</strong>
@@ -91,44 +108,52 @@
                         {{ world.summary }}
                     </p>
 
-                    <p>
-                        <a href="{% url 'world_detail' world.id %}">
+                    <div class="card-glow"></div>
+
+                    <div class="action-row">
+                        <a href="{% url 'world_detail' world.id %}" class="button">
                             View World
                         </a>
-                    </p>
-                </li>
+                    </div>
+                </article>
             {% endfor %}
-        </ul>
+        </div>
     {% else %}
-        {% if query or selected_genre %}
-            <p>
-                No public worlds matched your search.
-            </p>
+        <section class="content-panel">
+            {% if query or selected_genre %}
+                <h3>No matching worlds found</h3>
 
-            <p>
-                <a href="{% url 'public_world_list' %}">
-                    View all public worlds
-                </a>
-            </p>
-        {% else %}
-            <p>
-                No public worlds have been shared yet.
-            </p>
-
-            {% if user.is_authenticated %}
                 <p>
-                    <a href="{% url 'world_create' %}">
-                        Create a world and choose to make it public.
-                    </a>
+                    No public worlds matched your search. Try a different keyword,
+                    remove the genre filter, or return to the full World Library.
                 </p>
+
+                <div class="action-row">
+                    <a href="{% url 'public_world_list' %}" class="button secondary-button">
+                        View all public worlds
+                    </a>
+                </div>
             {% else %}
+                <h3>No public worlds yet</h3>
+
                 <p>
-                    <a href="{% url 'register' %}">
-                        Register to create and share your own worlds.
-                    </a>
+                    No public worlds have been shared yet. The library is currently
+                    a quiet little pocket dimension.
                 </p>
+
+                <div class="action-row">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'world_create' %}" class="button">
+                            Create a public world
+                        </a>
+                    {% else %}
+                        <a href="{% url 'register' %}" class="button">
+                            Register to share your worlds
+                        </a>
+                    {% endif %}
+                </div>
             {% endif %}
-        {% endif %}
+        </section>
     {% endif %}
 </section>
 {% endblock %}
