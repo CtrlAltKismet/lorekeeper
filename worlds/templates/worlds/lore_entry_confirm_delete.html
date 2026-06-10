@@ -1,25 +1,42 @@
 {% extends "worlds/base.html" %}
 
-
-{% block title %}Delete Lore Entry | Lorekeeper {% endblock %}
-
+{% block title %}Delete Lore Entry | Lorekeeper{% endblock %}
 
 {% block content %}
-<section>
+<section class="hero-panel">
     <h1>Delete Lore Entry</h1>
+    <p>
+        You are about to remove a lore entry from one of your worlds.
+    </p>
+</section>
+
+<section class="content-panel danger-panel">
+    <h2>Confirm deletion</h2>
 
     <p>
         Are you sure you want to delete
         <strong>{{ lore_entry.title }}</strong>
-        from <strong>{{ world.title }}</strong>?
+        from
+        <strong>{{ world.title }}</strong>?
     </p>
 
-    <p> This action cannot be undone.</p>
+    <p>
+        This action cannot be undone. Once deleted, this lore entry will no longer
+        appear in the world or be available from the world detail page.
+    </p>
 
-    <form method="POST">
+    <form method="POST" class="delete-form">
         {% csrf_token %}
-        <button type="submit">Confirm Delete</button>
-        <a href="{% url 'lore_entry_detail' world.id lore_entry.id %}">Cancel</a>
+
+        <button type="submit" class="button danger-button">
+            Delete Lore Entry
+        </button>
     </form>
+
+    <div class="action-row">
+        <a href="{% url 'lore_entry_detail' world.id lore_entry.id %}" class="button secondary-button">
+            Cancel
+        </a>
+    </div>
 </section>
 {% endblock %}

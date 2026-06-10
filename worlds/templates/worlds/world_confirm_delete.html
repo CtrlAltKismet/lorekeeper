@@ -3,26 +3,38 @@
 {% block title %}Delete World | Lorekeeper{% endblock %}
 
 {% block content %}
-
-<section>
+<section class="hero-panel">
     <h1>Delete World</h1>
-
     <p>
-        Are you sure you want to delete <strong>{{ world.title }}</strong>?
-    </p>
-
-    <p>
-        This action cannot be undone.
-    </p>
-
-    <form method="POST">
-        {% csrf_token %}
-        <button type="submit">Yes, delete this world</button>
-    </form>
-
-    <p>
-        <a href="{% url 'world_detail' world.id %}">Cancel and return to world details.</a>
+        You are about to remove an entire fictional world from your Lorekeeper account.
     </p>
 </section>
+
+<section class="content-panel danger-panel">
+    <h2>Confirm deletion</h2>
+
+    <p>
+        Are you sure you want to delete
+        <strong>{{ world.title }}</strong>?
+    </p>
+
+    <p>
+        This action cannot be undone. Once deleted, this world will be removed
+        permanently, including its related characters and lore entries.
+    </p>
+
+    <form method="POST" class="delete-form">
+        {% csrf_token %}
+
+        <button type="submit" class="button danger-button">
+            Delete World
+        </button>
+    </form>
+
+    <div class="action-row">
+        <a href="{% url 'world_detail' world.id %}" class="button secondary-button">
+            Cancel and return to world details
+        </a>
+    </div>
+</section>
 {% endblock %}
-        
