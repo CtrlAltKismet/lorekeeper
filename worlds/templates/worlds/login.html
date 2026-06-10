@@ -3,27 +3,45 @@
 {% block title %}Login | Lorekeeper{% endblock %}
 
 {% block content %}
-<section>
+<section class="hero-panel">
     <h1>Log In</h1>
+
     <p>
-        Log in to access your Lorekeeper account and manage your worlds.
+        Return to your Lorekeeper account and continue building your fictional worlds.
     </p>
 </section>
 
-<section>
+<section class="content-panel auth-panel">
     <h2>Account Login</h2>
 
-    <form method="POST">
+    <p>
+        Enter your details below to access your dashboard, worlds, characters and lore entries.
+    </p>
+
+    <form method="POST" class="auth-form">
         {% csrf_token %}
+
+        {% if form.errors %}
+            <div class="message message-error">
+                <h2>Login unsuccessful</h2>
+                <p>
+                    Please check your username and password, then try again.
+                </p>
+            </div>
+        {% endif %}
 
         {{ form.as_p }}
 
-        <button type="submit">Log In</button>
+        <button type="submit" class="button">
+            Log In
+        </button>
     </form>
 
-    <p>
-        Don't have an account?
-        <a href="{% url 'register' %}">Create one here</a>.
-    </p>
+    <div class="action-row">
+        <p>
+            Don't have an account?
+            <a href="{% url 'register' %}">Create one here</a>.
+        </p>
+    </div>
 </section>
 {% endblock %}
