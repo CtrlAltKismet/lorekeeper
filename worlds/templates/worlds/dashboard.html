@@ -3,69 +3,96 @@
 {% block title %}Dashboard | Lorekeeper{% endblock %}
 
 {% block content %}
-<section>
+<section class="hero-panel">
     <h1>Your Dashboard</h1>
-    <p>
-        Welcome back, {{ user.username }}!
-    </p>
 
     <p>
-        <strong>Worlds created:</strong> {{ world_count }}
+        Welcome back, {{ user.username }}. Your worlds are waiting in orbit.
     </p>
 
-    <p>
-        <a href="{% url 'world_create' %}">Create a New World</a>
-    </p>
+    <div class="action-row">
+        <span class="world-count">
+            Worlds created: {{ world_count }}
+        </span>
+
+        <a href="{% url 'world_create' %}" class="button">
+            Create a New World
+        </a>
+    </div>
 </section>
 
-<section>
+<section class="content-panel">
     <h2>Your Worlds</h2>
 
     {% if worlds %}
-        <p>Here are your created worlds.</p>
-        <div>
+        <p>
+            Here are the fictional worlds you have created so far.
+        </p>
+
+        <div class="dashboard-grid">
             {% for world in worlds %}
-                <article>
+                <article class="world-card">
                     <h3>{{ world.title }}</h3>
 
-                    <p>
-                        <strong>Genre:</strong> {{ world.get_genre_display }}
-                    </p>
+                    <div class="action-row">
+                        <span class="badge">
+                            {{ world.get_genre_display }}
+                        </span>
 
-                    <p>
-                        <strong>Status:</strong>
                         {% if world.is_public %}
-                            Public
+                            <span class="badge badge-public">
+                                Public
+                            </span>
                         {% else %}
-                            Private
+                            <span class="badge badge-private">
+                                Private
+                            </span>
                         {% endif %}
-                    </p>
+                    </div>
+
+                    <div class="action-row">
+                        <span class="counter">
+                            Characters: {{ world.character_count }}
+                        </span>
+
+                        <span class="counter">
+                            Lore entries: {{ world.lore_entry_count }}
+                        </span>
+                    </div>
 
                     <p>
-                        <strong>Characters:</strong> {{ world.character_count }}
+                        {{ world.summary }}
                     </p>
 
-                    <p>
-                        <strong>Lore entries:</strong> {{ world.lore_entry_count }}
-                    </p>
+                    <div class="card-glow"></div>
 
-                    <p>{{ world.summary }}</p>
+                    <div class="action-row">
+                        <a href="{% url 'world_detail' world.id %}" class="button">
+                            View Details
+                        </a>
+                    </div>
 
-                    <p>
-                        <a href="{% url 'world_detail' world.id %}">View Details</a>
-                    </p>
-
-                    <p>
-                        <small>Created: {{ world.created_at|date:"d M Y" }}</small>
+                    <p class="small-text muted">
+                        Created: {{ world.created_at|date:"d M Y" }}
                     </p>
                 </article>
             {% endfor %}
         </div>
     {% else %}
-        <p>You haven't created any worlds yet.</p>
-        <p>
-            <a href="{% url 'world_create' %}">Create your first world.</a>
-        </p>
+        <section class="content-panel">
+            <h3>No worlds yet</h3>
+
+            <p>
+                You haven't created any worlds yet. Time to summon your first little
+                pocket universe.
+            </p>
+
+            <div class="action-row">
+                <a href="{% url 'world_create' %}" class="button">
+                    Create your first world
+                </a>
+            </div>
+        </section>
     {% endif %}
 </section>
 {% endblock %}
