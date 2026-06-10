@@ -53,7 +53,64 @@
         </main>
 
         <footer class="site-footer">
-            <p>&copy; 2026 Lorekeeper. Create, organise and share fictional worlds.</p>
+            <div class="footer-container">
+
+                <section class="footer-brand">
+                    <h2>Lorekeeper</h2>
+                    <p>
+                        Create, organise and share fictional worlds across your own cosmic archive.
+                    </p>
+                </section>
+
+                <section class="footer-links" aria-label="Footer navigation">
+                    <h3>Explore</h3>
+
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'public_world_list' %}">World Library</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+
+                        {% if user.is_authenticated %}
+                            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                            <li><a href="{% url 'world_create' %}">Create World</a></li>
+                        {% else %}
+                            <li><a href="{% url 'register' %}">Register</a></li>
+                            <li><a href="{% url 'login' %}">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </section>
+
+                <section class="footer-socials" aria-label="Social media links">
+                    <h3>Connect</h3>
+
+                    <div class="social-links">
+                        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Lorekeeper on GitHub">
+                            GH
+                        </a>
+
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Lorekeeper on Instagram">
+                            IG
+                        </a>
+
+                        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Lorekeeper on X">
+                            X
+                        </a>
+
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Lorekeeper on LinkedIn">
+                            LI
+                        </a>
+                    </div>
+
+                    <p class="small-text muted">
+                        Social links are placeholders for project demonstration.
+                    </p>
+                </section>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lorekeeper. Built for creative worldbuilders.</p>
+            </div>
         </footer>
 
     </div>
