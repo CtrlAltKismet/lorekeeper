@@ -9,55 +9,66 @@
 {% endblock %}
 
 {% block content %}
-<h1>
-    {% if is_update %}
-        Edit Character
-    {% else %}        
-        Create Character
-    {% endif %}
-</h1>
-
-<p>
-    {% if is_update %}
-        Update <strong>{{ character.name }}</strong> in
-        <strong>{{ world.title }}</strong>.
-    {% else %}
-        Add a new character to
-        <strong>{{ world.title }}</strong>
-    {% endif %}
-</p>
-
-<form method='POST'>
-    {% csrf_token %}
-
-    {% if form.errors %}
-        <div>
-            <h2>There was a problem with your submission.</h2>
-            <p>Please check the form and correct the errors below.</p>
-        </div>
-    {% endif %}
-
-    
-    {{ form.as_p }}
-
-    <button type="submit">
+<section class="hero-panel">
+    <h1>
         {% if is_update %}
-            Update Character
+            Edit Character
         {% else %}
             Create Character
         {% endif %}
-    </button>
-</form>
+    </h1>
 
-<p>
-    {% if is_update %}
-        <a href="{% url 'character_detail' world.id character.id %}">
-            Cancel
-        </a>
-    {% else %}
-        <a href="{% url 'world_detail' world.id %}">
-            Cancel
-        </a>
-    {% endif %}
-</p>
+    <p>
+        {% if is_update %}
+            Update <strong>{{ character.name }}</strong> in
+            <strong>{{ world.title }}</strong>.
+        {% else %}
+            Add a new character to
+            <strong>{{ world.title }}</strong>.
+        {% endif %}
+    </p>
+</section>
+
+<section class="content-panel">
+    <h2>
+        {% if is_update %}
+            Character Details
+        {% else %}
+            New Character Details
+        {% endif %}
+    </h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {% if form.errors %}
+            <div class="message message-error">
+                <h2>There was a problem with your submission.</h2>
+                <p>Please check the form and correct the errors below.</p>
+            </div>
+        {% endif %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="button">
+            {% if is_update %}
+                Update Character
+            {% else %}
+                Create Character
+            {% endif %}
+        </button>
+    </form>
+
+    <div class="action-row">
+        {% if is_update %}
+            <a href="{% url 'character_detail' world.id character.id %}" class="button secondary-button">
+                Cancel
+            </a>
+        {% else %}
+            <a href="{% url 'world_detail' world.id %}" class="button secondary-button">
+                Cancel
+            </a>
+        {% endif %}
+    </div>
+</section>
 {% endblock %}
