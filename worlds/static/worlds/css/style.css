@@ -96,3 +96,25 @@ body::after {
     opacity: 0.28;
     animation: starFloat 60s linear infinite;
 }
+
+@keyframes nebulaDrift {
+    from {
+        transform: translate3d(-2%, -1%, 0) rotate(0deg) scale(1);
+    }
+
+    to {
+        transform: translate3d(2%, 1%, 0) rotate(6deg) scale(1.08);
+    }
+}
+
+@keyframes starFloat {
+    from {
+        background-position: 0 0, 35px 55px, 80px 20px;
+    }
+
+    to {
+        background-position: 220px 180px, 260px 250px, 300px 190px;
+    }
+}
+
+/* Generic Elements */
