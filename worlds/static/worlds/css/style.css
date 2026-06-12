@@ -118,3 +118,38 @@ body::after {
 }
 
 /* Generic Elements */
+
+a {
+    color: var(--cyan);
+    text-decoration: none;
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease,
+}
+
+a:hover {
+    color: var(--pink);
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 3px solid rgba(125, 211, 252, 0.85);
+    outline-offset: 4px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+::selection {
+    color: var(--bg-void);
+    background: var(--cyan);
+}
+
+/* Main Layout */ 
