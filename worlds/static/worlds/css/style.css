@@ -305,3 +305,64 @@ img {
 }
 
 /* Typography */
+
+h1,
+h2,
+h3 {
+    color: var(--text-main);
+    line-height: 1.14;
+    margin: 0 0 1rem;
+}
+
+h1 {
+    max-width: 980px;
+    font-size: clamp(2.4rem, 8vw, 5.5rem);
+    letter-spacing: -0.075em;
+    text-shadow:
+        0 0 22px rgba(167, 139, 250, 0.28),
+        0 0 40px rgba(125, 211, 252, 0.14);
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 8rem;
+    height: 0.35rem;
+    margin-top: 1rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink));
+    box-shadow: var(--shadow-glow-pink);
+}
+
+h2 {
+    font-size: clamp(1.65rem, 4vw, 2.45rem);
+    letter-spacing: -0.04em;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+p {
+    color: var(--text-soft);
+    margin-top: 0;
+}
+
+strong {
+    color: var(--text-main);
+}
+
+ul,
+ol {
+    color: var(--text-soft);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    margin: 2rem 0;
+    background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.55), transparent);
+}
+
+/* Home Page */
+
