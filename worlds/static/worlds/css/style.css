@@ -1,0 +1,41 @@
+/* CSS Variables */
+
+:root {
+    --bg-void: #050712;
+    --bg-void-2: #090b22;
+    --bg-indigo: #11143f;
+    --bg-purple: #261044;
+    --bg-magenta: #43153e;
+
+    --text-main: #fff8ff;
+    --text-soft: #d8cff5;
+    --text-muted: #afa3d7;
+
+    --blue: #7dd3fc;
+    --cyan: #67e8f9;
+    --purple: #a78bfa;
+    --violet: #c084fc;
+    --pink: #f472b6;
+    --rose: #fb7185;
+    --gold: #facc15;
+    --green: #86efac;
+
+    --glass-dark: rgba(10, 12, 34, 0.74);
+    --glass-mid: rgba(26, 20, 66, 0.78);
+    --glass-light: rgba(255, 255, 255, 0.08);
+
+    --border-soft: rgba(216, 207, 245, 0.18);
+    --border-bright: rgba(167, 139, 250, 0.45);
+
+    --shadow-deep: 0 22px 60px rgba(0, 0, 0, 0.48);
+    --shadow-glow-purple: 0 0 38px rgba(167, 139, 250, 0.35);
+    --shadow-glow-pink: 0 0 34px rgba(244, 114, 182, 0.32);
+    --shadow-glow-blue: 0 0 32px rgba(125, 211, 252, 0.28);
+
+    --radius-xl: 34px;
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+
+    --font-main: "Lexend", "Roboto", Arial, sans-serif;
+}
