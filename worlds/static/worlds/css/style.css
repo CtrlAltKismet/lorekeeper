@@ -153,3 +153,36 @@ img {
 }
 
 /* Main Layout */ 
+
+.site-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-container {
+    position: relative;
+    width: min(1180px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 3rem 0 5rem;
+    flex: 1;
+}
+
+.page-container::before {
+    content: "";
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    z-index: -1;
+    width: min(760px, 90vw);
+    height: min(760px, 90vw);
+    transform: translateX(-50%);
+    background:
+        radial-gradient(circle, rgba(167, 139, 250, 0.16), transparent 58%),
+        radial-gradient(circle, rgba(125, 211, 252, 0.09), transparent 66%);
+    border-radius: 50%;
+    filter: blur(6px);
+    opacity: 0.9%;
+}
+
+/* Header / Nav */
