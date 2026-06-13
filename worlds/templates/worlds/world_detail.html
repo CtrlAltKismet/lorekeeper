@@ -50,46 +50,72 @@
 </section>
 
 <section class="detail-panel">
-    <h2>World Details</h2>
+    <div class="collapsible-header">
+        <h2>World Details</h2>
 
-    <div class="action-row">
-        <span class="badge">
-            Genre: {{ world.get_genre_display }}
-        </span>
-
-        {% if world.is_public %}
-            <span class="badge badge-public">
-                Public
-            </span>
-        {% else %}
-            <span class="badge badge-private">
-                Private
-            </span>
-        {% endif %}
+        <button
+            class="collapsible-toggle"
+            type="button"
+            aria-expanded="true"
+            data-target="world-details-section"
+        >
+            Hide
+        </button>
     </div>
 
-    <section class="content-panel">
-        <h2>Summary</h2>
-        <p>{{ world.summary }}</p>
-    </section>
+    <div id="world-details-section">
+        <div class="action-row">
+            <span class="badge">
+                Genre: {{ world.get_genre_display }}
+            </span>
 
-    {% if world.main_conflict %}
+            {% if world.is_public %}
+                <span class="badge badge-public">
+                    Public
+                </span>
+            {% else %}
+                <span class="badge badge-private">
+                    Private
+                </span>
+            {% endif %}
+        </div>
+
         <section class="content-panel">
-            <h2>Main Conflict</h2>
-            <p>{{ world.main_conflict }}</p>
+            <h2>Summary</h2>
+            <p>{{ world.summary }}</p>
         </section>
-    {% endif %}
 
-    {% if world.tone %}
-        <section class="content-panel">
-            <h2>Tone</h2>
-            <p>{{ world.tone }}</p>
-        </section>
-    {% endif %}
+        {% if world.main_conflict %}
+            <section class="content-panel">
+                <h2>Main Conflict</h2>
+                <p>{{ world.main_conflict }}</p>
+            </section>
+        {% endif %}
 
-    <section class="content-panel">
+        {% if world.tone %}
+            <section class="content-panel">
+                <h2>Tone</h2>
+                <p>{{ world.tone }}</p>
+            </section>
+        {% endif %}
+    </div>
+</section>
+
+<section class="content-panel">
+    <div class="collapsible-header">
         <h2>Record Information</h2>
 
+        <button
+            class="collapsible-toggle"
+            type="button"
+            aria-expanded="true"
+            data-target="record-information-section"
+        >
+            Hide
+        </button>
+    </div>
+
+    <div id="record-information-section">
         <p>
             <strong>Created:</strong>
             {{ world.created_at|date:"d M Y, H:i" }}
@@ -99,150 +125,176 @@
             <strong>Last Updated:</strong>
             {{ world.updated_at|date:"d M Y, H:i" }}
         </p>
-    </section>
+    </div>
 </section>
 
 <section class="content-panel">
-    <div class="action-row">
-        <h2>Characters</h2>
-
-        {% if is_owner %}
-            <a href="{% url 'character_create' world.id %}" class="button">
-                Add Character
-            </a>
-        {% endif %}
-    </div>
-
-    {% if world.characters.all %}
-        <div class="card-grid">
-            {% for character in world.characters.all %}
-                <article class="card">
-                    <h3>{{ character.name }}</h3>
-
-                    <div class="action-row">
-                        {% if character.role %}
-                            <span class="badge">
-                                {{ character.role }}
-                            </span>
-                        {% endif %}
-
-                        {% if character.species %}
-                            <span class="badge">
-                                {{ character.species }}
-                            </span>
-                        {% endif %}
-                    </div>
-
-                    {% if character.personality %}
-                        <p>
-                            {{ character.personality|truncatewords:24 }}
-                        </p>
-                    {% elif character.backstory %}
-                        <p>
-                            {{ character.backstory|truncatewords:24 }}
-                        </p>
-                    {% else %}
-                        <p>
-                            No character notes have been added yet.
-                        </p>
-                    {% endif %}
-
-                    <div class="card-glow"></div>
-
-                    <div class="action-row">
-                        <a href="{% url 'character_detail' world.id character.id %}" class="button">
-                            View Character
-                        </a>
-                    </div>
-                </article>
-            {% endfor %}
-        </div>
-    {% else %}
-        <section class="content-panel">
-            <h3>No characters yet</h3>
-            <p>
-                No characters have been added to this world yet.
-            </p>
+    <div class="collapsible-header">
+        <div class="action-row">
+            <h2>Characters</h2>
 
             {% if is_owner %}
-                <div class="action-row">
-                    <a href="{% url 'character_create' world.id %}" class="button">
-                        Add your first character
-                    </a>
-                </div>
+                <a href="{% url 'character_create' world.id %}" class="button">
+                    Add Character
+                </a>
             {% endif %}
-        </section>
-    {% endif %}
+        </div>
+
+        <button
+            class="collapsible-toggle"
+            type="button"
+            aria-expanded="true"
+            data-target="characters-section"
+        >
+            Hide
+        </button>
+    </div>
+
+    <div id="characters-section">
+        {% if world.characters.all %}
+            <div class="card-grid">
+                {% for character in world.characters.all %}
+                    <article class="card">
+                        <h3>{{ character.name }}</h3>
+
+                        <div class="action-row">
+                            {% if character.role %}
+                                <span class="badge">
+                                    {{ character.role }}
+                                </span>
+                            {% endif %}
+
+                            {% if character.species %}
+                                <span class="badge">
+                                    {{ character.species }}
+                                </span>
+                            {% endif %}
+                        </div>
+
+                        {% if character.personality %}
+                            <p>
+                                {{ character.personality|truncatewords:24 }}
+                            </p>
+                        {% elif character.backstory %}
+                            <p>
+                                {{ character.backstory|truncatewords:24 }}
+                            </p>
+                        {% else %}
+                            <p>
+                                No character notes have been added yet.
+                            </p>
+                        {% endif %}
+
+                        <div class="card-glow"></div>
+
+                        <div class="action-row">
+                            <a href="{% url 'character_detail' world.id character.id %}" class="button">
+                                View Character
+                            </a>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <section class="content-panel">
+                <h3>No characters yet</h3>
+                <p>
+                    No characters have been added to this world yet.
+                </p>
+
+                {% if is_owner %}
+                    <div class="action-row">
+                        <a href="{% url 'character_create' world.id %}" class="button">
+                            Add your first character
+                        </a>
+                    </div>
+                {% endif %}
+            </section>
+        {% endif %}
+    </div>
 </section>
 
 <section class="content-panel">
-    <div class="action-row">
-        <h2>Lore Entries</h2>
-
-        {% if is_owner %}
-            <a href="{% url 'lore_entry_create' world.id %}" class="button">
-                Add Lore Entry
-            </a>
-        {% endif %}
-    </div>
-
-    {% if world.lore_entries.all %}
-        <div class="card-grid">
-            {% for lore_entry in world.lore_entries.all %}
-                <article class="card">
-                    <h3>{{ lore_entry.title }}</h3>
-
-                    <div class="action-row">
-                        <span class="badge">
-                            {{ lore_entry.get_category_display }}
-                        </span>
-
-                        <span class="badge">
-                            {{ lore_entry.get_importance_display }}
-                        </span>
-
-                        {% if lore_entry.character %}
-                            <span class="badge">
-                                {{ lore_entry.character.name }}
-                            </span>
-                        {% endif %}
-                    </div>
-
-                    {% if lore_entry.summary %}
-                        <p>
-                            {{ lore_entry.summary|truncatewords:24 }}
-                        </p>
-                    {% else %}
-                        <p>
-                            {{ lore_entry.content|truncatewords:24 }}
-                        </p>
-                    {% endif %}
-
-                    <div class="card-glow"></div>
-
-                    <div class="action-row">
-                        <a href="{% url 'lore_entry_detail' world.id lore_entry.id %}" class="button">
-                            View Lore Entry
-                        </a>
-                    </div>
-                </article>
-            {% endfor %}
-        </div>
-    {% else %}
-        <section class="content-panel">
-            <h3>No lore entries yet</h3>
-            <p>
-                No lore entries have been added to this world yet.
-            </p>
+    <div class="collapsible-header">
+        <div class="action-row">
+            <h2>Lore Entries</h2>
 
             {% if is_owner %}
-                <div class="action-row">
-                    <a href="{% url 'lore_entry_create' world.id %}" class="button">
-                        Add your first lore entry
-                    </a>
-                </div>
+                <a href="{% url 'lore_entry_create' world.id %}" class="button">
+                    Add Lore Entry
+                </a>
             {% endif %}
-        </section>
-    {% endif %}
+        </div>
+
+        <button
+            class="collapsible-toggle"
+            type="button"
+            aria-expanded="true"
+            data-target="lore-entries-section"
+        >
+            Hide
+        </button>
+    </div>
+
+    <div id="lore-entries-section">
+        {% if world.lore_entries.all %}
+            <div class="card-grid">
+                {% for lore_entry in world.lore_entries.all %}
+                    <article class="card">
+                        <h3>{{ lore_entry.title }}</h3>
+
+                        <div class="action-row">
+                            <span class="badge">
+                                {{ lore_entry.get_category_display }}
+                            </span>
+
+                            <span class="badge">
+                                {{ lore_entry.get_importance_display }}
+                            </span>
+
+                            {% if lore_entry.character %}
+                                <span class="badge">
+                                    {{ lore_entry.character.name }}
+                                </span>
+                            {% endif %}
+                        </div>
+
+                        {% if lore_entry.summary %}
+                            <p>
+                                {{ lore_entry.summary|truncatewords:24 }}
+                            </p>
+                        {% else %}
+                            <p>
+                                {{ lore_entry.content|truncatewords:24 }}
+                            </p>
+                        {% endif %}
+
+                        <div class="card-glow"></div>
+
+                        <div class="action-row">
+                            <a href="{% url 'lore_entry_detail' world.id lore_entry.id %}" class="button">
+                                View Lore Entry
+                            </a>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <section class="content-panel">
+                <h3>No lore entries yet</h3>
+                <p>
+                    No lore entries have been added to this world yet.
+                </p>
+
+                {% if is_owner %}
+                    <div class="action-row">
+                        <a href="{% url 'lore_entry_create' world.id %}" class="button">
+                            Add your first lore entry
+                        </a>
+                    </div>
+                {% endif %}
+            </section>
+        {% endif %}
+    </div>
 </section>
 {% endblock %}

@@ -185,7 +185,7 @@ img {
     opacity: 0.9;
 }
 
-/* Header / Nav */
+/* Header / Navigation */
 
 .site-header {
     position: sticky;
@@ -869,6 +869,36 @@ p > a:hover {
     margin-top: 1rem;
     border-radius: 999px;
     background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink));
+}
+
+/* Collapsible Sections */
+
+.collapsible-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.collapsible-toggle {
+    border: 1px solid rgba(148, 163, 184, 0.5);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.75);
+    color: #f8fafc;
+    padding: 0.45rem 0.9rem;
+    font: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.collapsible-toggle:hover,
+.collapsible-toggle:focus {
+    border-color: rgba(56, 189, 248, 0.9);
+    box-shadow: 0 0 18px rgba(56, 189, 248, 0.35);
+}
+
+.collapsed-section {
+    display: none;
 }
 
 /* Badges / Status Pills */
