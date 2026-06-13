@@ -662,7 +662,6 @@ input[type="submit"]::after,
 .button::after,
 .btn::after,
 form button::after {
-    content: " ✨";
     font-size: 0.85rem;
 }
 
@@ -1258,4 +1257,139 @@ th {
 
 .center-text {
     text-align: center;
+}
+
+/* Responsive Design/Media Queries */
+
+@media (max-width: 880px) {
+    .nav-container {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .site-nav {
+        justify-content: flex-start;
+    }
+
+    .site-nav a {
+        padding: 0.5rem 0.7rem;
+    }
+
+    .home-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .home-hero-image {
+        order: -1;
+    }
+
+    .hero-image-slot {
+        max-width: 320px;
+    }
+
+    .search-form,
+    .filter-form {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .page-container {
+        width: min(100% - 1rem, 1180px);
+        padding: 1.4rem 0 3rem;
+    }
+
+    .messages {
+        width: min(100% - 1rem, 1180px);
+    }
+
+    .nav-container {
+        width: min(100% - 1rem, 1180px);
+    }
+
+    .site-nav {
+        gap: 0.35rem;
+    }
+
+    .site-nav a {
+        font-size: 0.85rem;
+    }
+
+    h1 {
+        font-size: clamp(2.1rem, 13vw, 3.4rem);
+    }
+
+    .world-card,
+    .card,
+    .detail-panel,
+    .content-panel,
+    form,
+    .hero-panel {
+        border-radius: var(--radius-lg);
+        padding: 1.1rem;
+    }
+
+    .world-card h2,
+    .world-card h3,
+    .card h2,
+    .card h3 {
+        max-width: 100%;
+        padding-right: 4rem;
+    }
+
+    .world-card::before,
+    .card::before {
+        width: 4.4rem;
+        height: 4.4rem;
+        opacity: 0.48;
+    }
+
+    .world-card::after,
+    .card::after {
+        width: 5.8rem;
+        opacity: 0.36;
+    }
+
+    button,
+    input[type="submit"],
+    .button,
+    .btn,
+    form button {
+        width: 100%;
+    }
+
+    .action-row {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .action-row h2 {
+        width: 100%;
+    }
+
+    .badge,
+    .status-badge,
+    .counter,
+    .stat,
+    .world-count {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Reduced Motion Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+    }
 }
