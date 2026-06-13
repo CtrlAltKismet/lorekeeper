@@ -700,3 +700,62 @@ p > a:hover {
 }
 
 /* Danger / Delete Actions */
+
+.danger-panel {
+    border-color: rgba(251, 113, 133, 0.55);
+    background:
+        radial-gradient(circle at top right, rgba(251, 113, 133, 0.16), transparent 32%),
+        linear-gradient(135deg, rgba(46, 10, 32, 0.84), rgba(18, 12, 38, 0.78));
+}
+
+.danger-panel h2::before {
+    content: "⚠ ";
+    color: var(--rose);
+}
+
+.delete-form {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    max-width: none;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+}
+
+.delete-form::before {
+    display: none;
+}
+
+.danger-button {
+    color: var(--text-main);
+    background:
+        linear-gradient(135deg, #fb7185, #dc2626, #7f1d1d);
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.35),
+        0 0 30px rgba(251, 113, 133, 0.35);
+}
+
+.danger-button:hover {
+    color: var(--text-main);
+    box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.45),
+        0 0 38px rgba(251, 113, 133, 0.5);
+}
+
+.secondary-button {
+    color: var(--text-main);
+    background:
+        linear-gradient(135deg, rgba(125, 211, 252, 0.16), rgba(167, 139, 250, 0.18));
+    border: 1px solid rgba(216, 207, 245, 0.25);
+    box-shadow: none;
+}
+
+.secondary-button:hover {
+    color: var(--text-main);
+    background:
+        linear-gradient(135deg, rgba(125, 211, 252, 0.24), rgba(244, 114, 182, 0.2));
+    box-shadow: var(--shadow-glow-purple);
+}
+
+/* World/Card Grids */
