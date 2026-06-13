@@ -1053,3 +1053,25 @@ input[type="checkbox"] {
 }
 
 /* Search / Filter Forms */
+
+.search-form,
+.filter-form {
+    display: grid;
+    grid-template-columns: minmax(230px, 1fr) minmax(190px, 0.45fr) auto;
+    gap: 0.8rem;
+    max-width: none;
+    align-items: end;
+}
+
+.search-form button,
+.filter-form button {
+    width: auto;
+    white-space: nowrap;
+}
+
+.search-form select,
+.filter-form select {
+    min-width: 170px;
+}
+
+/* Detail Pages and Lists */
