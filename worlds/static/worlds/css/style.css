@@ -1097,3 +1097,14 @@ section li a {
 }
 
 /* Empty States */
+
+.empty-state {
+    text-align: center;
+}
+
+.empty-state h3::before {
+    content: "☾ ";
+    color: var(--gold);
+}
+
+/* Footer */
