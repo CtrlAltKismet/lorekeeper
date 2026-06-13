@@ -25,55 +25,111 @@
 </section>
 
 <section class="detail-panel">
-    <h2>Character Details</h2>
+    <div class="collapsible-header">
+        <h2>Character Details</h2>
 
-    <p>
-        <strong>World:</strong>
-        {{ world.title }}
-    </p>
+        <button
+            class="collapsible-toggle"
+            type="button"
+            aria-expanded="true"
+            data-target="character-details-section"
+        >
+            Hide
+        </button>
+    </div>
 
-    {% if character.role %}
+    <div id="character-details-section">
         <p>
-            <strong>Role:</strong>
-            {{ character.role }}
+            <strong>World:</strong>
+            {{ world.title }}
         </p>
-    {% endif %}
 
-    {% if character.species %}
-        <p>
-            <strong>Species:</strong>
-            {{ character.species }}
-        </p>
-    {% endif %}
+        {% if character.role %}
+            <p>
+                <strong>Role:</strong>
+                {{ character.role }}
+            </p>
+        {% endif %}
 
-    {% if character.personality %}
-        <section class="content-panel">
-            <h2>Personality</h2>
-            <p>{{ character.personality }}</p>
-        </section>
-    {% endif %}
+        {% if character.species %}
+            <p>
+                <strong>Species:</strong>
+                {{ character.species }}
+            </p>
+        {% endif %}
+    </div>
+</section>
 
-    {% if character.backstory %}
-        <section class="content-panel">
-            <h2>Backstory</h2>
-            <p>{{ character.backstory }}</p>
-        </section>
-    {% endif %}
-
+{% if character.personality %}
     <section class="content-panel">
+        <div class="collapsible-header">
+            <h2>Personality</h2>
+
+            <button
+                class="collapsible-toggle"
+                type="button"
+                aria-expanded="true"
+                data-target="character-personality-section"
+            >
+                Hide
+            </button>
+        </div>
+
+        <div id="character-personality-section">
+            <p>{{ character.personality }}</p>
+        </div>
+    </section>
+{% endif %}
+
+{% if character.backstory %}
+    <section class="content-panel">
+        <div class="collapsible-header">
+            <h2>Backstory</h2>
+
+            <button
+                class="collapsible-toggle"
+                type="button"
+                aria-expanded="true"
+                data-target="character-backstory-section"
+            >
+                Hide
+            </button>
+        </div>
+
+        <div id="character-backstory-section">
+            <p>{{ character.backstory }}</p>
+        </div>
+    </section>
+{% endif %}
+
+<section class="content-panel">
+    <div class="collapsible-header">
         <h2>Record Information</h2>
 
+        <button
+            class="collapsible-toggle"
+            type="button"
+            aria-expanded="true"
+            data-target="character-record-information-section"
+        >
+            Hide
+        </button>
+    </div>
+
+    <div id="character-record-information-section">
         <p>
             <strong>Created:</strong>
-            {{ character.created_at }}
+            {{ character.created_at|date:"d M Y, H:i" }}
         </p>
 
         <p>
             <strong>Last updated:</strong>
-            {{ character.updated_at }}
+            {{ character.updated_at|date:"d M Y, H:i" }}
         </p>
-    </section>
+    </div>
+</section>
 
+<section class="content-panel">
     <div class="action-row">
         {% if is_owner %}
             <a href="{% url 'character_update' world.id character.id %}" class="button">

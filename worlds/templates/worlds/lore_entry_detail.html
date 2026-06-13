@@ -31,56 +31,112 @@
 </section>
 
 <section class="detail-panel">
-    <h2>Lore Entry Details</h2>
+    <div class="collapsible-header">
+        <h2>Lore Entry Details</h2>
 
-    <p>
-        <strong>World:</strong>
-        {{ world.title }}
-    </p>
+        <button
+            class="collapsible-toggle"
+            type="button"
+            aria-expanded="true"
+            data-target="lore-entry-details-section"
+        >
+            Hide
+        </button>
+    </div>
 
-    <p>
-        <strong>Category:</strong>
-        {{ lore_entry.get_category_display }}
-    </p>
-
-    <p>
-        <strong>Importance:</strong>
-        {{ lore_entry.get_importance_display }}
-    </p>
-
-    {% if lore_entry.character %}
+    <div id="lore-entry-details-section">
         <p>
-            <strong>Related character:</strong>
-            {{ lore_entry.character.name }}
+            <strong>World:</strong>
+            {{ world.title }}
         </p>
-    {% endif %}
 
-    {% if lore_entry.summary %}
-        <section class="content-panel">
+        <p>
+            <strong>Category:</strong>
+            {{ lore_entry.get_category_display }}
+        </p>
+
+        <p>
+            <strong>Importance:</strong>
+            {{ lore_entry.get_importance_display }}
+        </p>
+
+        {% if lore_entry.character %}
+            <p>
+                <strong>Related character:</strong>
+                {{ lore_entry.character.name }}
+            </p>
+        {% endif %}
+    </div>
+</section>
+
+{% if lore_entry.summary %}
+    <section class="content-panel">
+        <div class="collapsible-header">
             <h2>Summary</h2>
+
+            <button
+                class="collapsible-toggle"
+                type="button"
+                aria-expanded="true"
+                data-target="lore-summary-section"
+            >
+                Hide
+            </button>
+        </div>
+
+        <div id="lore-summary-section">
             <p>{{ lore_entry.summary }}</p>
-        </section>
-    {% endif %}
-
-    <section class="content-panel">
-        <h2>Full Lore Entry</h2>
-        <p>{{ lore_entry.content }}</p>
+        </div>
     </section>
+{% endif %}
 
-    <section class="content-panel">
+<section class="content-panel">
+    <div class="collapsible-header">
+        <h2>Full Lore Entry</h2>
+
+        <button
+            class="collapsible-toggle"
+            type="button"
+            aria-expanded="true"
+            data-target="full-lore-entry-section"
+        >
+            Hide
+        </button>
+    </div>
+
+    <div id="full-lore-entry-section">
+        <p>{{ lore_entry.content }}</p>
+    </div>
+</section>
+
+<section class="content-panel">
+    <div class="collapsible-header">
         <h2>Record Information</h2>
 
+        <button
+            class="collapsible-toggle"
+            type="button"
+            aria-expanded="true"
+            data-target="lore-record-information-section"
+        >
+            Hide
+        </button>
+    </div>
+
+    <div id="lore-record-information-section">
         <p>
             <strong>Created:</strong>
-            {{ lore_entry.created_at }}
+            {{ lore_entry.created_at|date:"d M Y, H:i" }}
         </p>
 
         <p>
             <strong>Last updated:</strong>
-            {{ lore_entry.updated_at }}
+            {{ lore_entry.updated_at|date:"d M Y, H:i" }}
         </p>
-    </section>
+    </div>
+</section>
 
+<section class="content-panel">
     <div class="action-row">
         {% if is_owner %}
             <a href="{% url 'lore_entry_update' world.id lore_entry.id %}" class="button">
