@@ -1075,3 +1075,25 @@ input[type="checkbox"] {
 }
 
 /* Detail Pages and Lists */
+
+.page-container > ul,
+.detail-panel ul,
+section ul {
+    padding-left: 1.2rem;
+}
+
+.detail-panel li,
+section li {
+    margin-bottom: 0.5rem;
+}
+
+section li a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(125, 211, 252, 0.08);
+    border: 1px solid rgba(125, 211, 252, 0.14);
+}
+
+/* Empty States */
