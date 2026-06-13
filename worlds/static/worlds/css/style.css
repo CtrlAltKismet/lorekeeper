@@ -1108,3 +1108,120 @@ section li a {
 }
 
 /* Footer */
+
+.site-footer {
+    position: relative;
+    margin-top: auto;
+    padding: 2.5rem 1rem 1.2rem;
+    color: var(--text-muted);
+    background:
+        radial-gradient(circle at 15% 20%, rgba(125, 211, 252, 0.12), transparent 24%),
+        radial-gradient(circle at 85% 80%, rgba(244, 114, 182, 0.12), transparent 26%),
+        rgba(5, 7, 18, 0.82);
+    border-top: 1px solid rgba(167, 139, 250, 0.25);
+}
+
+.site-footer::before {
+    content: "✧ ✦ ✧";
+    display: block;
+    margin-bottom: 1.2rem;
+    color: var(--pink);
+    text-align: center;
+    letter-spacing: 0.6rem;
+}
+
+.footer-container {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.footer-brand,
+.footer-links,
+.footer-socials {
+    padding: 1.2rem;
+    border: 1px solid rgba(216, 207, 245, 0.12);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.footer-brand h2,
+.footer-links h3,
+.footer-socials h3 {
+    margin-bottom: 0.75rem;
+}
+
+.footer-brand h2::before {
+    content: "✦ ";
+    color: var(--gold);
+}
+
+.footer-links ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.45rem;
+}
+
+.footer-links a {
+    color: var(--text-soft);
+    font-weight: 600;
+}
+
+.footer-links a:hover {
+    color: var(--pink);
+    text-shadow: 0 0 16px rgba(244, 114, 182, 0.45);
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 0.9rem;
+}
+
+.social-links a {
+    display: inline-grid;
+    place-items: center;
+    width: 2.7rem;
+    height: 2.7rem;
+    border-radius: 50%;
+    color: var(--bg-void);
+    background: linear-gradient(135deg, var(--cyan), var(--purple), var(--pink));
+    box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.28),
+        0 0 24px rgba(167, 139, 250, 0.28);
+}
+
+.social-links svg {
+    width: 1.35rem;
+    height: 1.35rem;
+    fill: currentColor;
+}
+
+.social-links a:hover {
+    color: var(--bg-void);
+    transform: translateY(-3px) rotate(-4deg);
+    box-shadow:
+        0 16px 32px rgba(0, 0, 0, 0.34),
+        0 0 32px rgba(244, 114, 182, 0.4);
+}
+
+.footer-bottom {
+    width: min(1180px, 100%);
+    margin: 1.5rem auto 0;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(216, 207, 245, 0.12);
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* Tables */
