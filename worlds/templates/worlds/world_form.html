@@ -69,5 +69,50 @@
             </a>
         {% endif %}
     </div>
+
+    <section class="content-panel world-preview-panel">
+        <h2>Live Preview</h2>
+
+        <p class="muted">
+            This preview updates as you fill in the world form.
+        </p>
+
+        <article class="card world-preview-card" id="world-preview-card">
+            <h3 id="preview-title">Untitled World</h3>
+
+            <div class="action-row">
+                <span class="badge" id="preview-genre">
+                    Genre not selected
+                </span>
+
+                <span class="badge badge-private" id="preview-visibility">
+                    Private
+                </span>
+            </div>
+
+            <p>
+                <strong>Summary:</strong>
+                <span id="preview-summary">
+                    Your world summary will appear here.
+                </span>
+            </p>
+
+            <p>
+                <strong>Main conflict:</strong>
+                <span id="preview-conflict">
+                    Main conflict will appear here if added.
+                </span>
+            </p>
+
+            <p>
+                <strong>Tone:</strong>
+                <span id="preview-tone">
+                    Tone will appear here if added.
+                </span>
+            </p>
+
+            <div class="card-glow"></div>
+        </article>
+    </section>
 </section>
 {% endblock %}

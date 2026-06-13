@@ -1442,6 +1442,24 @@ th {
     }
 }
 
+/* Live world form preview */
+
+.world-preview-panel {
+    margin-top: 2rem;
+}
+
+.world-preview-card {
+    margin-top: 1rem;
+}
+
+.world-preview-card h3 {
+    margin-top: 0;
+}
+
+.world-preview-card p {
+    margin-bottom: 0.8rem;
+}
+
 /* Reduced Motion Accessibility */
 
 @media (prefers-reduced-motion: reduce) {
