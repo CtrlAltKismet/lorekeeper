@@ -1,4 +1,5 @@
 {% extends "worlds/base.html" %}
+{% load static %}
 
 {% block title %}Home | Lorekeeper{% endblock %}
 
@@ -41,10 +42,11 @@
 
     <div class="home-hero-image">
         <div class="hero-image-slot">
-            <div class="hero-image-placeholder">
-                <span class="hero-image-placeholder-icon">✦</span>
-                <p>Future Lorekeeper mascot / hero image goes here</p>
-            </div>
+            <img
+                src="{% static 'worlds/images/echo-mascot.png' %}"
+                alt="Echo, the Lorekeeper mascot, smiling in a cosmic library"
+                class="hero-mascot-image"
+            >
         </div>
     </div>
 </section>
