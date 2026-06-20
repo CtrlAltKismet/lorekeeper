@@ -510,3 +510,8 @@ def lore_entry_delete(request, world_id, lore_entry_id):
             'lore_entry': lore_entry,
         }
     )
+
+
+def custom_404(request, exception):
+    """Display a custom 404 error page."""
+    return render(request, 'worlds/404.html', status=404)
