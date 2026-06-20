@@ -1,6 +1,7 @@
 # Lorekeeper
 
-![Responsive mockup image](Insert Image Here)
+<img width="852" height="730" alt="Mock Up" src="https://github.com/user-attachments/assets/898ec8c6-dd43-4c10-8987-ba0bb87bb84e" />
+
 
 ## Introduction
 
@@ -1095,8 +1096,28 @@ The **Add/Edit/Delete Lore Entry Pages** allow logged-in users to create, update
 
 The site structure guides users through a logical journey of discovering the application, creating an account, building a world, adding connected records and optionally sharing public content. The consistent layout, authentication-aware navigation, dashboard structure and owner-only management links help keep the application clear, secure and easy to use.
 
+Homepage:
+<img width="1533" height="826" alt="Homepage" src="https://github.com/user-attachments/assets/870060c3-ce60-4890-afbc-5d2cf9ecfffe" />
 
+World Libary:
+<img width="1534" height="829" alt="World Library" src="https://github.com/user-attachments/assets/3ac1429b-7625-4290-b1e3-58c68ef03357" />
 
+Create World:
+<img width="1534" height="825" alt="Create World" src="https://github.com/user-attachments/assets/57467e8b-ad52-433c-afa5-25eb152988c0" />
+
+World Detail Page:
+<img width="1534" height="829" alt="World Detail 1" src="https://github.com/user-attachments/assets/b9d1123a-bdd7-4cda-9888-6a541b401e1e" />
+<img width="1534" height="829" alt="World Detail 2" src="https://github.com/user-attachments/assets/63c0cace-7283-4890-b860-5c823776f483" />
+<img width="1533" height="830" alt="World Detail 3" src="https://github.com/user-attachments/assets/ddffc6e6-c3e0-419e-aaad-58672b2b772e" />
+
+About Page:
+<img width="1534" height="817" alt="About" src="https://github.com/user-attachments/assets/afccecde-1dce-4aa1-991f-bb67d86c38a5" />
+
+Dashboard:
+<img width="1534" height="820" alt="Dashboard" src="https://github.com/user-attachments/assets/558c9ae7-4159-418d-8d46-0aa5af88d93f" />
+
+Register:
+<img width="1533" height="829" alt="Register" src="https://github.com/user-attachments/assets/9fedb2ae-3a82-4b45-9811-ab563f877360" />
 
 ### Wireframes
 
@@ -1261,19 +1282,14 @@ The layout uses:
 
 ### Existing Features
 
-### Existing Features
-
 #### Homepage
 
 The homepage introduces Lorekeeper and explains that it can be used to create, organise and share fictional worlds.
-
-Homepage picture: 
 
 #### About Page
 
 The About page explains the purpose of Lorekeeper, the intended audience and how the application supports creative worldbuilding.
 
-About Page Picture:
 
 #### Public World Library
 
@@ -1290,33 +1306,21 @@ Each public world card includes key information such as:
 
 Private worlds do not appear in the library.
 
-Public world library picture:
-
 #### Create World Page
 
 The create world page allows users to create their own world and decide if they want it public or private. The form has validation to ensure required fields are filled in.
-
-Create World Page picture:
 
 #### Create Character/Lore Entry Pages
 
 Much like the create world page, the create character and create lore entry pages allow users to fill out forms and link them to worlds/characters where necessary. These forms also have validation for required fields.
 
-Create Character Page Picture:
-
-Create Lore Entry Page Picture:
-
 #### User Registration
 
 Users can register for an account using Django's built-in 'UserCreationForm'. After successful registration, the user is automatically logged in and shown a success message.
 
-Picture User Registration:
-
 #### Login and Logout
 
 Users can log in using Django's authentication system and log out using a custom logout view that displays a success message.
-
-Pictures:
 
 #### Dashboard
 
@@ -1332,8 +1336,6 @@ The dashboard includes:
 - create world link.
 - empty state when no worlds exist.
 
-Dashboard Page picture:
-
 #### Dashboard Counters
 
 Dashboard counters give users quick feedback about their content.
@@ -1346,7 +1348,6 @@ The dashboard shows:
 
 The count updates when related records are added or deleted.
 
-Picture of dashboard counters:
 
 #### World CRUD
 
@@ -1365,11 +1366,6 @@ World records include:
 
 The owner is assigned automatically from the logged-in user and is not exposed as a form field. 
 
-Create world picture:
-World detail picture:
-edit world picture:
-delete world picture:
-
 #### Character CRUD
 
 Users can create characters linked to worlds they own. Characters are managed through their parent world.
@@ -1385,12 +1381,6 @@ Character records include:
 - updated date.
 
 Characters appear on their related world detail page and can be opened on their own detail page.
-
-Character list picture:
-
-character detail picture:
-
-character form picture:
 
 #### Lore Entry CRUD
 
@@ -1409,12 +1399,6 @@ Lore entry records include:
 
 The related character dropdown is filtered to characters from the current world only. This prevents users from linking a lore entry to a character from another world.
 
-Lore entry list picture:
-
-Lore entry detail picture:
-
-Lore entry form picture:
-
 #### Form Validation Feedback
 
 Required fields use browser validation first, which prevents users from submitting blank required fields. A Django/server-side error summary block was also added to the form templates as a fallback if invalid form data reaches the server.
@@ -1429,7 +1413,8 @@ Validation feedback was added to:
 
 Worlds, characters and lore entries all have confirmation pages before deletion. This helps prevent accidental data loss.
 
-picture of delete confirmation pages:
+<img width="1530" height="837" alt="Delete Confirm" src="https://github.com/user-attachments/assets/b92f88f5-567d-4d4a-9d8e-c692b9e06d9f" />
+<img width="1534" height="592" alt="Delete Confirm Message" src="https://github.com/user-attachments/assets/bf7b17b9-b77f-4ae2-af68-debbbe95fef5" />
 
 #### Public and Private Worlds
 
@@ -1442,8 +1427,6 @@ Each world can be marked as public or private.
 | Logged-out visitor | Can view only | Blocked / 404 |
 
 Owner-only links such as edit, delete, add character and add lore entry are hidden from non-owners.
-
-public world logged out picture:
 
 private world 404:
 
@@ -1475,11 +1458,6 @@ The Public World Library includes a genre filter. Users can filter by genre and 
 
 A clear/reset link appears when a search or filter is active.
 
-Genre filter picture: 
-
-Combined search and filter picture:
-
-
 #### Responsive Navigation
 
 The website uses a shared 'base.html' template with consistent navigation. Navigation changes depending on authentication status.
@@ -1501,10 +1479,6 @@ Logged-in users can see:
 - Create World
 - Logout
 
-Picture of logged in:
-
-Picture of logged out:
-
 ---
 
 ### JavaScript Features
@@ -1522,7 +1496,6 @@ It is linked in 'base.html' with 'defer', so it loads after the HTML has been pa
 ```
 
 The JavaScript is used for frontend enhancement only. Core data handling, validation and permissions are still managed by Django on the back end.
-
 
 ### Collapsible Detail Sections
 
@@ -1566,8 +1539,6 @@ The live preview was limited to the World form because worlds are the central co
 
 The browser console was checked after implementing JavaScript interactions. No JavaScript errors appeared, and the collapsible sections/live preview continued to work as expected.
 
-JavaScript No Errors picture:
-
 ---
 
 ## Mock-Ups
@@ -1594,17 +1565,14 @@ Create World:
 
 This project uses GitHub Issues to track planned features, bugs, improvements and documentation tasks.
 
-GitHub Issues Image:
+<img width="1379" height="693" alt="GitHub Issues" src="https://github.com/user-attachments/assets/b4340a69-58e1-4283-b8cf-cc9d50d0fa78" />
 
-![GitHub Issues Image]
 
 ### Project Board
 
-The board uses the following workflow columns:
+GitHub Projects was used to manage the workflow and track GitHub issues.
 
-Project Board Image:
-
-![GitHub Project Board Image]
+<img width="1533" height="749" alt="Project Board" src="https://github.com/user-attachments/assets/5cb9f615-06cb-4cc0-956a-356db2ca21e9" />
 
 ### MoSCoW Prioritisation
 
@@ -1655,10 +1623,6 @@ Completed issues include:
 - Add CSS styling
 - Add JavaScript enhancements
 - Deploy project
-
-Completed Issues Image:
-
-![Completed Issues Image]
 
 ### Won't Have Scope Control
 
@@ -1991,8 +1955,6 @@ This schema also supports privacy and ownership because worlds are linked to use
 
 ---
 
----
-
 ## Installation
 
 To run this project locally:
@@ -2125,8 +2087,6 @@ These features are possible future improvements after the Milestone 3 MVP:
 - private messaging.
 
 Some of these were intentionally marked as Won't Have during the MVP to keep the project achievable before the deadline.
-
----
 
 ---
 
@@ -2347,6 +2307,37 @@ Most pages returned green results across the tested categories. The homepage ret
 | Register Page | Pass | Lighthouse checks completed successfully |
 | World Library | Pass | Lighthouse checks completed successfully |
 
+Homepage:
+
+<img width="524" height="529" alt="Homepage" src="https://github.com/user-attachments/assets/1315d147-7c68-484b-a5d1-85ca090ee621" />
+
+About Page:
+
+<img width="542" height="561" alt="About Page" src="https://github.com/user-attachments/assets/d7c9463b-816c-4593-93b3-9af31ffcef8a" />
+
+World Library:
+
+<img width="554" height="561" alt="World Library" src="https://github.com/user-attachments/assets/450335da-20fd-48c7-8fe9-50871013cc14" />
+
+
+Register Page:
+
+<img width="540" height="584" alt="Register Page" src="https://github.com/user-attachments/assets/2d7f9b60-b191-4c37-942a-6f33da34b94c" />
+
+
+Login Page:
+
+<img width="558" height="606" alt="Login Page" src="https://github.com/user-attachments/assets/ccf0c36d-3643-4aa8-9b45-0db7ad32f642" />
+
+Dashboard:
+
+<img width="552" height="585" alt="Dashboard" src="https://github.com/user-attachments/assets/392a5443-5e70-4bd1-95a8-708c9806af7d" />
+
+Create World:
+
+<img width="542" height="577" alt="Create World Page" src="https://github.com/user-attachments/assets/52b3ed28-fa79-41bd-bc9f-d0f8438e19af" />
+
+
 ### HTML Validation
 
 HTML validation was completed using the W3C Markup Validation Service by testing the deployed website pages.
@@ -2363,17 +2354,42 @@ HTML validation was completed using the W3C Markup Validation Service by testing
 
 Home Image: 
 
+<img width="1508" height="337" alt="HTML Homepage" src="https://github.com/user-attachments/assets/116a4f37-36f2-438d-8eec-48b7de2eb735" />
+
 About Image: 
+
+<img width="1508" height="342" alt="HTML About" src="https://github.com/user-attachments/assets/20c6522a-af28-482a-89fb-5431b9a53981" />
+
 
 Create Image: 
 
+<img width="1508" height="345" alt="HTML Create" src="https://github.com/user-attachments/assets/1a9e084f-1618-44f8-92d9-d60441f1aad9" />
+
+
 Dashboard Image: 
+
+<img width="1508" height="349" alt="HTML Dashboard" src="https://github.com/user-attachments/assets/796fde78-e245-41cf-8be9-dc141d61e78e" />
+
 
 Login Image: 
 
+<img width="1508" height="354" alt="HTML Login" src="https://github.com/user-attachments/assets/9311d32d-e9ba-4b3b-a974-d756c7ccc535" />
+
+
 Public Worlds Image: 
 
+<img width="1508" height="349" alt="HTML Public Worlds" src="https://github.com/user-attachments/assets/6657b350-8f81-4010-b9d5-b0961b505be3" />
+
 Register Image:
+
+Register came back with a few errors:
+
+<img width="1508" height="736" alt="HTML Register Error" src="https://github.com/user-attachments/assets/a48ff8af-8ff6-40e4-94c6-7d8ee6f4c2eb" />
+
+This was fixed (see Bugs):
+
+<img width="1508" height="344" alt="HTML Register Fix" src="https://github.com/user-attachments/assets/d911168e-6e98-4b86-8e2e-28a0aa415813" />
+
 
 ### CSS Validation
 
@@ -2383,6 +2399,7 @@ CSS validation was completed using the W3C CSS Validation Service.
 |---|---|
 | `style.css` | Pass |
 
+<img width="1508" height="209" alt="CSS Validation" src="https://github.com/user-attachments/assets/f1488a25-21c9-4964-9c03-c8ccc9a6e7d0" />
 
 
 ### JavaScript Validation
@@ -2417,23 +2434,43 @@ Any issues found during validation were corrected, and the files were checked ag
 
 Worlds/Models Image:
 
+<img width="1361" height="498" alt="Models" src="https://github.com/user-attachments/assets/852cc314-dfa4-4345-8307-0a084e957df9" />
+
 Worlds/forms Image:
+
+<img width="1406" height="528" alt="Forms" src="https://github.com/user-attachments/assets/93639950-6811-4da9-90f8-e94c7c304a1e" />
 
 Worlds/Views Image:
 
+<img width="1381" height="518" alt="Views" src="https://github.com/user-attachments/assets/8bc2643c-8236-4b78-9d1d-40dff83338af" />
+
 Worlds/urls Image:
+
+<img width="1376" height="528" alt="URLS" src="https://github.com/user-attachments/assets/9c3baf90-bc11-4b59-a695-39dc5e3fe32e" />
 
 Worlds/apps Image:
 
+<img width="1377" height="533" alt="apps" src="https://github.com/user-attachments/assets/aa7d89be-2cbe-42d0-b292-bafb29278fd9" />
+
 Manage Image:
+
+<img width="1361" height="521" alt="Manage" src="https://github.com/user-attachments/assets/2de08dc3-05ae-4140-9d36-f5eb154c41a9" />
 
 config/settings Image:
 
+<img width="1373" height="529" alt="config-settings" src="https://github.com/user-attachments/assets/8c75ab62-21ab-4ae0-b874-e2913bfba4f1" />
+
 config/urls Image:
+
+<img width="1398" height="536" alt="config-urls" src="https://github.com/user-attachments/assets/46bea5f4-1212-4e21-8559-b3b1f0c9c5ff" />
 
 config asgi Image:
 
+<img width="1364" height="556" alt="config-asgi" src="https://github.com/user-attachments/assets/d3576a31-f136-4008-9a0e-c133b2382508" />
+
 config wsgi Image:
+
+<img width="1373" height="529" alt="config-wsgi" src="https://github.com/user-attachments/assets/924872e6-2a70-4dc0-abec-eb2bb7a97f60" />
 
 Migration files were not included in the PEP8 validation table because they are auto-generated by Django.
 
