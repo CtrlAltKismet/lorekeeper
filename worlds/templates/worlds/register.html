@@ -31,7 +31,24 @@
             </div>
         {% endif %}
 
-        {{ form.as_p }}
+        {% for field in form %}
+            <div class="form-field">
+                {{ field.label_tag }}
+                {{ field }}
+
+                {% if field.help_text %}
+                    <div class="helptext" id="{{ field.id_for_label }}_helptext">
+                        {{ field.help_text|safe }}
+                    </div>
+                {% endif %}
+
+                {% for error in field.errors %}
+                    <p class="form-error">
+                        {{ error }}
+                    </p>
+                {% endfor %}
+            </div>
+        {% endfor %}
 
         <button type="submit" class="button">
             Create Account

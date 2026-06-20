@@ -1683,4 +1683,3 @@ Footer icons use inline SVGs. They currently link internally to avoid placeholde
 This project was created as part of a Level 5 Diploma in Web Application Development.
 
 Special thanks to the tutors, learning resources and support materials used throughout the course.
-
