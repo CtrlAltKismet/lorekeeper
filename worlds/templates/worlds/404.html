@@ -1,0 +1,45 @@
+{% extends "worlds/base.html" %}
+{% load static %}
+
+
+{% block title %}
+    Page Not Found | Lorekeeper
+{% endblock %}
+
+
+{% block content %}
+<section class="error-page">
+    <div class="error-card">
+        <img
+            src="{% static 'worlds/Images/echo-mascot-2.png' %}"
+            alt="Echo looking surprised after losing a page in the archive"
+            class="error-mascot"
+        >
+
+        <p class="eyebrow">404 Error</p>
+
+        <h1>This page has vanished into the archive.</h1>
+
+        <p>
+            Echo checked the shelves, the spellbooks, the star maps and at
+            least three suspiciously glowing folders titled 'Do not open under any circumstances', but this page could not
+            be found.
+        </p>
+
+        <p>
+            It may have been moved, deleted, made private, or never existed in
+            the first place.
+        </p>
+
+        <div class="button-row">
+            <a href="{% url 'home' %}" class="button">
+                Return Home
+            </a>
+
+            <a href="{% url 'public_world_list' %}" class="button button-secondary">
+                Browse Public Worlds
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

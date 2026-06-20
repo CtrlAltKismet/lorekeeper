@@ -1266,6 +1266,43 @@ th {
     text-align: center;
 }
 
+/* Error pages */
+
+.error-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 65vh;
+    padding: 2rem;
+}
+
+.error-card {
+    max-width: 760px;
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.error-mascot {
+    max-width: 220px;
+    width: 70%;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.error-card h1 {
+    margin-bottom: 1rem;
+}
+
+.error-card p {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.error-card .button-row {
+    margin-top: 2rem;
+}
+
 /* Responsive Design/Media Queries */
 
 @media (max-width: 880px) {
