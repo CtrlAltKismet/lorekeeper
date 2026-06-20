@@ -1131,13 +1131,35 @@ Desktop wireframes were prioritised due to time constraints. Responsive behaviou
 
 Wireframes:
 
-![Homepage wireframe]
+Homepage:
 
-![Dashboard wireframe]
+<img width="1023" height="1537" alt="Homepage Wireframe" src="https://github.com/user-attachments/assets/b38fae7d-5860-4896-ab9f-6d062c1cd694" />
 
-![World detail wireframe]
+Dashboard:
 
-![Form wireframe]
+<img width="1122" height="1402" alt="Dashboard Wireframe" src="https://github.com/user-attachments/assets/feb4d931-8f73-4192-95c6-514179bdb391" />
+
+Create World:
+
+<img width="941" height="1672" alt="Create World" src="https://github.com/user-attachments/assets/945c56f9-d118-4dfe-bf22-68051b8ceabc" />
+
+
+World Details:
+
+<img width="1086" height="1448" alt="World Details" src="https://github.com/user-attachments/assets/8e6ffb98-9586-42de-a95e-5b980c964ee0" />
+
+World Library:
+
+<img width="1122" height="1402" alt="World Library" src="https://github.com/user-attachments/assets/2b9f3f5b-f4b9-4ebd-8ad6-53e9f51f7c74" />
+
+
+About Page:
+
+<img width="1122" height="1402" alt="About Page" src="https://github.com/user-attachments/assets/e496425f-cb5f-4330-9da5-5e86af88b116" />
+
+Register Page:
+
+<img width="1086" height="1448" alt="Register Page" src="https://github.com/user-attachments/assets/46cc8464-248a-4ec6-b62a-4633764d756e" />
 
 ### Design Choices
 
@@ -1429,6 +1451,10 @@ Each world can be marked as public or private.
 Owner-only links such as edit, delete, add character and add lore entry are hidden from non-owners.
 
 private world 404:
+
+<img width="1532" height="829" alt="404 Error 1" src="https://github.com/user-attachments/assets/78ed904b-14a2-4899-8d6b-da2e0faf7d84" />
+<img width="1534" height="508" alt="404 Error 2" src="https://github.com/user-attachments/assets/c871caf6-c72b-40bf-af6e-dfef5f754db1" />
+
 
 #### Public World Search
 
