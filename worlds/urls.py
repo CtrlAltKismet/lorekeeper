@@ -1,4 +1,3 @@
-
 from django.contrib.auth import views as auth_views
 from django.urls import path
 from . import views
@@ -16,8 +15,16 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('worlds/create/', views.world_create, name='world_create'),
     path('worlds/<int:world_id>/', views.world_detail, name='world_detail'),
-    path('worlds/<int:world_id>/edit/', views.world_update, name='world_update'),
-    path('worlds/<int:world_id>/delete/', views.world_delete, name='world_delete'),
+    path(
+        'worlds/<int:world_id>/edit/',
+        views.world_update,
+        name='world_update'
+    ),
+    path(
+        'worlds/<int:world_id>/delete/',
+        views.world_delete,
+        name='world_delete'
+    ),
     path(
         'worlds/<int:world_id>/characters/create/',
         views.character_create,

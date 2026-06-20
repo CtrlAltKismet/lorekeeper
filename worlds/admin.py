@@ -16,11 +16,12 @@ class WorldAdmin(admin.ModelAdmin):
     )
     list_filter = ('genre', 'is_public', 'created_at')
     search_fields = ('title', 'summary', 'owner__username')
-    
+
+
 @admin.register(Character)
 class CharacterAdmin(admin.ModelAdmin):
     """Admin configuration for the Character model."""
-    
+
     list_display = (
         'name',
         'world',
@@ -28,12 +29,12 @@ class CharacterAdmin(admin.ModelAdmin):
         'species',
         'created_at',
     )
-    
+
     list_filter = (
         'species',
         'created_at',
     )
-    
+
     search_fields = (
         'name',
         'role',
@@ -41,10 +42,11 @@ class CharacterAdmin(admin.ModelAdmin):
         'world__title',
     )
 
+
 @admin.register(LoreEntry)
 class LoreEntryAdmin(admin.ModelAdmin):
     """Admin configuration for the LoreEntry model."""
-    
+
     list_display = (
         'title',
         'world',
@@ -52,13 +54,13 @@ class LoreEntryAdmin(admin.ModelAdmin):
         'importance',
         'created_at',
     )
-    
+
     list_filter = (
         'category',
         'importance',
         'created_at',
     )
-    
+
     search_fields = (
         'title',
         'summary',

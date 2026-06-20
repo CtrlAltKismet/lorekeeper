@@ -1,48 +1,16 @@
 # Lorekeeper
 
-## Live Site
+![Responsive mockup image](Insert Image Here)
 
-Live site link will be added after deployment.
+## Introduction
 
-## Repository
-
-Repository link will be added here.
-
----
-
-## Table of Contents
-
-- [Project Overview](#project-overview)
-- [Purpose and Value](#purpose-and-value)
-- [Target Audience](#target-audience)
-- [User Experience](#user-experience)
-- [Agile Methodology](#agile-methodology)
-- [Features](#features)
-- [Database Schema](#database-schema)
-- [Design and Styling](#design-and-styling)
-- [JavaScript Features](#javascript-features)
-- [Technologies Used](#technologies-used)
-- [Testing](#testing)
-- [Bugs and Fixes](#bugs-and-fixes)
-- [Deployment](#deployment)
-- [Security](#security)
-- [Future Features](#future-features)
-- [Credits](#credits)
-- [Acknowledgements](#acknowledgements)
-
----
-
-## Project Overview
-
-Lorekeeper is a full-stack Django web application designed for writers, roleplayers, tabletop game masters and creative hobbysists who want a structured place to create, organise and optionally share fictional worlds with others.
+Lorekeeper is a full-stack Django web application designed for writers, roleplayers, tabletop game masters and creative hobbyists who want a structured place to create, organise and optionally share fictional worlds with others.
 
 The application allows registered users to create fictional worlds and attach related worldbuilding records such as characters and lore entries. Users can choose whether each world is public or private. Public worlds can be browsed through a public world library, while private worlds remain visible only to their owner.
 
 ---
 
-## Purpose and Value
-
-Worldbuilding notes often become scattered across notebooks, documents, message threads, spreadsheets or disconnected files. Lorekeeper solves this by giving users one organised placed to store the core parts of a fictional setting with a visually appealling theme to seperate text-heavy lore into something more interactive. It has collapsible elements to easily keep track of details within each world.
+Worldbuilding notes often become scattered across notebooks, documents, message threads, spreadsheets or disconnected files. Lorekeeper solves this by giving users one organised place to store the core parts of a fictional setting with a visually appealing theme to separate text-heavy lore into something more interactive. It has collapsible elements to easily keep track of details within each world.
 
 The application provides value by allowing users to:
 
@@ -57,7 +25,136 @@ The goal is to keep the app simple, beginner-friendly and useful without becomin
 
 ---
 
-## Target Audience
+## Live Website
+
+Please visit the deployed website here:
+
+[Live Lorekeeper Website](https://lorekeeper-b174be05c815.herokuapp.com/)
+
+## Repository
+
+[GitHub Repository](https://github.com/CtrlAltKismet/lorekeeper)
+
+## Required Technologies
+
+This project uses the following technologies:
+
+- HTML
+- CSS
+- JavaScript
+- Python
+- Django
+- Relational database (SQLite and PostgreSQL)
+
+---
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Live Website](#live-website)
+- [Repository](#repository)
+- [Required Technologies](#required-technologies)
+- [UX and UI](#ux-and-ui)
+  - [Project Goals](#project-goals)
+  - [User Goals](#user-goals)
+  - [Developer Goals](#developer-goals)
+  - [Strategy](#strategy)
+  - [User Stories](#user-stories)
+  - [Site Structure](#site-structure)
+  - [Wireframes](#wireframes)
+  - [Design Choices](#design-choices)
+  - [Layout and Components](#layout-and-components)
+- [Features](#features)
+  - [Existing Features](#existing-features)
+  - [JavaScript Features](#javascript-features)
+- [Mock-Ups](#mock-ups)
+- [Agile Methodology](#agile-methodology)
+  - [GitHub Issues](#github-issues)
+  - [Project Board](#project-board)
+  - [MoSCoW Prioritisation](#moscow-prioritisation)
+  - [Story Points](#story-points)
+  - [Completed Issues](#completed-issues)
+  - [Won't Have Scope Control](#wont-have-scope-control)
+- [Database Schema](#database-schema)
+  - [Entity Relationship Diagram](#entity-relationship-diagram)
+  - [Models](#models)
+  - [Relationships](#relationships)
+  - [Schema Justification](#schema-justification)
+- [Tools and Technologies Used](#tools-and-technologies-used)
+- [Installation](#installation)
+- [Deployment](#deployment)
+- [Security](#security)
+- [Future Features](#future-features)
+- [Testing](#testing)
+  - [Testing Strategy](#testing-strategy)
+  - [Manual Testing](#manual-testing)
+  - [User Story Testing](#user-story-testing)
+  - [CRUD Testing](#crud-testing)
+  - [Authentication Testing](#authentication-testing)
+  - [Ownership and Security Testing](#ownership-and-security-testing)
+  - [Public/Private Visibility Testing](#publicprivate-visibility-testing)
+  - [Search and Filter Testing](#search-and-filter-testing)
+  - [JavaScript Testing](#javascript-testing)
+  - [Responsive Testing](#responsive-testing)
+  - [Browser Testing](#browser-testing)
+  - [Device Testing](#device-testing)
+  - [Lighthouse](#lighthouse)
+  - [HTML Validation](#html-validation)
+  - [CSS Validation](#css-validation)
+  - [JavaScript Validation](#javascript-validation)
+  - [Python/PEP8 Validation](#pythonpep8-validation)
+  - [Bugs and Fixes](#bugs-and-fixes)
+  - [Unfixed Bugs](#unfixed-bugs)
+- [Credits](#credits)
+- [Acknowledgements](#acknowledgements)
+
+
+---
+
+## UX and UI
+
+### Project Goals
+
+Lorekeeper aims to provide a structured worldbuilding organiser for creative users who want to create, manage and optionally share fictional worlds.
+
+The main project goals are to:
+
+- provide a clear introduction to the application and its purpose;
+- allow users to register, log in and log out;
+- allow users to create, view, edit and delete worldbuilding records;
+- allow users to manage private records securely;
+- allow selected public worlds to be browsed by other users;
+- make longer worldbuilding records easier to read through collapsible sections;
+- provide a creative visual theme that supports the purpose of the application.
+
+### User Goals
+
+Users should be able to:
+
+- understand what Lorekeeper is from the homepage;
+- register, log in and log out;
+- create, view, edit and delete their own worlds, characters linked to worlds, and lore entries;
+- optionally link lore entries to characters;
+- mark worlds as public or private;
+- browse public worlds;
+- search and filter public worlds;
+- get clear feedback after actions;
+- avoid accidentally deleting records through confirmation pages.
+
+### Developer Goals
+
+The developer goals for this project are to:
+
+- build a full-stack Django application using Python;
+- use a relational database structure that fits the project domain;
+- implement CRUD functionality for multiple related models;
+- use authentication and ownership checks to protect user content;
+- use custom HTML, CSS and JavaScript;
+- deploy the finished project to Heroku;
+- document the project clearly in the README;
+- maintain evidence of Agile planning, testing, bugs and fixes.
+
+### Strategy
 
 | User Group | Need |
 |---|---|
@@ -69,11 +166,9 @@ The goal is to keep the app simple, beginner-friendly and useful without becomin
 
 ---
 
-## User Experience
-
 ### Website Owner Goals
 
-The website owner wnats to provide a free and accessible worldbuilding organiser that:
+The website owner wants to provide a free and accessible worldbuilding organiser that:
 
 - stores structured worldbuilding data.
 - supports user accounts and ownership.
@@ -109,600 +204,921 @@ The design focuses on:
 - clear buttons and badges.
 - responsive layouts.
 - accessible contrast and focus states.
-- gentle decorative animation with reduced-motiion support.
+- gentle decorative animation with reduced-motion support.
 
 ---
 
-## Agile Methodology
+### User Stories
 
-This project uses GitHub Issues and GitHub Project Board as a product backlog.
+The following user stories were created to guide the design and development of Lorekeeper. They reflect the needs of visitors, registered users and the developer, with a focus on worldbuilding content management, CRUD functionality, database relationships, public/private visibility, accessibility, deployment and project documentation.
 
-### Project Board
+The implemented user stories focus on the Milestone 3 MVP: account registration, authentication, world creation, character management, lore entry management, public world browsing, search/filter functionality, responsive styling, JavaScript enhancement, security and deployment.
 
-The board uses the following workflow columns:
-
-
-### Prioritisation 
-
-MoSCoW prioritisation is used:
-
-### Story Points
-
-Story points were used to estimate the issue size, as seen here:
-
-### Completed Issues
-
-Here you can see some completed issues including Must Have's and some Could Have's:
-
-### Won't Have Scope Control
-
-The following features were intentionally excluded from the MVP to avoid scope creep:
-
-- image uploads.
-- AI generation.
-- collaborative editing.
-- private messaging.
-- rich text editor.
-- complex maps or timelines.
-- full TTRPG rules/stat system.
-
-These may be included as future features, but for now have been listed as Won't Have's.
+The user stories for Lorekeeper were created as part of the Agile planning process. Each user story was written from the perspective of a user or developer need and was used to guide the design, development and testing of the application.
 
 ---
 
-## Features
+## Completed User Stories
 
-### Existing Features
+### User Story 1 - Initial Django Project Setup
 
-#### Homepage
+As a developer, I want to create and configure the initial Django project, so that I can begin development of Lorekeeper.
 
-The homepage introduces Lorekeeper and explains that it can be used to create, organise and share fictional worlds.
+**Acceptance Criteria**
 
-Homepage picture: 
+- Virtual environment created.
+- Django installed.
+- Django project created.
+- Worlds app created.
+- Migrations applied.
+- GitHub repository connected.
+- Application runs successfully locally.
 
-#### About Page
-
-The About page explains the purpose of Lorekeeper, the intended audience and how the application supports creative worldbuilding.
-
-About Page Picture:
-
-#### Public World Library
-
-The Public World Library displays only worlds marked as public. It is accessible to logged-in and logged-out users.
-
-Each public world card includes key information such as:
-
-- title.
-- genre.
-- creator username.
-- summary.
-- public status.
-- link to view the world.
-
-Private worlds do not appear in the library.
-
-Public world library picture:
-
-#### Create World Page
-
-The create world page allows users to create their own world and decide if they want it public or private. The form has validation to ensure required fields are filled in.
-
-Create World Page picture:
-
-#### Create Character/Lore Entry Pages
-
-Much like the create world page, the create character and create lore entry pages allow users to fill out forms and link them to worlds/characters where necessary. These forms also have validation for required fields.
-
-Create Character Page Picture:
-
-Create Lore Entry Page Picture:
-
-#### User Registration
-
-Users can register for an account using Django's built-in 'UserCreationForm'. After successful registration, the user is automatically logged in and shown a success message.
-
-Picture User Registration:
-
-#### Login and Logout
-
-Users can log in using Django's authentication system and log out using a custom logout view that displays a success message.
-
-Pictures:
-
-#### Dashboard
-
-The dashboard allows users to see all of their created worlds, whether public or private. This is where they can edit and update their worlds, delete them, or make them private/public if needed.
-
-The dashboard includes:
-
-- total world count.
-- per-world character count.
-- per-world lore entry count.
-- public/private status badges.
-- links to view details.
-- create world link.
-- empty state when no worlds exist.
-
-Dashboard Page picture:
-
-#### Dashboard Counters
-
-Dashboard counters give users quick feedback about their content.
-
-The dashboard shows:
-
-- total number of worlds ownbed by the logged in user.
-- character count for each world.
-- lore entry count for each world.
-
-The count updates when related records are added or deleted.
-
-Picture of dashboard counters:
-
-#### World CRUD
-
-Logged-in users can create, view, update and delete their own worlds. 
-
-World records include:
-
-- title.
-- genre.
-- summary.
-- main conflict.
-- tone.
-- public/private status.
-- created date.
-- updated date.
-
-The owner is assigned automatically from the logged-in user and is not exposed as a form field. 
-
-Create world picture:
-World detail picture:
-edit world picture:
-delete world picture:
-
-#### Character CRUD
-
-Users can create characters linked to worlds they own. Characters are managed through their parent world.
-
-Character records include:
-
-- name.
-- role.
-- species.
-- personality.
-- backstory.
-- created date.
-- updated date.
-
-Characters appear on their related world detail page and can be opened on their own detail page.
-
-Character list picture:
-
-character detail picture:
-
-character form picture:
-
-#### Lore Entry CRUD
-
-Users can create lore entries linked to worlds they own. Lore entries can optionally be linked to a character from the same world.
-
-Lore entry records include:
-
-- title.
-- category.
-- summary.
-- full content.
-- importance.
-- optional related character.
-- created date.
-- updated date.
-
-THe related character dropdown is filtered to characters from the current world only. This prevents users from linking a lore entry to a character from another world.
-
-Lore entry list picture:
-
-Lore entry detail picture:
-
-Lore entry form picture:
-
-#### Form Validation Feedback
-
-Required fields use browser validation first, which prevents users from submitting blank requried fields. A Django/server-side error summary block was also added to the form templates as a fallback if invalid form data reaches the server.
-
-Validation feedaback was added to:
-
-- World form.
-- Character form.
-- Lore Entry Form.
-
-#### Delete Confirmation Page
-
-Worlds, characters and lore entries all have confirmation pages before deletion. This helps prevent accidental data loss.
-
-picture of delete confirmation pages:
-
-#### Public and Private Worlds
-
-Each world can be marked as public or private.
-
-| User Type | Public World | Private World |
-|---|---|---|
-| Owner | Can view and manage | Can view and manage |
-| Logged-in non-owner | Can view only | Blocked / 404 |
-| Logged-out visitor | Can view only | Blocked / 404 |
-
-Owner-only links such as edit, delete, add character and add lore entry are hidden from non-owners.
-
-public world logged out picture:
-
-private world 404:
-
-#### Public World Search
-
-Users can search public worlds by:
-
-- world title.
-- partial title.
-- summary.
-- genre.
-- tone.
-- related character name.
-- related character role.
-- related character species.
-- related lore entry title.
-- related lore entry summary.
-- related lore entry content.
-- related lore entry category.
-
-The search uses Django 'Q' objects and '.distinct()' to prevent duplicate worlds from appearing when multiple related records match the same query.
-
-Public world search picture:
-Search results picture:
-
-### Genre Filter
-
-The Public World Library includes a genre filter. Users can filter by genre and combine the filter with a search query.
-
-A clear/reset link appears when a search or filter is active.
-
-Genre filter picture: 
-
-Combined search and filter picture:
-
-
-#### Responsive Navigation
-
-The website uses a shared 'base.html' template with consistent navigation. Navigation changes depending on authentication status.
-
-Logged-out users can see:
-
-- Home
-- About
-- Public Worlds
-- Register
-- Login
-
-Logged-in users can see:
-
-- Home
-- About
-- Public Worlds
-- Dashboard
-- Create World
-- Logout
-
-Picture of logged in:
-
-Picture of logged out:
+**Story Points:** 1  
+**Priority:** Must Have  
+**Status:** Complete
 
 ---
 
-## User Stories
+### User Story 2 - Create Lorekeeper Homepage
 
-User stories are currently managed through GitHub Issues and the Lorekeeper Product Backlog project board.
+As a visitor, I want to view a homepage so that I can understand what Lorekeeper is and what it does.
 
-A full list of user stories will be documented here as development progresses.
+**Acceptance Criteria**
+
+- Homepage route created.
+- Homepage template created.
+- Lorekeeper branding displayed.
+- Navigation bar visible.
+- Homepage loads successfully.
+
+**Story Points:** 2  
+**Priority:** Must Have  
+**Status:** Complete
 
 ---
 
-## Database Schema
-
-Lorekeeper uses a relational database structure designed around worldbuilding content. The main prupose of the database is to allow registered useres to create fictional worlds and organise related records such as characters and lore entries.
-
-The implemented schema contains the following main models:
-
-- Django's built-in 'User' model.
-- 'World'.
-- 'Character'.
-- 'LoreEntry'.
-
-Django's built-in 'User' model is used for authentication and ownership. The custom models are stored in the 'worlds' app.
-
-## Entity Relationship Diagram
-
-```mermaid
-erDiagram
-    USER ||--o{ WORLD : owns
-    WORLD ||--o{ CHARACTER : contains
-    WORLD ||--o{ LORE_ENTRY : contains
-    CHARACTER |o--o{ LORE_ENTRY : relates_to
-
-    USER {
-        int id PK
-        string username
-        string email
-    }
-
-    WORLD {
-        int id PK
-        int owner_id FK
-        string title
-        string genre
-        text summary
-        text main_conflict
-        string tone
-        boolean is_public
-        datetime created_at
-        datetime updated_at
-    }
-
-    CHARACTER {
-        int id PK
-        int world_id FK
-        string name
-        string role
-        string species
-        text personality
-        text backstory
-        datetime created_at
-        datetime updated_at
-    }
-
-    LORE_ENTRY {
-        int id PK
-        int world_id FK
-        int character_id FK
-        string title
-        string category
-        text summary
-        text content
-        string importance
-        datetime created_at
-        datetime updated_at
-    }
-```
-
-### Model Relationships
-
-#### User to World
-
-Each 'World' belongs to one registered user through the 'owner' field.
-
-```python
-owner = models.ForeignKey(
-    settings.AUTH_USER_MODEL,
-    on_delete=models.CASCADE,
-    related_name='worlds'
-)
-```
-
-This create a one-to-many relationship:
-
-```text
-User 1 ---- many Worlds
-```
-
-A single user can create many worlds, but each world belong to one user. If a user account is deleted, their worlds are also deleted because 'on_delete=models.CASCADE' is used.
-
-This relationship supports ownership protection because users can only edit and delte worlds that belong to them.
-
-#### World to Character
-
-Each 'Character' belogns to one 'World'.
-
-```python
-world = models.ForeignKey(
-    World,
-    on_delete=models.CASCADE,
-    related_name='characters'
-)
-```
-
-This creates a one-to-many relationship:
-
-This creates a one-to-many relationship:
-
-```text
-World 1 ---- many Characters
-```
-
-If a world is deleted, its related characters are also deleted. The 'related_name='characters'' allows characters to be accessed from a world using:
-
-```python
-world.characters.all()
-```
-
-#### World to LoreEntry
-
-Each 'LoreEntry' belongs to one 'World'.
-
-```python
-world = models.ForeignKey(
-    World,
-    on_delete=models.CASCADE,
-    related_name='lore_entries'
-)
-```
-
-This creates a one-to-many relationship:
-
-```text
-World 1 ---- many Lore Entries
-```
-
-If a world is deleted, its related lore entries are also deleted. The 'related_name='lore_entries'' allows lore entries to be accessed from a world using:
-
-```python
-world.lore_entries.all()
-```
-
-#### Character to LoreEntry
-
-A 'LoreEntry' can optionally be linked to a 'Character'.
-
-```python
-character = models.ForeignKey(
-    Character,
-    on_delete=models.SET_NULL,
-    related_name='lore_entries',
-    blank=True,
-    null=True
-)
-```
-
-This creates an optional relationship:
-
-```text
-Character 0/1 ---- many Lore Entries
-```
-
-A lore entry does not have to be connected to a character. This is useful because some lore entries are world-level information, such as history, culture, magic systems, politics, geography or timelines.
-
-If a related character is deleted, the lore entry is not deleted. Instead, the 'character' field is set to 'NULL' because 'on_delete=models.SET_NULL' is used. This protects lore records from being accidentally removed when a character is deleted.
-
-### Model Details
-
-#### World Model
-
-The 'World' model is the main container for fictional settings in Lorekeeper.
-
-| Field | Type | Purpose |
-|---|---|---|
-| `owner` | ForeignKey | Links the world to the user who created it |
-| `title` | CharField | Stores the name of the fictional world |
-| `genre` | CharField with choices | Stores the world's genre |
-| `summary` | TextField | Stores a summary of the world |
-| `main_conflict` | TextField | Optional field for the central conflict, war, mystery or tension |
-| `tone` | CharField | Optional field for the tone or mood of the world |
-| `is_public` | BooleanField | Controls whether the world appears publicly |
-| `created_at` | DateTimeField | Automatically stores when the world was created |
-| `updated_at` | DateTimeField | Automatically stores when the world was last updated |
-
-The 'World' model uses predefined genre choices to keep data consistent:
-
-```python
-GENRE_CHOICES = [
-    ('fantasy', 'Fantasy'),
-    ('sci_fi', 'Science Fiction'),
-    ('horror', 'Horror'),
-    ('modern', 'Modern'),
-    ('historical', 'Historical'),
-    ('supernatural', 'Supernatural'),
-    ('other', 'Other'),
-]
-```
-
-World records are ordered by newest first:
-
-```python
-class Meta:
-    ordering = ['-created_at']
-```
-
-#### Character Model
-
-The 'Character' model stores character profiles attached to a fictional world.
-
-| Field | Type | Purpose |
-|---|---|---|
-| `world` | ForeignKey | Links the character to a specific world |
-| `name` | CharField | Stores the character's name |
-| `role` | CharField | Optional field for the character's role |
-| `species` | CharField | Optional field for the character's species or type |
-| `personality` | TextField | Optional field for personality details |
-| `backstory` | TextField | Optional field for character history or background |
-| `created_at` | DateTimeField | Automatically stores when the character was created |
-| `updated_at` | DateTimeField | Automatically stores when the character was last updated |
-
-Character records are ordered alphabetically by name:
-
-```python
-class Meta:
-    ordering = ['name']
-```
-
-#### LoreEntry Model
-
-The 'LoreEntry' model stores structured worldbuilding information attached to a world.
-
-| Field | Type | Purpose |
-|---|---|---|
-| `world` | ForeignKey | Links the lore entry to a specific world |
-| `character` | ForeignKey | Optionally links the lore entry to a character |
-| `title` | CharField | Stores the lore entry title |
-| `category` | CharField with choices | Stores the type/category of lore |
-| `summary` | TextField | Optional short overview of the lore entry |
-| `content` | TextField | Stores the full lore entry |
-| `importance` | CharField with choices | Stores the importance level of the lore entry |
-| `created_at` | DateTimeField | Automatically stores when the lore entry was created |
-| `updated_at` | DateTimeField | Automatically stores when the lore entry was last updated |
-
-The `LoreEntry` model uses category choices to keep lore organised:
-
-```python
-CATEGORY_CHOICES = [
-    ('history', 'History'),
-    ('culture', 'Culture'),
-    ('magic', 'Magic'),
-    ('technology', 'Technology'),
-    ('politics', 'Politics'),
-    ('religion', 'Religion'),
-    ('species', 'Species'),
-    ('timeline', 'Timeline'),
-    ('geography', 'Geography'),
-    ('miscellaneous', 'Miscellaneous'),
-]
-```
-
-It also uses importance choices:
-
-```python
-IMPORTANCE_CHOICES = [
-    ('low', 'Low'),
-    ('medium', 'Medium'),
-    ('high', 'High'),
-    ('essential', 'Essential'),
-]
-```
-
-Lore entries are ordered alphabetically by title:
-
-```python
-class Meta:
-    ordering = ['title']
-```
-
-### Why This Schema Fits the Project
-
-This schema fits Lorekeeper because the application is designed around organising ficitonal worldbuilding content.
-
-The structure follows the natural hierarchy of the domain:
-
-```text
-A user owns worlds.
-A world contains characters.
-a world contains lore entries.
-A lore entry may optionally relate to a character.
-```
-
-This allows useres to build structured fictional settings without storing all information in one large, unorganised table.
-
-This schema also supports privacy and ownership because worlds are linked to users. This allows the app to check whether the current user owns a world before allowing edit or delete actions.
+### User Story 3 - Create Base Template and Navigation
+
+As a visitor, I want consistent navigation and layout across the site so that I can move between pages easily and understand where I am.
+
+**Acceptance Criteria**
+
+- `base.html` template created.
+- Homepage extends `base.html`.
+- Navigation menu added.
+- Navigation includes Home and About links.
+- Layout is reusable for future templates.
+- Page still loads successfully at `http://127.0.0.1:8000/`.
+
+**Tasks**
+
+- Create `base.html` inside `worlds/templates/worlds/`.
+- Move the main HTML boilerplate into `base.html`.
+- Add navigation links.
+- Add a content block.
+- Update `home.html` to extend `base.html`.
+- Test homepage locally.
+- Commit and push changes.
+
+**Story Points:** 2  
+**Priority:** Must Have  
+**Status:** Complete
 
 ---
 
-## Design and Styling
+### User Story 4 - Create About Page
+
+As a visitor, I want to learn what Lorekeeper is and who it is for so that I can understand whether the app is useful for my writing, roleplay, or worldbuilding projects.
+
+**Acceptance Criteria**
+
+- About page template created.
+- About page extends `base.html`.
+- About page explains the purpose of Lorekeeper.
+- About page explains the target audience.
+- About page includes clear site-specific content.
+- Navigation includes working About link.
+- About page loads successfully in the browser.
+
+**Tasks**
+
+- Create `about.html` template.
+- Add about view to `worlds/views.py`.
+- Add about URL path to `worlds/urls.py`.
+- Update `base.html` About navigation link.
+- Test About page locally.
+- Commit and push changes.
+
+**Story Points:** 1  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 5 - Implement User Registration
+
+As a new user, I want to register for an account so that I can create and manage my own fictional worlds.
+
+**Acceptance Criteria**
+
+- Registration page is created.
+- Registration form allows a new user to create an account.
+- User is logged in after successful registration.
+- User receives feedback after registering.
+- Navigation includes Register link.
+- Register link does not show when user is already logged in.
+- Registration page extends `base.html`.
+- Registration is tested locally.
+
+**Tasks**
+
+- Create register view.
+- Create `register.html` template.
+- Add register URL path.
+- Update `base.html` navigation.
+- Add success message after registration.
+- Test creating a new account.
+- Take screenshot evidence.
+- Commit and push changes.
+
+**Story Points:** 3  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 6 - Implement User Login and Logout
+
+As a registered user, I want to log in and log out so that I can securely access and leave my Lorekeeper account.
+
+**Acceptance Criteria**
+
+- Login page is created.
+- User can log in with valid account details.
+- User receives feedback after logging in.
+- User can log out.
+- User receives feedback after logging out.
+- Navigation shows Login/Register when logged out.
+- Navigation shows Dashboard/Logout when logged in.
+- Login and logout functionality is tested locally.
+
+**Tasks**
+
+- Add Django authentication URLs.
+- Create `login.html` template.
+- Create logout view.
+- Add logout URL path.
+- Update `base.html` navigation links.
+- Test login locally.
+- Test logout locally.
+- Take screenshot evidence.
+- Commit and push changes.
+
+**Story Points:** 2  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 7 - Authentication
+
+As a visitor, I want to create an account so that I can manage my own worlds.
+
+**Acceptance Criteria**
+
+- Registration form created.
+- User account created successfully.
+- Validation messages displayed.
+
+**Story Points:** 3  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 8 - Create User Dashboard
+
+As a user, I want a dashboard so that I can manage my worlds.
+
+**Acceptance Criteria**
+
+- Logged-in users can access the dashboard.
+- Logged-out users are redirected to login.
+- Dashboard only displays worlds owned by the current user.
+- Each world displays key information.
+- Empty state appears if no worlds exist.
+- Create World link appears.
+- Navigation Dashboard link works.
+
+**Story Points:** 3  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 9 - Create World Model
+
+As a developer, I want to create a World model so that the application can store fictional world records in the database.
+
+**Acceptance Criteria**
+
+- World model is created in `models.py`.
+- World model includes fields for title, genre, summary, main conflict, tone, visibility, owner, created date and updated date.
+- World model is linked to Django's built-in User model.
+- Migrations are created and applied successfully.
+- World model is registered in Django Admin.
+- Model can be viewed in the Django Admin panel.
+- Changes are committed and pushed to GitHub.
+
+**Tasks**
+
+- Add World model to `worlds/models.py`.
+- Add owner ForeignKey relationship to User.
+- Add public/private visibility field.
+- Create migrations.
+- Apply migrations.
+- Register World model in `admin.py`.
+- Create superuser if needed.
+- Test World model in admin.
+- Take screenshot evidence.
+- Commit and push changes.
+
+**Story Points:** 3  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 10 - Implement World Create Functionality
+
+As a user, I want confirmation that my worlds have been created.
+
+**Acceptance Criteria**
+
+- User can create a world.
+- Form validation works.
+- Success message displayed.
+
+**Story Points:** 3  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 11 - Implement World Detail View
+
+As a user, I want to ensure I can access my world's URL so that I can see the world's information displayed.
+
+**Acceptance Criteria**
+
+- Logged-in users can open a detail page for their own worlds.
+- The dashboard includes a link to view each world.
+- The world detail page displays the world title, genre, summary, main conflict, tone, public/private status, created date and updated date.
+- Logged-out users are redirected to the login page where appropriate.
+- Users cannot view private worlds owned by another user.
+- A clear message or 404 page is shown if a user tries to access a world they do not own.
+
+**Story Points:** 3  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 12 - Implement World Update Functionality
+
+As a logged-in user, I want to edit my own worlds so that I can update or correct my worldbuilding information.
+
+**Acceptance Criteria**
+
+- Logged-in users can access an edit page for worlds they own.
+- Logged-out users are redirected to the login page.
+- Users cannot edit worlds owned by another user.
+- The edit form is pre-filled with the existing world information.
+- Submitting valid changes updates the world record in the database.
+- After editing, the user is redirected to the world detail page.
+- A success message confirms the world was updated.
+- The updated information is immediately visible on the world detail page.
+
+**Story Points:** 3  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 13 - Implement World Delete Functionality
+
+As a logged-in user, I want to delete my own worlds so that I can remove worldbuilding records I no longer need.
+
+**Acceptance Criteria**
+
+- Logged-in users can access a delete confirmation page for worlds they own.
+- Logged-out users are redirected to the login page.
+- Users cannot delete worlds owned by another user.
+- The delete page clearly asks the user to confirm before deleting.
+- The user can cancel and return to the world detail page.
+- Confirming deletion removes the world from the database.
+- After deletion, the user is redirected to the dashboard.
+- A success message confirms the world was deleted.
+- The deleted world no longer appears on the dashboard.
+
+**Story Points:** 3  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 14 - Create Character Model
+
+As a user, I want to create a character and link them to a world so that I may build a world's lore with my characters.
+
+**Acceptance Criteria**
+
+- Character model exists.
+- Character belongs to a World.
+- Character can be created.
+- Character appears in admin.
+- Migrations run successfully.
+
+**Story Points:** 3  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 15 - Implement Character CRUD
+
+As a user, I want to be able to create, view, edit and delete characters so I have full control over my worlds and characters.
+
+**Acceptance Criteria**
+
+- Create character functionality applied.
+- View character functionality applied.
+- Edit character functionality applied.
+- Delete character functionality applied.
+
+**Story Points:** 5  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 16 - Create Lore Entry Model
+
+As a logged-in user, I want to create lore entries linked to my fictional worlds, so that I can organise important worldbuilding information such as history, culture, magic, politics, technology, religion, species, and timeline events.
+
+**Acceptance Criteria**
+
+- A `LoreEntry` model is created in `worlds/models.py`.
+- Each lore entry is linked to one World using a foreign key.
+- One world can have many lore entries.
+- If a world is deleted, its related lore entries are also deleted.
+- The model includes useful fields for storing structured lore information.
+- The model includes created and updated timestamps.
+- The model has a clear string representation.
+- The model is ordered consistently.
+- A migration is created and applied successfully.
+- The `LoreEntry` model is registered in Django Admin.
+- Lore entries can be created and viewed in Django Admin.
+- Testing evidence is collected with screenshots.
+
+**Story Points:** 3  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 17 - Implement Lore Entry CRUD
+
+As a user, I want to be able to create, view, edit, and delete lore entries for my worlds and characters so that I may have complete control over their lore.
+
+**Acceptance Criteria**
+
+- Create lore entry functionality applied.
+- View lore entry functionality applied.
+- Edit lore entry functionality applied.
+- Delete lore entry functionality applied.
+
+**Story Points:** 5  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 18 - Public Worlds
+
+As a logged-in user, I want to choose whether my worlds are public or private, so that I can control which worlds are shared with other users and which worlds remain visible only to me.
+
+**Acceptance Criteria**
+
+- The World model includes a public/private visibility field that allows each world to be marked as either public or private.
+- When creating or editing a world, the logged-in user can choose whether the world is public or private.
+- A logged-in user can view, edit and delete their own worlds whether they are public or private.
+- A public world can be viewed by users who are not the owner.
+- A private world cannot be viewed by users who are not the owner.
+- If a non-owner attempts to access a private world directly through the URL, they are blocked or shown a 404/not found response.
+- Users who are not the owner cannot edit or delete a world, even if the world is public.
+- The dashboard continues to show only worlds owned by the logged-in user.
+- Public/private status is clearly displayed on relevant pages, such as the dashboard and world detail page.
+- Success messages display when a world's public/private status is updated.
+- Manual testing evidence is collected for owner access, non-owner public access, non-owner private access, and edit/delete protection.
+
+**Story Points:** 3  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 19 - Create Public World Library
+
+As a user, I want to view public worlds with easy navigation so that I may see what other users have created on the website.
+
+**Acceptance Criteria**
+
+- A Public Worlds page is created and accessible from the main navigation.
+- The Public Worlds page displays only worlds marked as public.
+- Private worlds do not appear in the Public Worlds list.
+- Each public world displays key information such as title, genre, summary and creator/owner.
+- Each public world links to its world detail page.
+- Logged-out users can access the Public Worlds page.
+- Logged-in users can access the Public Worlds page.
+- Non-owners can view public world details but cannot see edit, delete, add character or add lore entry links.
+- If no public worlds exist, a clear empty state message is displayed.
+- Manual testing evidence is collected for logged-out access, logged-in access, public world display, private world exclusion and detail page links.
+
+**Story Points:** 3  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 20 - Implement Search Functionality
+
+As a user, I want to be able to search for specific worlds so that I can easily navigate the website.
+
+**Acceptance Criteria**
+
+- A search form is available on the Public Worlds page.
+- Users can search public worlds by title.
+- Users can search public worlds by summary.
+- Users can search public worlds by genre/tone where appropriate.
+- Search results only include worlds marked as public.
+- Private worlds never appear in search results.
+- Search results update after the user submits a search query.
+- If matching public worlds are found, they are displayed clearly.
+- If no matching public worlds are found, a clear empty state message is displayed.
+- The search query remains visible in the search box after submission.
+- Logged-out users can use the search feature.
+- Logged-in users can use the search feature.
+- Manual testing evidence is collected for successful searches, no-result searches, private world exclusion, logged-out use and logged-in use.
+
+**Story Points:** 3  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 21 - Add Public World Filters
+
+As a user, I want to filter worlds to narrow my search results in the Public World Library.
+
+**Acceptance Criteria**
+
+- A genre filter is available on the Public Worlds page.
+- Users can filter public worlds by genre.
+- Users can combine the genre filter with the search box.
+- Private worlds never appear in filtered results.
+- A clear empty state message displays if no public worlds match the selected filter/search.
+- The selected filter remains visible after submission.
+- A clear/reset option is available.
+- Manual testing evidence is collected for genre filtering, combined search and filter, no-result filtering, and private world exclusion.
+
+**Story Points:** 3  
+**Priority:** Should Have  
+**Status:** Complete
+
+---
+
+### User Story 22 - Create ERD / Database Schema
+
+As a developer, I want to create an Entity Relationship Diagram (ERD) and document database relationships so that the database structure is planned, implemented correctly, and can be evidenced within the project documentation.
+
+**Acceptance Criteria**
+
+- An ERD is created showing the implemented database models.
+- The ERD includes User, World, Character and LoreEntry.
+- The ERD shows one-to-many relationships between User and World, World and Character, and World and LoreEntry.
+- The ERD shows the optional relationship between Character and LoreEntry.
+- The README includes a database schema section.
+- The schema section explains each model, key fields and relationships.
+- The schema documentation matches the implemented Django models.
+- Screenshot/image evidence of the ERD is saved for documentation.
+
+**Story Points:** 3  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 23 - Add Dashboard Counters
+
+As a user, I want to see summary counts on my dashboard so that I can quickly understand how much content I have created.
+
+**Acceptance Criteria**
+
+- Dashboard shows numbers of worlds created.
+- World cards show number of related characters.
+- World cards show number of related lore entries.
+- Counts update when records are created or deleted.
+
+**Story Points:** 2  
+**Priority:** Should Have  
+**Status:** Complete
+
+---
+
+### User Story 24 - Add User-Friendly Form Validation Messages
+
+As a user, I want clear validation messages when I submit a form incorrectly so that I can understand what needs fixing.
+
+**Acceptance Criteria**
+
+- Required fields show clear validation messages when left empty.
+- Form errors display close to the relevant fields.
+- Create and edit forms remain populated after invalid submission.
+- World, Character and Lore Entry forms have helpful labels and help text.
+- Validation behaviour is tested manually.
+- Screenshot evidence is collected.
+
+**Story Points:** 3  
+**Priority:** Should Have  
+**Status:** Complete
+
+---
+
+### User Story 25 - Website Styled with Clear and Responsive Design
+
+As a user, I want the Lorekeeper website to have a clear, consistent and responsive design, so that I can navigate the application easily and manage my worlds, characters and lore entries in a more enjoyable way.
+
+**Acceptance Criteria**
+
+- The site uses a custom CSS file linked through Django static files.
+- The base layout has consistent styling across all pages.
+- The navigation menu is clearly styled and easy to use.
+- Pages use a consistent colour scheme, spacing and typography.
+- Dashboard world cards are visually clearer and easier to scan.
+- Public World Library cards are styled consistently.
+- Forms are styled so they are easier to read and complete.
+- Buttons and links have clear visual states.
+- Success and error messages are styled clearly.
+- The layout is responsive on desktop, tablet and mobile screen sizes.
+- The design supports accessibility with readable contrast, clear focus states and labelled form fields.
+- Manual testing evidence is collected with screenshots.
+- Changes are committed and pushed to GitHub.
+
+**Story Points:** 5  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 26 - Add Public and Private Status Badges
+
+As a user, I want to clearly see whether my worlds are public or private so that I understand which content is visible to others.
+
+**Acceptance Criteria**
+
+- Public worlds display a public badge.
+- Private worlds display a private badge.
+- Badges are visible on dashboard world cards.
+- Badge styling is consistent with the site design.
+
+**Story Points:** 1  
+**Priority:** Could Have  
+**Status:** Complete
+
+---
+
+### User Story 27 - Add JavaScript Enhancements
+
+As a user, I want small interactive features, so that the website feels easier and smoother to use.
+
+**Acceptance Criteria**
+
+- A custom JavaScript file is created in the static folder.
+- The JavaScript file is linked correctly in `base.html`.
+- JavaScript does not break core Django functionality if unavailable.
+- The feature is tested manually.
+- Screenshot evidence is collected.
+- JavaScript passes a linter with no major issues.
+
+**Story Points:** 2  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+### User Story 28 - Add Collapsible World Detail Sections
+
+As a user, I want to expand and collapse sections on a world detail page, so that I can browse larger worldbuilding records more easily.
+
+**Acceptance Criteria**
+
+- The world detail page has collapsible sections.
+- Users can open and close sections such as world information, characters, lore entries and record details.
+- JavaScript is used to control the expand/collapse behaviour.
+- The page still works if JavaScript does not load.
+- Existing world, character and lore entry CRUD functionality is not affected.
+
+**Story Points:** 3  
+**Priority:** Should Have  
+**Status:** Complete
+
+---
+
+### User Story 29 - Add Live Preview for World Creation Form
+
+As a user, I want to preview my world card while completing the form so that I can see how my world summary will appear before saving.
+
+**Acceptance Criteria**
+
+- Preview updates as user types.
+- Preview includes world title.
+- Preview includes world genre or tone if available.
+- Feature is optional and does not replace server-side form submission.
+
+**Story Points:** 5  
+**Priority:** Could Have  
+**Status:** Complete
+
+---
+
+### User Story 30 - Prepare Application for Heroku Deployment
+
+As a developer, I want to prepare Lorekeeper for deployment on Heroku with PostgreSQL, so that the application can run in a production environment and meet the Milestone 3 deployment requirements.
+
+**Acceptance Criteria**
+
+- Required deployment packages are installed.
+- `requirements.txt` is updated.
+- A Procfile is created.
+- Django settings are updated for environment variables.
+- Secret key is not exposed in the GitHub repository.
+- `DEBUG` can be turned off in production.
+- Heroku PostgreSQL database can be used in production.
+- Static files are configured for deployment.
+- The app can be deployed to Heroku.
+- Migrations can be run on the deployed PostgreSQL database.
+- The deployed site is tested after deployment.
+- Deployment steps are documented in the README.
+
+**Story Points:** 5  
+**Priority:** Must Have  
+**Status:** Complete
+
+---
+
+## Incomplete User Stories
+
+The following user stories were not completed for the MVP. These have been documented honestly to show scope control and to explain which features may be added in future versions.
+
+---
+
+### Incomplete User Story 1 - Add Location Records
+
+As a user, I want to add locations to my worlds so that I can organise important places, regions, buildings, and landmarks within my fictional setting.
+
+**Acceptance Criteria**
+
+- Location model created.
+- Location linked to World model.
+- User can create a location for their own world.
+- User can view locations on the world detail page.
+- User can edit and delete their locations.
+
+**Story Points:** 3  
+**Priority:** Should Have  
+**Status:** Not Complete
+
+**Reason Not Completed**
+
+Location records were left out of the MVP to keep the project focused on completing and testing the core database relationships between users, worlds, characters and lore entries.
+
+---
+
+### Incomplete User Story 2 - Add Empty State Messages
+
+As a user, I want to see helpful messages when I have not created any records yet so that I understand what to do next.
+
+**Acceptance Criteria**
+
+- Dashboard displays a message when no worlds exist.
+- World detail page displays messages when no characters, lore entries, or locations exist.
+- Empty state messages include clear action links.
+- Messages are written in a friendly and helpful tone.
+
+**Story Points:** 2  
+**Priority:** Should Have  
+**Status:** Partially Complete
+
+**Reason Not Completed**
+
+Some empty state messages were implemented, such as the dashboard empty state and world detail messages for missing records. This was not treated as a fully completed standalone issue because locations were not added to the MVP.
+
+---
+
+### Incomplete User Story 3 - Add Comments on Public Worlds
+
+As a logged-in user, I want to comment on public worlds so that I can interact with other creators and give feedback.
+
+**Acceptance Criteria**
+
+- Logged-in users can add comments to public worlds.
+- Comments display on public world detail pages.
+- Users can delete their own comments.
+- Comment form is hidden from logged-out users.
+
+**Story Points:** 5  
+**Priority:** Could Have  
+**Status:** Not Complete
+
+**Reason Not Completed**
+
+Comments were left out of the MVP to avoid adding extra moderation, ownership and security complexity before the deadline.
+
+---
+
+### Incomplete User Story 4 - Add Random Worldbuilding Prompt Generator
+
+As a user, I want to generate a random worldbuilding prompt so that I can get inspiration when creating or expanding a fictional world.
+
+**Acceptance Criteria**
+
+- Prompt button added to a suitable page.
+- Clicking button displays a random prompt.
+- Prompt generator uses JavaScript.
+- Feature does not affect core CRUD functionality.
+
+**Story Points:** 3  
+**Priority:** Could Have  
+**Status:** Not Complete
+
+**Reason Not Completed**
+
+A random prompt generator was left as a future enhancement because the implemented JavaScript was focused on collapsible content sections and a live world preview.
+
+---
+
+## Won't Have User Stories
+
+The following user stories were intentionally marked as Won't Have for the MVP. They were kept in the product backlog to show scope control and to explain how the project avoided unnecessary complexity.
+
+---
+
+### Won't Have User Story 1 - Do Not Add Image Uploads During MVP
+
+As a developer, I want to avoid image uploads during the MVP so that the project stays focused on core database-backed CRUD functionality and avoids unnecessary deployment complexity.
+
+**Acceptance Criteria**
+
+- Image upload fields are not included in MVP models.
+- Media file storage is not configured for MVP.
+- Image uploads are listed as a future feature in the README.
+
+**Story Points:** 0  
+**Priority:** Won't Have  
+**Status:** Not Implemented
+
+---
+
+### Won't Have User Story 2 - Do Not Add AI Generation During MVP
+
+As a developer, I want to avoid AI generation features during the MVP so that the application remains focused on user-created worldbuilding records.
+
+**Acceptance Criteria**
+
+- No AI generation feature is implemented.
+- No external AI API is added.
+- AI generation is listed as a future feature in the README.
+
+**Story Points:** 0  
+**Priority:** Won't Have  
+**Status:** Not Implemented
+
+---
+
+### Won't Have User Story 3 - Do Not Add Collaborative Editing During MVP
+
+As a developer, I want to avoid collaborative editing during the MVP so that permissions and ownership remain simple and secure.
+
+**Acceptance Criteria**
+
+- Worlds remain owned by one user.
+- No shared editing permissions are implemented.
+- Collaborative editing is listed as a future feature in the README.
+
+**Story Points:** 0  
+**Priority:** Won't Have  
+**Status:** Not Implemented
+
+---
+
+### Won't Have User Story 4 - Do Not Add Private Messaging During MVP
+
+As a developer, I want to avoid private messaging during the MVP so that the project does not expand beyond the core worldbuilding organiser scope.
+
+**Acceptance Criteria**
+
+- No private messaging model is created.
+- No inbox or messaging templates are created.
+- Private messaging is listed as a future feature in the README.
+
+**Story Points:** 0  
+**Priority:** Won't Have  
+**Status:** Not Implemented
+
+---
+
+### Won't Have User Story 5 - Do Not Add Rich Text Editor During MVP
+
+As a developer, I want to avoid adding a rich text editor during the MVP so that the project avoids unnecessary dependencies and focuses on reliable form handling.
+
+**Acceptance Criteria**
+
+- Standard Django form fields are used.
+- No rich text editor dependency is installed.
+- Rich text editing is listed as a future feature in the README.
+
+**Story Points:** 0  
+**Priority:** Won't Have  
+**Status:** Not Implemented
+
+---
+
+### Site Structure
+
+### Site Structure
+
+The Lorekeeper website uses a shared `base.html` template to keep the layout, navigation, messages and footer consistent across the application. This helps users move around the site without having to relearn the layout on each page. The navigation bar is displayed at the top of every page and changes depending on whether the user is logged in or logged out. This keeps the interface relevant to the user’s current state and avoids showing account management links to visitors who cannot use them.
+
+Logged-out users can access the public areas of the site, including the Home page, About page, Public Worlds page, Register page and Login page. Logged-in users can access these same public pages, but also gain access to private account features such as the Dashboard, Create World page and Logout option. This structure supports the purpose of the application because it separates public browsing from private content management.
+
+The site has been designed around a clear worldbuilding workflow: users can learn what Lorekeeper is, register or log in, create a world, add related characters and lore entries, and optionally share selected worlds publicly. The structure supports both visitors who want to browse public worlds and registered users who want to manage their own creative records.
+
+The **Home Page** introduces Lorekeeper and explains the core purpose of the application. It presents the website as a fictional worldbuilding organiser for writers, roleplayers, tabletop game masters and creative hobbyists. The homepage acts as the first point of entry and gives users a clear overview of what the site offers. It also provides links that direct users towards exploring public worlds or creating their own account.
+
+The **About Page** provides more detail about the purpose of Lorekeeper and who the application is designed for. This page supports new visitors by explaining how the site can be used to organise fictional settings, characters and lore entries. It also reinforces the value of the application as a structured alternative to scattered notes, documents or disconnected files.
+
+The **Public Worlds Page** allows both logged-in and logged-out users to browse worlds that have been marked as public by their owners. This page supports discovery and inspiration by allowing users to view shared fictional settings. It includes search and genre filter functionality so users can locate worlds more easily. Private worlds are excluded from this page, which helps protect user content while still allowing optional public sharing.
+
+The **Register Page** allows new users to create an account. Registration is required before users can create and manage their own worlds. After registering, users are automatically logged in, which creates a smoother user journey and allows them to begin using the application immediately.
+
+The **Login Page** allows existing users to securely access their account. Once logged in, the navigation updates to show account-specific options such as the Dashboard, Create World and Logout links. This ensures that users can quickly access the main management features of the application.
+
+The **Dashboard Page** is the main private area for logged-in users. It displays only the worlds created by the currently logged-in user, whether those worlds are public or private. The dashboard allows users to locate and manage their own content from one central place. It also displays useful counters, including the total number of worlds created and the number of related characters and lore entries attached to each world.
+
+The **Create World Page** allows logged-in users to create a new fictional world. This is the main parent record in the application. Users can enter details such as the world title, genre, summary, main conflict, tone and public/private status. The form also includes a JavaScript live preview so users can see how their world card will appear before saving.
+
+The **World Detail Page** displays the full information for a selected world. This page acts as the main hub for a world’s related content, including characters and lore entries. Owner-only actions such as edit, delete, add character and add lore entry are only shown to the user who owns the world. Public visitors can view public world details, but cannot manage or alter another user’s content.
+
+The **Edit World Page** allows users to update worlds they own. The form is pre-filled with the existing world information so that users can make changes without re-entering all details. After saving, the updated information is reflected immediately on the world detail page.
+
+The **Delete World Page** provides a confirmation screen before a world is removed. This helps prevent accidental deletion. If a world is deleted, its related characters and lore entries are also deleted through the database relationship, so the confirmation page is an important part of protecting user data.
+
+The **Character Detail Page** displays information about a character linked to a specific world. Characters are managed through their parent world, which keeps the structure organised and prevents characters from existing without a related fictional setting. Users can view details such as the character name, role, species, personality and backstory.
+
+The **Add/Edit/Delete Character Pages** allow logged-in users to create, update and remove characters from worlds they own. These pages support the character CRUD functionality and help users build structured character records within their fictional worlds.
+
+The **Lore Entry Detail Page** displays a full lore record linked to a world. Lore entries can be used for history, culture, magic, technology, politics, religion, species, timeline events, geography or other worldbuilding notes. A lore entry can also optionally be linked to a character from the same world.
+
+The **Add/Edit/Delete Lore Entry Pages** allow logged-in users to create, update and remove lore entries from worlds they own. The lore entry form includes a filtered related-character dropdown, meaning users can only link lore entries to characters from the current world. This keeps the database relationships logical and prevents users from accidentally connecting records across unrelated worlds.
+
+The site structure guides users through a logical journey of discovering the application, creating an account, building a world, adding connected records and optionally sharing public content. The consistent layout, authentication-aware navigation, dashboard structure and owner-only management links help keep the application clear, secure and easy to use.
+
+
+
+
+### Wireframes
+
+Wireframes were created during the planning stage to help organise the layout and structure of the main Lorekeeper pages before and during development. Due to the size of the application and the number of CRUD pages, wireframes were created for the main page types rather than every individual URL.
+
+This was appropriate because several pages share the same layout pattern. For example, the create and edit pages for worlds, characters and lore entries all use a similar form structure. The delete pages also follow the same confirmation layout, while character and lore entry detail pages use similar detail-page layouts.
+
+The wireframes therefore focus on the key user journeys and reusable layouts, including the homepage, public world library, dashboard, world detail page, form pages and delete confirmation pages.
+
+Desktop wireframes were prioritised due to time constraints. Responsive behaviour was instead evidenced through the final deployed website, responsive screenshots and responsive testing across desktop, tablet and mobile screen sizes.
+
+Wireframes:
+
+![Homepage wireframe]
+
+![Dashboard wireframe]
+
+![World detail wireframe]
+
+![Form wireframe]
+
+### Design Choices
 
 ### Visual Theme
 
@@ -825,7 +1241,273 @@ Accessibility considerations include:
 
 ---
 
-## JavaScript Features
+### Layout and Components
+
+The layout uses:
+
+- a consistent header and navigation;
+- responsive page containers;
+- hero panels for important page introductions;
+- card grids for worlds, features and dashboard records;
+- status badges for public/private states;
+- action rows for view/edit/delete links;
+- consistent form styling;
+- confirmation pages for destructive actions;
+- a footer with navigation links and inline SVG icons.
+
+---
+
+## Features
+
+### Existing Features
+
+### Existing Features
+
+#### Homepage
+
+The homepage introduces Lorekeeper and explains that it can be used to create, organise and share fictional worlds.
+
+Homepage picture: 
+
+#### About Page
+
+The About page explains the purpose of Lorekeeper, the intended audience and how the application supports creative worldbuilding.
+
+About Page Picture:
+
+#### Public World Library
+
+The Public World Library displays only worlds marked as public. It is accessible to logged-in and logged-out users.
+
+Each public world card includes key information such as:
+
+- title.
+- genre.
+- creator username.
+- summary.
+- public status.
+- link to view the world.
+
+Private worlds do not appear in the library.
+
+Public world library picture:
+
+#### Create World Page
+
+The create world page allows users to create their own world and decide if they want it public or private. The form has validation to ensure required fields are filled in.
+
+Create World Page picture:
+
+#### Create Character/Lore Entry Pages
+
+Much like the create world page, the create character and create lore entry pages allow users to fill out forms and link them to worlds/characters where necessary. These forms also have validation for required fields.
+
+Create Character Page Picture:
+
+Create Lore Entry Page Picture:
+
+#### User Registration
+
+Users can register for an account using Django's built-in 'UserCreationForm'. After successful registration, the user is automatically logged in and shown a success message.
+
+Picture User Registration:
+
+#### Login and Logout
+
+Users can log in using Django's authentication system and log out using a custom logout view that displays a success message.
+
+Pictures:
+
+#### Dashboard
+
+The dashboard allows users to see all of their created worlds, whether public or private. This is where they can edit and update their worlds, delete them, or make them private/public if needed.
+
+The dashboard includes:
+
+- total world count.
+- per-world character count.
+- per-world lore entry count.
+- public/private status badges.
+- links to view details.
+- create world link.
+- empty state when no worlds exist.
+
+Dashboard Page picture:
+
+#### Dashboard Counters
+
+Dashboard counters give users quick feedback about their content.
+
+The dashboard shows:
+
+- total number of worlds owned by the logged in user.
+- character count for each world.
+- lore entry count for each world.
+
+The count updates when related records are added or deleted.
+
+Picture of dashboard counters:
+
+#### World CRUD
+
+Logged-in users can create, view, update and delete their own worlds. 
+
+World records include:
+
+- title.
+- genre.
+- summary.
+- main conflict.
+- tone.
+- public/private status.
+- created date.
+- updated date.
+
+The owner is assigned automatically from the logged-in user and is not exposed as a form field. 
+
+Create world picture:
+World detail picture:
+edit world picture:
+delete world picture:
+
+#### Character CRUD
+
+Users can create characters linked to worlds they own. Characters are managed through their parent world.
+
+Character records include:
+
+- name.
+- role.
+- species.
+- personality.
+- backstory.
+- created date.
+- updated date.
+
+Characters appear on their related world detail page and can be opened on their own detail page.
+
+Character list picture:
+
+character detail picture:
+
+character form picture:
+
+#### Lore Entry CRUD
+
+Users can create lore entries linked to worlds they own. Lore entries can optionally be linked to a character from the same world.
+
+Lore entry records include:
+
+- title.
+- category.
+- summary.
+- full content.
+- importance.
+- optional related character.
+- created date.
+- updated date.
+
+The related character dropdown is filtered to characters from the current world only. This prevents users from linking a lore entry to a character from another world.
+
+Lore entry list picture:
+
+Lore entry detail picture:
+
+Lore entry form picture:
+
+#### Form Validation Feedback
+
+Required fields use browser validation first, which prevents users from submitting blank required fields. A Django/server-side error summary block was also added to the form templates as a fallback if invalid form data reaches the server.
+
+Validation feedback was added to:
+
+- World form.
+- Character form.
+- Lore Entry Form.
+
+#### Delete Confirmation Page
+
+Worlds, characters and lore entries all have confirmation pages before deletion. This helps prevent accidental data loss.
+
+picture of delete confirmation pages:
+
+#### Public and Private Worlds
+
+Each world can be marked as public or private.
+
+| User Type | Public World | Private World |
+|---|---|---|
+| Owner | Can view and manage | Can view and manage |
+| Logged-in non-owner | Can view only | Blocked / 404 |
+| Logged-out visitor | Can view only | Blocked / 404 |
+
+Owner-only links such as edit, delete, add character and add lore entry are hidden from non-owners.
+
+public world logged out picture:
+
+private world 404:
+
+#### Public World Search
+
+Users can search public worlds by:
+
+- world title.
+- partial title.
+- summary.
+- genre.
+- tone.
+- related character name.
+- related character role.
+- related character species.
+- related lore entry title.
+- related lore entry summary.
+- related lore entry content.
+- related lore entry category.
+
+The search uses Django 'Q' objects and '.distinct()' to prevent duplicate worlds from appearing when multiple related records match the same query.
+
+Public world search picture:
+Search results picture:
+
+### Genre Filter
+
+The Public World Library includes a genre filter. Users can filter by genre and combine the filter with a search query.
+
+A clear/reset link appears when a search or filter is active.
+
+Genre filter picture: 
+
+Combined search and filter picture:
+
+
+#### Responsive Navigation
+
+The website uses a shared 'base.html' template with consistent navigation. Navigation changes depending on authentication status.
+
+Logged-out users can see:
+
+- Home
+- About
+- Public Worlds
+- Register
+- Login
+
+Logged-in users can see:
+
+- Home
+- About
+- Public Worlds
+- Dashboard
+- Create World
+- Logout
+
+Picture of logged in:
+
+Picture of logged out:
+
+---
+
+### JavaScript Features
 
 Custom JavaScript is stored at:
 
@@ -886,7 +1568,411 @@ The browser console was checked after implementing JavaScript interactions. No J
 
 JavaScript No Errors picture:
 
-## Technologies Used
+---
+
+## Mock-Ups
+
+The following Mock-Ups have been created to showcase how each web page looks on Computer, Tablet and Smartphone.
+
+Homepage:
+
+About Page:
+
+Public Worlds:
+
+Dashboard:
+
+Register:
+
+Create World:
+
+---
+
+## Agile Methodology
+
+### GitHub Issues
+
+This project uses GitHub Issues to track planned features, bugs, improvements and documentation tasks.
+
+GitHub Issues Image:
+
+![GitHub Issues Image]
+
+### Project Board
+
+The board uses the following workflow columns:
+
+Project Board Image:
+
+![GitHub Project Board Image]
+
+### MoSCoW Prioritisation
+
+MoSCoW prioritisation was used to decide which features were most important for the Milestone 3 MVP.
+
+Priorities used:
+
+- Must Have
+- Should Have
+- Could Have
+- Won't Have
+
+### Story Points
+
+Story points were used to estimate the size of each GitHub Issue.
+
+Story point guide:
+
+| Points | Meaning |
+|---|---|
+| 1 | Very small task |
+| 2 | Small task |
+| 3 | Medium task |
+| 5 | Large task |
+| 8 | Very large task |
+
+### Completed Issues
+
+Completed issues include:
+
+- Initial Django project setup
+- Create homepage
+- Create about page
+- Implement user registration
+- Implement user login and logout
+- Create World model
+- Implement World CRUD
+- Create Character model
+- Implement Character CRUD
+- Create Lore Entry model
+- Implement Lore Entry CRUD
+- Implement public/private worlds
+- Create public world library
+- Implement search functionality
+- Add genre filters
+- Add dashboard counters
+- Add validation feedback
+- Add CSS styling
+- Add JavaScript enhancements
+- Deploy project
+
+Completed Issues Image:
+
+![Completed Issues Image]
+
+### Won't Have Scope Control
+
+The following features were intentionally excluded from the MVP to avoid scope creep:
+
+- image uploads;
+- AI generation;
+- collaborative editing;
+- private messaging;
+- rich text editor;
+- complex maps or timelines;
+- full TTRPG rules/stat system.
+
+These may be included as future features, but for now have been listed as Won't Have items.
+
+---
+
+## Database Schema
+
+Lorekeeper uses a relational database structure designed around worldbuilding content. The main purpose of the database is to allow registered users to create fictional worlds and organise related records such as characters and lore entries.
+
+The implemented schema contains the following main models:
+
+- Django's built-in 'User' model.
+- 'World'.
+- 'Character'.
+- 'LoreEntry'.
+
+Django's built-in 'User' model is used for authentication and ownership. The custom models are stored in the 'worlds' app.
+
+### Entity Relationship Diagram
+
+```mermaid
+erDiagram
+    USER ||--o{ WORLD : owns
+    WORLD ||--o{ CHARACTER : contains
+    WORLD ||--o{ LORE_ENTRY : contains
+    CHARACTER |o--o{ LORE_ENTRY : relates_to
+
+    USER {
+        int id PK
+        string username
+        string email
+    }
+
+    WORLD {
+        int id PK
+        int owner_id FK
+        string title
+        string genre
+        text summary
+        text main_conflict
+        string tone
+        boolean is_public
+        datetime created_at
+        datetime updated_at
+    }
+
+    CHARACTER {
+        int id PK
+        int world_id FK
+        string name
+        string role
+        string species
+        text personality
+        text backstory
+        datetime created_at
+        datetime updated_at
+    }
+
+    LORE_ENTRY {
+        int id PK
+        int world_id FK
+        int character_id FK
+        string title
+        string category
+        text summary
+        text content
+        string importance
+        datetime created_at
+        datetime updated_at
+    }
+```
+
+### Relationships
+
+#### User to World
+
+Each 'World' belongs to one registered user through the 'owner' field.
+
+```python
+owner = models.ForeignKey(
+    settings.AUTH_USER_MODEL,
+    on_delete=models.CASCADE,
+    related_name='worlds'
+)
+```
+
+This create a one-to-many relationship:
+
+```text
+User 1 ---- many Worlds
+```
+
+A single user can create many worlds, but each world belong to one user. If a user account is deleted, their worlds are also deleted because 'on_delete=models.CASCADE' is used.
+
+This relationship supports ownership protection because users can only edit and delete worlds that belong to them.
+
+#### World to Character
+
+Each 'Character' belongs to one 'World'.
+
+```python
+world = models.ForeignKey(
+    World,
+    on_delete=models.CASCADE,
+    related_name='characters'
+)
+```
+
+This creates a one-to-many relationship:
+
+```text
+World 1 ---- many Characters
+```
+
+If a world is deleted, its related characters are also deleted. The 'related_name='characters'' allows characters to be accessed from a world using:
+
+```python
+world.characters.all()
+```
+
+#### World to LoreEntry
+
+Each 'LoreEntry' belongs to one 'World'.
+
+```python
+world = models.ForeignKey(
+    World,
+    on_delete=models.CASCADE,
+    related_name='lore_entries'
+)
+```
+
+This creates a one-to-many relationship:
+
+```text
+World 1 ---- many Lore Entries
+```
+
+If a world is deleted, its related lore entries are also deleted. The 'related_name='lore_entries'' allows lore entries to be accessed from a world using:
+
+```python
+world.lore_entries.all()
+```
+
+#### Character to LoreEntry
+
+A 'LoreEntry' can optionally be linked to a 'Character'.
+
+```python
+character = models.ForeignKey(
+    Character,
+    on_delete=models.SET_NULL,
+    related_name='lore_entries',
+    blank=True,
+    null=True
+)
+```
+
+This creates an optional relationship:
+
+```text
+Character 0/1 ---- many Lore Entries
+```
+
+A lore entry does not have to be connected to a character. This is useful because some lore entries are world-level information, such as history, culture, magic systems, politics, geography or timelines.
+
+If a related character is deleted, the lore entry is not deleted. Instead, the 'character' field is set to 'NULL' because 'on_delete=models.SET_NULL' is used. This protects lore records from being accidentally removed when a character is deleted.
+
+### Models
+
+#### World Model
+
+The 'World' model is the main container for fictional settings in Lorekeeper.
+
+| Field | Type | Purpose |
+|---|---|---|
+| `owner` | ForeignKey | Links the world to the user who created it |
+| `title` | CharField | Stores the name of the fictional world |
+| `genre` | CharField with choices | Stores the world's genre |
+| `summary` | TextField | Stores a summary of the world |
+| `main_conflict` | TextField | Optional field for the central conflict, war, mystery or tension |
+| `tone` | CharField | Optional field for the tone or mood of the world |
+| `is_public` | BooleanField | Controls whether the world appears publicly |
+| `created_at` | DateTimeField | Automatically stores when the world was created |
+| `updated_at` | DateTimeField | Automatically stores when the world was last updated |
+
+The 'World' model uses predefined genre choices to keep data consistent:
+
+```python
+GENRE_CHOICES = [
+    ('fantasy', 'Fantasy'),
+    ('sci_fi', 'Science Fiction'),
+    ('horror', 'Horror'),
+    ('modern', 'Modern'),
+    ('historical', 'Historical'),
+    ('supernatural', 'Supernatural'),
+    ('other', 'Other'),
+]
+```
+
+World records are ordered by newest first:
+
+```python
+class Meta:
+    ordering = ['-created_at']
+```
+
+#### Character Model
+
+The 'Character' model stores character profiles attached to a fictional world.
+
+| Field | Type | Purpose |
+|---|---|---|
+| `world` | ForeignKey | Links the character to a specific world |
+| `name` | CharField | Stores the character's name |
+| `role` | CharField | Optional field for the character's role |
+| `species` | CharField | Optional field for the character's species or type |
+| `personality` | TextField | Optional field for personality details |
+| `backstory` | TextField | Optional field for character history or background |
+| `created_at` | DateTimeField | Automatically stores when the character was created |
+| `updated_at` | DateTimeField | Automatically stores when the character was last updated |
+
+Character records are ordered alphabetically by name:
+
+```python
+class Meta:
+    ordering = ['name']
+```
+
+#### LoreEntry Model
+
+The 'LoreEntry' model stores structured worldbuilding information attached to a world.
+
+| Field | Type | Purpose |
+|---|---|---|
+| `world` | ForeignKey | Links the lore entry to a specific world |
+| `character` | ForeignKey | Optionally links the lore entry to a character |
+| `title` | CharField | Stores the lore entry title |
+| `category` | CharField with choices | Stores the type/category of lore |
+| `summary` | TextField | Optional short overview of the lore entry |
+| `content` | TextField | Stores the full lore entry |
+| `importance` | CharField with choices | Stores the importance level of the lore entry |
+| `created_at` | DateTimeField | Automatically stores when the lore entry was created |
+| `updated_at` | DateTimeField | Automatically stores when the lore entry was last updated |
+
+The `LoreEntry` model uses category choices to keep lore organised:
+
+```python
+CATEGORY_CHOICES = [
+    ('history', 'History'),
+    ('culture', 'Culture'),
+    ('magic', 'Magic'),
+    ('technology', 'Technology'),
+    ('politics', 'Politics'),
+    ('religion', 'Religion'),
+    ('species', 'Species'),
+    ('timeline', 'Timeline'),
+    ('geography', 'Geography'),
+    ('miscellaneous', 'Miscellaneous'),
+]
+```
+
+It also uses important choices:
+
+```python
+IMPORTANT_CHOICES = [
+    ('low', 'Low'),
+    ('medium', 'Medium'),
+    ('high', 'High'),
+    ('essential', 'Essential'),
+]
+```
+
+Lore entries are ordered alphabetically by title:
+
+```python
+class Meta:
+    ordering = ['title']
+```
+
+### Schema Justification
+
+This schema fits Lorekeeper because the application is designed around organising fictional worldbuilding content.
+
+The structure follows the natural hierarchy of the domain:
+
+```text
+A user owns worlds.
+A world contains characters.
+a world contains lore entries.
+A lore entry may optionally relate to a character.
+```
+
+This allows users to build structured fictional settings without storing all information in one large, unorganised table.
+
+This schema also supports privacy and ownership because worlds are linked to users. This allows the app to check whether the current user owns a world before allowing edit or delete actions.
+
+---
+
+---
+
+## Tools and Technologies Used
 
 | Technology | Purpose |
 |---|---|
@@ -905,7 +1991,148 @@ JavaScript No Errors picture:
 
 ---
 
-## Testing 
+---
+
+## Installation
+
+To run this project locally:
+
+1. Clone the repository:
+
+```bash
+git clone PASTE-GITHUB-REPOSITORY-LINK-HERE
+```
+
+2. Navigate into the project folder:
+
+```bash
+cd lorekeeper
+```
+
+3. Create and activate a virtual environment:
+
+```bash
+python -m venv .venv
+```
+
+On Windows:
+
+```bash
+.\.venv\Scripts\Activate.ps1
+```
+
+4. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+5. Create an `.env` file and add required environment variables.
+
+Example:
+
+```text
+SECRET_KEY=your-secret-key
+DEBUG=True
+DATABASE_URL=your-local-database-url-if-needed
+```
+
+6. Apply migrations:
+
+```bash
+python manage.py migrate
+```
+
+7. Create a superuser if admin access is needed:
+
+```bash
+python manage.py createsuperuser
+```
+
+8. Run the development server:
+
+```bash
+python manage.py runserver
+```
+
+9. Open the local site:
+
+```text
+http://127.0.0.1:8000/
+```
+
+---
+
+## Deployment
+
+Deployment was completed using Heroku.
+
+Deployment steps:
+
+1. Create or log into a Heroku account.
+2. Create a new Heroku app.
+3. Add the required config vars in Heroku settings.
+4. Add the database add-on if required.
+5. Connect the Heroku app to the GitHub repository.
+6. Deploy from the `main` branch.
+7. Run migrations on the deployed app.
+8. Create a deployed superuser if required.
+9. Open the live site and test key functionality.
+10. Confirm the deployed version matches the local version.
+
+Required deployment files include:
+
+- `requirements.txt`
+- `Procfile`
+- production-ready settings
+- environment variables/config vars
+
+---
+
+## Security
+
+Security considerations implemented or planned include:
+
+- Django authentication for registration, login and logout;
+- `@login_required` protection for private management views;
+- ownership checks using `get_object_or_404(..., owner=request.user)`;
+- public/private visibility logic through `World.is_public`;
+- owner-only edit/delete/add links in templates;
+- CSRF protection on all POST forms;
+- form validation through Django forms and browser validation;
+- private worlds blocked from non-owners;
+- secret keys and passwords excluded from the repository;
+- `.env` included in `.gitignore`;
+- `DEBUG` turned off in production;
+- environment variables used for deployment secrets.
+
+---
+
+## Future Features
+
+These features are possible future improvements after the Milestone 3 MVP:
+
+- location records attached to worlds;
+- comments on public worlds;
+- favourites/saved public worlds;
+- random worldbuilding prompt generator;
+- public/private status badge enhancements;
+- custom 404 page;
+- richer profile/dashboard statistics;
+- image uploads;
+- richer text formatting;
+- collaborative editing;
+- private messaging.
+
+Some of these were intentionally marked as Won't Have during the MVP to keep the project achievable before the deadline.
+
+---
+
+---
+
+## Testing
+
+### Testing Strategy
 
 Testing was carried out manually throughout development. Testing focused on:
 
@@ -923,19 +2150,42 @@ Testing was carried out manually throughout development. Testing focused on:
 - browser console errors
 - bug fixes
 
-### Authentication Testing
+Testing was completed throughout development and should also be repeated after deployment to confirm the live Heroku version matches the local version.
 
-| Test ID | Feature | Test Action | Expected Result | Actual Result | Status |
-|---|---|---|---|---|---|
-| AUTH-01 | Register | Navigate to registration page | Registration form displays | Registration form displayed | Pass |
-| AUTH-02 | Register | Submit valid registration details | New account is created | Account created successfully | Pass |
-| AUTH-03 | Register | Register new account | User is automatically logged in | User was logged in automatically | Pass |
-| AUTH-04 | Login | Navigate to login page | Login form displays | Login form displayed | Pass |
-| AUTH-05 | Login | Submit valid login details | User logs in | User logged in successfully | Pass |
-| AUTH-06 | Logout | Click logout | User logs out and returns to homepage | User logged out successfully | Pass |
-| AUTH-07 | Navigation | Check nav after logout | Logged-out links appear | Register/Login links displayed | Pass |
+Testing covered:
 
-### World CRUD Testing
+- functionality;
+- usability;
+- responsiveness;
+- data management;
+- permissions and ownership;
+- public/private visibility;
+- JavaScript behaviour;
+- validation;
+- browser/device compatibility;
+- bugs and fixes.
+
+### Manual Testing
+
+Manual testing tables are included throughout this section. Each test records the feature, test action, expected result, actual result and final status.
+
+### User Story Testing
+
+| User Story | How This Was Tested | Result |
+|---|---|---|
+| As a new user, I want to understand what Lorekeeper is. | Homepage and About page were reviewed for clear project purpose and user value. | Pass |
+| As a user, I want to register, log in and log out. | Registration, login and logout flows were tested manually. | Pass |
+| As a logged-in user, I want to create worlds. | World create form was tested with valid data. | Pass |
+| As a logged-in user, I want to edit and delete my own worlds. | World update and delete workflows were tested. | Pass |
+| As a logged-in user, I want to add characters and lore entries to worlds. | Character and Lore Entry CRUD workflows were tested. | Pass |
+| As a user, I want to control public/private visibility. | Public and private world access was tested as owner, non-owner and logged-out user. | Pass |
+| As a visitor, I want to browse/search/filter public worlds. | Public World Library, search and genre filter were tested. | Pass |
+| As a user, I want clear feedback. | Success messages, validation messages and delete confirmations were tested. | Pass |
+| As a user, I want long content to be easier to browse. | Collapsible JavaScript sections were tested. | Pass |
+
+### CRUD Testing
+
+#### World CRUD Testing
 
 | Test ID | Feature | Test Action | Expected Result | Actual Result | Status |
 |---|---|---|---|---|---|
@@ -950,7 +2200,7 @@ Testing was carried out manually throughout development. Testing focused on:
 | WORLD-D-02 | Delete World | Confirm deletion | World is deleted | World removed from dashboard | Pass |
 | WORLD-SEC-01 | Ownership | Try accessing another user's private world | 404/not found | Access blocked | Pass |
 
-### Character CRUD Testing
+#### Character CRUD Testing
 
 | Test ID | Feature | Test Action | Expected Result | Actual Result | Status |
 |---|---|---|---|---|---|
@@ -963,7 +2213,7 @@ Testing was carried out manually throughout development. Testing focused on:
 | CHAR-D-01 | Delete Character | Confirm deletion | Character is deleted | Character removed | Pass |
 | CHAR-SEC-01 | Ownership | Try to manage character through another user's world | 404/not found | Access blocked | Pass |
 
-### Lore Entry CRUD Testing
+#### Lore Entry CRUD Testing
 
 | Test ID | Feature | Test Action | Expected Result | Actual Result | Status |
 |---|---|---|---|---|---|
@@ -977,7 +2227,29 @@ Testing was carried out manually throughout development. Testing focused on:
 | LORE-D-01 | Delete Lore Entry | Confirm deletion | Lore entry is deleted | Lore entry removed | Pass |
 | LORE-SEC-01 | Ownership | Try to manage lore entry through another user's world | 404/not found | Access blocked | Pass |
 
-### Public Visibility, Search and Filter Testing
+### Authentication Testing
+
+| Test ID | Feature | Test Action | Expected Result | Actual Result | Status |
+|---|---|---|---|---|---|
+| AUTH-01 | Register | Navigate to registration page | Registration form displays | Registration form displayed | Pass |
+| AUTH-02 | Register | Submit valid registration details | New account is created | Account created successfully | Pass |
+| AUTH-03 | Register | Register new account | User is automatically logged in | User was logged in automatically | Pass |
+| AUTH-04 | Login | Navigate to login page | Login form displays | Login form displayed | Pass |
+| AUTH-05 | Login | Submit valid login details | User logs in | User logged in successfully | Pass |
+| AUTH-06 | Logout | Click logout | User logs out and returns to homepage | User logged out successfully | Pass |
+| AUTH-07 | Navigation | Check nav after logout | Logged-out links appear | Register/Login links displayed | Pass |
+
+### Ownership and Security Testing
+
+| Test ID | Feature | Test Action | Expected Result | Actual Result | Status |
+|---|---|---|---|---|---|
+| SEC-01 | Ownership | Try accessing another user's private world | 404/not found | Access blocked | Pass |
+| SEC-02 | Ownership | Try managing a character through another user's world | 404/not found | Access blocked | Pass |
+| SEC-03 | Ownership | Try managing a lore entry through another user's world | 404/not found | Access blocked | Pass |
+| SEC-04 | Public world owner links | View public world as non-owner | Edit/delete/add links hidden | Owner links hidden | Pass |
+| SEC-05 | CSRF | Check POST forms | CSRF tokens included | Forms submitted safely | Pass |
+
+### Public/Private Visibility Testing
 
 | Test ID | Feature | Test Action | Expected Result | Actual Result | Status |
 |---|---|---|---|---|---|
@@ -995,37 +2267,18 @@ Testing was carried out manually throughout development. Testing focused on:
 | FILTER-02 | Combined Search/Filter | Search and filter together | Matching public worlds display | Combined result worked | Pass |
 | FILTER-03 | Clear Search | Click clear/reset | All public worlds return | Full list displayed | Pass |
 
-### Dashboard Counter Testing
+### Search and Filter Testing
 
-| Test ID | Feature | Test Action | Expected Result | Actual Result | Status |
-|---|---|---|---|---|---|
-| DASH-COUNT-01 | Dashboard Counters | View dashboard | Total world count displays | Count displayed | Pass |
-| DASH-COUNT-02 | Dashboard Counters | View world with no characters | Character count shows 0 | 0 displayed | Pass |
-| DASH-COUNT-03 | Dashboard Counters | Add character | Character count updates | Count updated | Pass |
-| DASH-COUNT-04 | Dashboard Counters | Add lore entry | Lore entry count updates | Count updated | Pass |
-| DASH-COUNT-05 | Ownership | Log in as different user | Only that user's counters display | Correct data shown | Pass |
+The Public World Library search and filter tests are included in the table above. Search was tested using:
 
-### Validation Testing
-
-| Test ID | Feature | Test Action | Expected Result | Actual Result | Status |
-|---|---|---|---|---|---|
-| VAL-01 | World Form | Submit required fields blank | Browser validation appears | Browser prompted user | Pass |
-| VAL-02 | Character Form | Submit name blank | Browser validation appears | Browser prompted user | Pass |
-| VAL-03 | Lore Entry Form | Submit required fields blank | Browser validation appears | Browser prompted user | Pass |
-| VAL-04 | Server-Side Fallback | Form errors reach Django | Error summary displays | Error block added as fallback | Pass |
-| VAL-05 | Valid Submit | Submit valid forms | Records save successfully | Forms still worked | Pass |
-
-### CSS and Responsive Testing
-
-| Test ID | Feature | Test Action | Expected Result | Actual Result | Status |
-|---|---|---|---|---|---|
-| CSS-01 | CSS Load | Open homepage | Custom CSS applied | Styling appeared | Pass |
-| CSS-02 | Navigation | Check nav on desktop | Navigation readable | Navigation displayed correctly | Pass |
-| CSS-03 | Cards | View dashboard/library | Cards display consistently | Cards displayed correctly | Pass |
-| CSS-04 | Forms | View create/edit forms | Forms readable and usable | Forms displayed correctly | Pass |
-| CSS-05 | Dropdown | Open genre dropdown | Options readable | Contrast issue fixed | Pass |
-| CSS-06 | Mobile Layout | Resize viewport | Layout stacks without horizontal overflow | Responsive layout worked | Pass |
-| CSS-07 | Reduced Motion | Review CSS | Reduced-motion media query included | Query present | Pass |
+- full world titles;
+- partial world titles;
+- genre;
+- tone;
+- related character names;
+- related character roles/species;
+- related lore entry keywords;
+- private-world search attempts.
 
 ### JavaScript Testing
 
@@ -1044,13 +2297,153 @@ Testing was carried out manually throughout development. Testing focused on:
 
 ---
 
-# Bugs and Fixes
+### Responsive Testing
+
+| Test ID | Feature | Test Action | Expected Result | Actual Result | Status |
+|---|---|---|---|---|---|
+| CSS-01 | CSS Load | Open homepage | Custom CSS applied | Styling appeared | Pass |
+| CSS-02 | Navigation | Check nav on desktop | Navigation readable | Navigation displayed correctly | Pass |
+| CSS-03 | Cards | View dashboard/library | Cards display consistently | Cards displayed correctly | Pass |
+| CSS-04 | Forms | View create/edit forms | Forms readable and usable | Forms displayed correctly | Pass |
+| CSS-05 | Dropdown | Open genre dropdown | Options readable | Contrast issue fixed | Pass |
+| CSS-06 | Mobile Layout | Resize viewport | Layout stacks without horizontal overflow | Responsive layout worked | Pass |
+| CSS-07 | Reduced Motion | Review CSS | Reduced-motion media query included | Query present | Pass |
+
+### Browser Testing
+
+The site was tested in the following browsers before submission:
+
+| Browser | Result |
+|---|---|
+| Google Chrome | Pass |
+| Mozilla Firefox | Pass |
+| Microsoft Edge | Pass |
+| Brave | Pass |
+
+### Device Testing
+
+The website was tested on multiple devices and screen sizes to ensure it works as intended.
+
+| Device / Screen Size | Result |
+|---|---|
+| Desktop / laptop | Pass |
+| Notebook | Pass |
+| iPad Pro | Pass |
+| iPhone 16 | Pass |
+
+### Lighthouse
+
+Lighthouse testing was completed in the Chrome web browser for the following pages.
+
+Most pages returned green results across the tested categories. The homepage returned an amber performance score. This is likely due to the large homepage image used as part of the visual design. The image was kept because it supports the project branding and the homepage only uses one main image.
+
+| Page | Result | Notes |
+|---|---|---|
+| About Page | Pass | Lighthouse checks completed successfully |
+| Create World | Pass | Lighthouse checks completed successfully |
+| Dashboard | Pass | Lighthouse checks completed successfully |
+| Homepage | Pass with note | Performance was amber due to the large homepage image, but other areas were green |
+| Login | Pass | Lighthouse checks completed successfully |
+| Register Page | Pass | Lighthouse checks completed successfully |
+| World Library | Pass | Lighthouse checks completed successfully |
+
+### HTML Validation
+
+HTML validation was completed using the W3C Markup Validation Service by testing the deployed website pages.
+
+| Page | Result |
+|---|---|
+| Home | Pass |
+| About | Pass |
+| Create World | Pass |
+| Dashboard | Pass |
+| Login | Pass |
+| Public Worlds | Pass |
+| Register | Pass |
+
+Home Image: 
+
+About Image: 
+
+Create Image: 
+
+Dashboard Image: 
+
+Login Image: 
+
+Public Worlds Image: 
+
+Register Image:
+
+### CSS Validation
+
+CSS validation was completed using the W3C CSS Validation Service.
+
+| File | Result |
+|---|---|
+| `style.css` | Pass |
+
+
+
+### JavaScript Validation
+
+JavaScript validation was completed using ESLint.
+
+| File | Result |
+|---|---|
+| `script.js` | Pass |
+
+
+### Python/PEP8 Validation
+
+Python code was checked using the CI Python Linter by Code Institute. Each Python file was copied into the linter individually to check for PEP8 formatting issues, indentation errors, trailing whitespace, missing newlines and long lines.
+
+Any issues found during validation were corrected, and the files were checked again until they passed successfully.
+
+| File | Result |
+|---|---|
+| `worlds/models.py` | Pass |
+| `worlds/forms.py` | Pass |
+| `worlds/views.py` | Pass |
+| `worlds/urls.py` | Pass |
+| `worlds/admin.py` | Pass |
+| `worlds/apps.py` | Pass |
+| `worlds/tests.py` | Pass |
+| `manage.py` | Pass |
+| `config/settings.py` | Pass |
+| `config/urls.py` | Pass |
+| `config/asgi.py` | Pass |
+| `config/wsgi.py` | Pass |
+
+Worlds/Models Image:
+
+Worlds/forms Image:
+
+Worlds/Views Image:
+
+Worlds/urls Image:
+
+Worlds/apps Image:
+
+Manage Image:
+
+config/settings Image:
+
+config/urls Image:
+
+config asgi Image:
+
+config wsgi Image:
+
+Migration files were not included in the PEP8 validation table because they are auto-generated by Django.
+
+### Bugs and Fixes
 
 This section documents bugs found during the development of Lorekeeper, how they were investigated, and how they were fixed. All listed bugs have been resolved.
 
 ---
 
-## Bug 1: Homepage View Not Found
+#### Bug 1: Homepage View Not Found
 
 **Date found:** 03/06/2026  
 **Feature / area:** Homepage / URL routing  
@@ -1087,7 +2480,7 @@ After saving `views.py` and restarting the development server, the homepage load
 
 ---
 
-## Bug 2: Django Template Tags Displayed as Plain Text on Login Page
+#### Bug 2: Django Template Tags Displayed as Plain Text on Login Page
 
 **Date found:** 04/06/2026  
 **Feature / area:** User login page / Django templates  
@@ -1169,7 +2562,7 @@ Screenshot evidence was taken showing the issue before the fix and the corrected
 
 ---
 
-## Bug 3: Dashboard Displayed Conflicting Empty State Text
+#### Bug 3: Dashboard Displayed Conflicting Empty State Text
 
 **Date found:** 05/06/2026  
 **Feature / area:** User dashboard  
@@ -1250,7 +2643,7 @@ Screenshot evidence was collected showing:
 
 ---
 
-## Bug 4: Character Detail Link Not Displaying Correctly
+#### Bug 4: Character Detail Link Not Displaying Correctly
 
 **Date found:** 05/06/2026  
 **Feature / area:** Character read functionality / World detail page  
@@ -1348,7 +2741,7 @@ After updating the template:
 
 ---
 
-## Bug 5: NoReverseMatch Error on Character Detail Page
+#### Bug 5: NoReverseMatch Error on Character Detail Page
 
 **Date found:** 05/06/2026  
 **Feature / area:** Character detail / Character update URL routing  
@@ -1425,7 +2818,7 @@ After fixing the URL pattern:
 
 ---
 
-## Bug 6: Related Character Label Displayed Without Character Name
+#### Bug 6: Related Character Label Displayed Without Character Name
 
 **Date found:** 05/06/2026  
 **Feature / area:** Lore Entry detail page  
@@ -1476,7 +2869,7 @@ Related character: Weiss Schnee
 
 ---
 
-## Bug 7: Search FieldError Caused by Incorrect Django Query Lookup
+#### Bug 7: Search FieldError Caused by Incorrect Django Query Lookup
 
 **Date found:** 07/06/2026  
 **Feature / area:** Public World Search  
@@ -1544,7 +2937,7 @@ After correcting the lookup syntax, the public world search feature worked corre
 
 ---
 
-## Bug 8: Dropdown Options Difficult to Read
+#### Bug 8: Dropdown Options Difficult to Read
 
 **Date found:** 13/06/2026  
 **Feature / area:** CSS / Create World form dropdown  
@@ -1582,7 +2975,85 @@ Dropdown options are now readable and accessible.
 
 ---
 
-## Bug Summary
+## Bug 9: Register Page HTML Validation Error Caused by `form.as_p`
+
+**Date found:** 20/06/2026
+**Feature / area:** Register page / HTML validation
+**Status:** Fixed
+
+### Issue
+
+When validating the deployed Register page using the W3C HTML Validator, the page returned several HTML errors.
+
+The main errors were:
+
+```text
+End tag p implied, but there were open elements.
+Unclosed element span.
+Stray end tag span.
+No p element in scope but a p end tag seen.
+```
+
+The errors appeared around the password help text generated by Django’s built-in registration form.
+
+### Cause
+
+The issue was caused by rendering the registration form with:
+
+```django
+{{ form.as_p }}
+```
+
+Django’s `UserCreationForm` includes password help text that is output as a list using `<ul>` and `<li>` elements. However, `form.as_p` wraps each form field in `<p>` tags.
+
+This caused invalid HTML because a `<ul>` element was being placed inside a `<p>` element. The browser was able to display the page, but the W3C validator correctly identified the markup as invalid.
+
+### Fix
+
+The form was changed from using `{{ form.as_p }}` to manually rendering each form field in a loop.
+
+The updated code uses a `<div class="form-field">` wrapper for each field instead of relying on paragraph tags:
+
+```django
+{% for field in form %}
+    <div class="form-field">
+        {{ field.label_tag }}
+        {{ field }}
+
+        {% if field.help_text %}
+            <div class="helptext" id="{{ field.id_for_label }}_helptext">
+                {{ field.help_text|safe }}
+            </div>
+        {% endif %}
+
+        {% for error in field.errors %}
+            <p class="form-error">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </div>
+{% endfor %}
+```
+
+This allowed Django’s password help text list to display inside a valid block-level element rather than inside a paragraph.
+
+### Result
+
+After updating the Register page template and redeploying the project to Heroku, the Register page was validated again using the W3C HTML Validator.
+
+The previous HTML validation errors were resolved, and the Register page markup became valid.
+
+### Evidence
+
+Screenshot evidence was collected showing:
+
+* The original W3C validation errors on the deployed Register page.
+* The corrected Register page after replacing `{{ form.as_p }}`.
+* The W3C validator result after the fix.
+
+---
+
+#### Bug Summary
 
 | Bug | Date Found | Area | Status |
 |---|---|---|---|
@@ -1594,6 +3065,7 @@ Dropdown options are now readable and accessible.
 | Related character label displayed without character name | 05/06/2026 | Lore Entry detail page | Fixed |
 | Search `FieldError` caused by incorrect query lookup | 07/06/2026 | Public World Search | Fixed |
 | Dropdown options difficult to read | 13/06/2026 | CSS / Form styling | Fixed |
+| Register page HTML validation error caused by `form.as_p` | 20/06/2026 | Register page / HTML validation | Fixed |
 
 ---
 
@@ -1683,3 +3155,31 @@ Footer icons use inline SVGs. They currently link internally to avoid placeholde
 This project was created as part of a Level 5 Diploma in Web Application Development.
 
 Special thanks to the tutors, learning resources and support materials used throughout the course.
+
+### Unfixed Bugs
+
+At the time of writing, there are no known unfixed bugs.
+
+---
+
+## Credits
+
+### Code and Learning Resources
+
+The project was built using Django documentation, MDN Web Docs and course learning resources.
+
+Useful resources referenced during development include:
+
+- [Django Documentation](https://docs.djangoproject.com/)
+- [MDN Web Docs: HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [MDN Web Docs: CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [MDN Web Docs: JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [MDN Web Docs: radial-gradient()](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/radial-gradient)
+- [MDN Web Docs: ::before](https://developer.mozilla.org/en-US/docs/Web/CSS/::before)
+- [MDN Web Docs: ::after](https://developer.mozilla.org/en-US/docs/Web/CSS/::after)
+- [MDN Web Docs: Using CSS animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations)
+- [MDN Web Docs: @keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
+- [MDN Web Docs: prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
+- [Google Fonts: Lexend](https://fonts.google.com/specimen/Lexend)
+- [Google Fonts: Roboto](https://fonts.google.com/specimen/Roboto)
+- [Mermaid Documentation](https://mermaid.js.org/)

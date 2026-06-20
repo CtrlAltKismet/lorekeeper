@@ -38,53 +38,48 @@ class World(models.Model):
 
     def __str__(self):
         return self.title
-    
+
+
 class Character(models.Model):
     """A character belonging to a fictional world."""
-    
+
     world = models.ForeignKey(
         World,
         on_delete=models.CASCADE,
         related_name='characters'
     )
-    
     name = models.CharField(max_length=100)
-    
     role = models.CharField(
         max_length=100,
         blank=True
     )
-    
     species = models.CharField(
         max_length=100,
         blank=True
     )
-    
     personality = models.TextField(
         blank=True
     )
-    
     backstory = models.TextField(
         blank=True
     )
-    
     created_at = models.DateTimeField(
         auto_now_add=True
     )
-    
     updated_at = models.DateTimeField(
         auto_now=True
     )
-    
+
     class Meta:
         ordering = ['name']
-        
+
     def __str__(self):
         return self.name
-    
+
+
 class LoreEntry(models.Model):
     """A lore entry belonging to a fictional world."""
-    
+
     CATEGORY_CHOICES = [
         ('history', 'History'),
         ('culture', 'Culture'),
@@ -97,20 +92,19 @@ class LoreEntry(models.Model):
         ('geography', 'Geography'),
         ('miscellaneous', 'Miscellaneous'),
     ]
-    
+
     IMPORTANT_CHOICES = [
         ('low', 'Low'),
         ('medium', 'Medium'),
         ('high', 'High'),
         ('essential', 'Essential'),
     ]
-    
+
     world = models.ForeignKey(
         World,
         on_delete=models.CASCADE,
         related_name='lore_entries'
     )
-    
     character = models.ForeignKey(
         Character,
         on_delete=models.SET_NULL,
@@ -118,37 +112,30 @@ class LoreEntry(models.Model):
         blank=True,
         null=True
     )
-    
     title = models.CharField(max_length=150)
-    
     category = models.CharField(
         max_length=50,
         choices=CATEGORY_CHOICES,
         default='miscellaneous'
     )
-    
     summary = models.TextField(
         blank=True
     )
-    
     content = models.TextField()
-    
     importance = models.CharField(
         max_length=20,
         choices=IMPORTANT_CHOICES,
         default='medium'
     )
-    
     created_at = models.DateTimeField(
         auto_now_add=True
     )
-    
     updated_at = models.DateTimeField(
         auto_now=True
     )
-    
+
     class Meta:
         ordering = ['title']
-        
+
     def __str__(self):
         return self.title
