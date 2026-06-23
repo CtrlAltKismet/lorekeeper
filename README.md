@@ -28,11 +28,13 @@ The goal is to keep the app simple, beginner-friendly and useful without becomin
 
 ## Live Website
 
-Please visit the deployed website here:
+Please visit the deployed website deployed via Heroku here:
 
 [Live Lorekeeper Website](https://lorekeeper-b174be05c815.herokuapp.com/)
 
 ## Repository
+
+You can view the GitHub repository here:
 
 [GitHub Repository](https://github.com/CtrlAltKismet/lorekeeper)
 
@@ -155,18 +157,6 @@ The developer goals for this project are to:
 - document the project clearly in the README;
 - maintain evidence of Agile planning, testing, bugs and fixes.
 
-### Strategy
-
-| User Group | Need |
-|---|---|
-| Writers | Store fictional settings, character notes and lore in one organised place. |
-| Roleplayers | Manage original worlds, characters and background lore. |
-| Tabletop game masters | Keep lightweight campaign/world notes without needing a complex system. |
-| Creative hobbyists | Structure creative ideas in a simple web app. |
-| Browsing users | View public worlds for inspiration. |
-
----
-
 ### Website Owner Goals
 
 The website owner wants to provide a free and accessible worldbuilding organiser that:
@@ -178,34 +168,15 @@ The website owner wants to provide a free and accessible worldbuilding organiser
 - uses an interface that feels creative and relevant to worldbuilding.
 - allows for future features to be easily integrated within the website.
 
-### User Goals
+### Strategy
 
-Users should be able to:
-
-- understand what Lorekeeper is from the homepage.
-- register, log in and log out.
-- create, view, edit and delete their own worlds, characters linked to worlds, and lore entries.
-- optionally link lore entries to characters.
-- mark worlds as public or private.
-- browse public worlds.
-- search and filter public worlds.
-- get clear feedback after actions.
-- avoid accidentally deleting records through confirmation pages. 
-
-### Design Goals
-
-Lorekeeper uses a **cosmic multiverse archive** theme. This was chosen so the app feels like a fictional worldbuilding library rather than a plain database interface. It gives the illusion of everyone's worlds existing within one multiverse archive.
-
-The design focuses on:
-
-- dark cosmic colours.
-- blue, purple, pink and cyan highlights.
-- glass-style panels.
-- card-based layouts.
-- clear buttons and badges.
-- responsive layouts.
-- accessible contrast and focus states.
-- gentle decorative animation with reduced-motion support.
+| User Group | Need |
+|---|---|
+| Writers | Store fictional settings, character notes and lore in one organised place. |
+| Roleplayers | Manage original worlds, characters and background lore. |
+| Tabletop game masters | Keep lightweight campaign/world notes without needing a complex system. |
+| Creative hobbyists | Structure creative ideas in a simple web app. |
+| Browsing users | View public worlds for inspiration. |
 
 ---
 
@@ -1058,8 +1029,6 @@ As a developer, I want to avoid adding a rich text editor during the MVP so that
 
 ### Site Structure
 
-### Site Structure
-
 The Lorekeeper website uses a shared `base.html` template to keep the layout, navigation, messages and footer consistent across the application. This helps users move around the site without having to relearn the layout on each page. The navigation bar is displayed at the top of every page and changes depending on whether the user is logged in or logged out. This keeps the interface relevant to the user’s current state and avoids showing account management links to visitors who cannot use them.
 
 Logged-out users can access the public areas of the site, including the Home page, About page, Public Worlds page, Register page and Login page. Logged-in users can access these same public pages, but also gain access to private account features such as the Dashboard, Create World page and Logout option. This structure supports the purpose of the application because it separates public browsing from private content management.
@@ -1133,33 +1102,33 @@ Wireframes:
 
 Homepage:
 
-<img width="1023" height="1537" alt="Homepage Wireframe" src="https://github.com/user-attachments/assets/b38fae7d-5860-4896-ab9f-6d062c1cd694" />
+<img width="450" alt="Homepage Wireframe" src="https://github.com/user-attachments/assets/b38fae7d-5860-4896-ab9f-6d062c1cd694" />
 
 Dashboard:
 
-<img width="1122" height="1402" alt="Dashboard Wireframe" src="https://github.com/user-attachments/assets/feb4d931-8f73-4192-95c6-514179bdb391" />
+<img width="450" alt="Dashboard Wireframe" src="https://github.com/user-attachments/assets/feb4d931-8f73-4192-95c6-514179bdb391" />
 
 Create World:
 
-<img width="941" height="1672" alt="Create World" src="https://github.com/user-attachments/assets/945c56f9-d118-4dfe-bf22-68051b8ceabc" />
+<img width="450" alt="Create World" src="https://github.com/user-attachments/assets/945c56f9-d118-4dfe-bf22-68051b8ceabc" />
 
 
 World Details:
 
-<img width="1086" height="1448" alt="World Details" src="https://github.com/user-attachments/assets/8e6ffb98-9586-42de-a95e-5b980c964ee0" />
+<img width="450" alt="World Details" src="https://github.com/user-attachments/assets/8e6ffb98-9586-42de-a95e-5b980c964ee0" />
 
 World Library:
 
-<img width="1122" height="1402" alt="World Library" src="https://github.com/user-attachments/assets/2b9f3f5b-f4b9-4ebd-8ad6-53e9f51f7c74" />
+<img width="450" alt="World Library" src="https://github.com/user-attachments/assets/2b9f3f5b-f4b9-4ebd-8ad6-53e9f51f7c74" />
 
 
 About Page:
 
-<img width="1122" height="1402" alt="About Page" src="https://github.com/user-attachments/assets/e496425f-cb5f-4330-9da5-5e86af88b116" />
+<img width="450" alt="About Page" src="https://github.com/user-attachments/assets/e496425f-cb5f-4330-9da5-5e86af88b116" />
 
 Register Page:
 
-<img width="1086" height="1448" alt="Register Page" src="https://github.com/user-attachments/assets/46cc8464-248a-4ec6-b62a-4633764d756e" />
+<img width="450" alt="Register Page" src="https://github.com/user-attachments/assets/46cc8464-248a-4ec6-b62a-4633764d756e" />
 
 ### Design Choices
 
@@ -1475,9 +1444,6 @@ Users can search public worlds by:
 
 The search uses Django 'Q' objects and '.distinct()' to prevent duplicate worlds from appearing when multiple related records match the same query.
 
-Public world search picture:
-Search results picture:
-
 ### Genre Filter
 
 The Public World Library includes a genre filter. Users can filter by genre and combine the filter with a search query.
@@ -1573,15 +1539,30 @@ The following Mock-Ups have been created to showcase how each web page looks on 
 
 Homepage:
 
+<img width="852" height="730" alt="Mock Up" src="https://github.com/user-attachments/assets/ac0997a2-b3be-4e04-a472-578bd2c65c96" />
+
 About Page:
+
+<img width="892" height="705" alt="About Mockup" src="https://github.com/user-attachments/assets/09a4e62c-2e15-4d71-bd53-d49a3b653d1a" />
 
 Public Worlds:
 
+<img width="882" height="689" alt="Public Worlds Mockup" src="https://github.com/user-attachments/assets/e802dc28-eb58-4855-9c3e-26f8d22070d1" />
+
 Dashboard:
+
+<img width="879" height="690" alt="Dashboard Mockup" src="https://github.com/user-attachments/assets/6c1ac7ef-5df3-40e0-9990-e9be32e2558b" />
 
 Register:
 
+<img width="881" height="689" alt="Register Mockup" src="https://github.com/user-attachments/assets/53679ef4-65e3-48b1-9159-ae5c6fa3b8f8" />
+
 Create World:
+
+<img width="892" height="707" alt="Create World Mockup" src="https://github.com/user-attachments/assets/6860e2bb-551e-4b19-a7e5-7410f8aacb78" />
+
+
+The design of the website follows the same, consistent styling throughout, making the website look more professional and uniform in design.
 
 ---
 
@@ -1972,12 +1953,14 @@ This schema also supports privacy and ownership because worlds are linked to use
 | Python | Back-end programming language. |
 | Django | Main web framework for models, views, forms, templates, authentication and routing. |
 | SQLite | Local development database. |
-| PostgreSQL | Planned production database for deployment. |
+| PostgreSQL | Production database used for the deployed application. |
 | Git | Version control. |
 | GitHub | Remote repository, issues and project board. |
-| Heroku | Planned deployment platform. |
+| Heroku | Deployment platform used for the live application. |
 | Google Fonts | Lexend and Roboto fonts. |
-| Mermaid | ERD diagram in README. |
+| ChatGPT | Image generation for website. |
+| W3C | CSS and HTML validation |
+| Code Institute CI Python Linter | Check python code |
 
 ---
 
@@ -1988,7 +1971,7 @@ To run this project locally:
 1. Clone the repository:
 
 ```bash
-git clone PASTE-GITHUB-REPOSITORY-LINK-HERE
+git clone https://github.com/CtrlAltKismet/lorekeeper.git
 ```
 
 2. Navigate into the project folder:
@@ -2079,7 +2062,7 @@ Required deployment files include:
 
 ## Security
 
-Security considerations implemented or planned include:
+Security considerations implemented include:
 
 - Django authentication for registration, login and logout;
 - `@login_required` protection for private management views;
@@ -2105,7 +2088,6 @@ These features are possible future improvements after the Milestone 3 MVP:
 - favourites/saved public worlds;
 - random worldbuilding prompt generator;
 - public/private status badge enhancements;
-- custom 404 page;
 - richer profile/dashboard statistics;
 - image uploads;
 - richer text formatting;
@@ -3038,7 +3020,7 @@ Dropdown options are now readable and accessible.
 
 ---
 
-## Bug 9: Register Page HTML Validation Error Caused by `form.as_p`
+#### Bug 9: Register Page HTML Validation Error Caused by `form.as_p`
 
 **Date found:** 20/06/2026
 **Feature / area:** Register page / HTML validation
@@ -3130,48 +3112,9 @@ Screenshot evidence was collected showing:
 | Dropdown options difficult to read | 13/06/2026 | CSS / Form styling | Fixed |
 | Register page HTML validation error caused by `form.as_p` | 20/06/2026 | Register page / HTML validation | Fixed |
 
----
+### Unfixed Bugs
 
-## Deployment
-
-## Security
-
-## Security
-
-Security considerations implemented or planned include:
-
-- Django authentication for registration, login and logout;
-- `@login_required` protection for private management views;
-- ownership checks using `get_object_or_404(..., owner=request.user)`;
-- public/private visibility logic through `World.is_public`;
-- owner-only edit/delete/add links in templates;
-- CSRF protection on all POST forms;
-- form validation through Django forms and browser validation;
-- private worlds blocked from non-owners;
-- secret keys and passwords excluded from the repository;
-- `.env` included in `.gitignore`;
-- `DEBUG` to be turned off in production;
-- environment variables to be used for deployment secrets.
-
----
-
-## Future Features
-
-These features are possible future improvements after the Milestone 3 MVP:
-
-- location records attached to worlds;
-- comments on public worlds;
-- favourites/saved public worlds;
-- random worldbuilding prompt generator;
-- public/private status badge enhancements;
-- custom 404 page;
-- richer profile/dashboard statistics;
-- image uploads;
-- richer text formatting;
-- collaborative editing;
-- private messaging.
-
-Some of these were intentionally marked as Won't Have during the MVP to keep the project achievable before the deadline.
+At the time of writing, there are no known unfixed bugs.
 
 ---
 
@@ -3219,30 +3162,4 @@ This project was created as part of a Level 5 Diploma in Web Application Develop
 
 Special thanks to the tutors, learning resources and support materials used throughout the course.
 
-### Unfixed Bugs
-
-At the time of writing, there are no known unfixed bugs.
-
 ---
-
-## Credits
-
-### Code and Learning Resources
-
-The project was built using Django documentation, MDN Web Docs and course learning resources.
-
-Useful resources referenced during development include:
-
-- [Django Documentation](https://docs.djangoproject.com/)
-- [MDN Web Docs: HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-- [MDN Web Docs: CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- [MDN Web Docs: JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [MDN Web Docs: radial-gradient()](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/radial-gradient)
-- [MDN Web Docs: ::before](https://developer.mozilla.org/en-US/docs/Web/CSS/::before)
-- [MDN Web Docs: ::after](https://developer.mozilla.org/en-US/docs/Web/CSS/::after)
-- [MDN Web Docs: Using CSS animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations)
-- [MDN Web Docs: @keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
-- [MDN Web Docs: prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
-- [Google Fonts: Lexend](https://fonts.google.com/specimen/Lexend)
-- [Google Fonts: Roboto](https://fonts.google.com/specimen/Roboto)
-- [Mermaid Documentation](https://mermaid.js.org/)
