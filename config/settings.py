@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # The fallback value is only used for local development.
 SECRET_KEY = os.environ.get(
     'SECRET_KEY',
-    'django-insecure-o^ps&8-0@d^&xw)xxuan$y_btk2py(kq8hh5gnmp(4hk1jx=##'
+    'local-development-key-not-for-production'
 )
 
 # DEBUG is True locally unless set to False in the environment.
